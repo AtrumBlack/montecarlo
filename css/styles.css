@@ -1,0 +1,178 @@
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+}
+/* Agrega la clase mb-5 para agregar margen inferior al cuerpo */
+body {
+    padding-top: 100px; /* Ajusta el valor según la altura de tu menú fijo */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+section {
+    margin: 20px;
+    flex: 1;
+    /* background-color: darkblue; */
+}
+
+
+footer {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Alineación central */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Estilos específicos para las tarjetas del pie de página */
+.card-group .card {
+    background-color: #333; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    margin: 0 10px; /* Margen a los lados */
+}
+
+
+
+hr {
+    border-top: 3px solid white; /* Línea blanca */
+    margin: 10px 0; /* Margen superior e inferior */
+}
+.footer-divider-gruesa {
+    border-top: 6px solid white; /* Línea blanca */
+    margin: 10px 0; /* Margen superior e inferior */
+}
+.redes-sociales i {
+    font-size: 24px; /* Ajusta el tamaño según tus preferencias */
+    margin-right: 10px; /* Ajusta el espacio entre los iconos si es necesario */
+}
+
+
+.card-img-top {
+    object-fit: cover;
+    /* Ajusta la imagen para cubrir completamente el contenedor manteniendo la proporción */
+    height: 200px;
+    /* Establece la altura deseada, puedes ajustar según tus necesidades */
+}
+
+/* Estilos para el contenedor principal
+#content-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan en pantallas pequeñas 
+} */
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 767px) {
+    footer {
+        position: relative;
+        width: auto;
+
+    }
+}
+
+
+/* Estilos comunes para el contenedor del video*/
+#video-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+    /* Bordes redondeados */
+    background-color: #333;
+    /* Fondo oscuro */
+}
+
+/* Estilos específicos para pantallas grandes (mayor a 767px de ancho) */
+@media (min-width: 768px) {
+
+    #hotel-video-large {
+        display: block; /* Muestra el video grande */
+    }
+
+    #hotel-video-mobile {
+        display: none; /* Oculta el video para dispositivos móviles */
+    }
+    
+
+    #video-container {
+        /* flex: 1; */
+        height: 100vh;
+        border: 5px solid #555;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 20px;
+    }
+
+    #video-text {
+        /* ... (otros estilos) ... */
+        display: none; /* Oculta el texto en pantallas grandes */
+    }
+    
+
+}
+
+
+/* Estilos específicos para dispositivos móviles (hasta 767px de ancho) */
+@media (max-width: 767px) {
+
+    #hotel-video-large {
+        display: none; /* Oculta el video grande */
+    }
+
+    #hotel-video-mobile {
+        display: block; /* Muestra el video para dispositivos móviles */
+    }
+
+    #video-container {
+        height: 100vh;
+        /* Altura personalizable según tus necesidades */
+        position: relative;
+        /* Añade posición relativa para el contenedor del video */
+    }
+
+
+
+    #video-container:hover #video-text {
+        opacity: 1;
+        /* Cambia la opacidad al pasar el mouse sobre el contenedor */
+        transition: opacity 1s ease;
+        /* Ajusta la transición de desvanecimiento */
+
+    }
+
+}
