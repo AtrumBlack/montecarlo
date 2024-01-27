@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     // alert('doblesuperior');
                     cargarContenido('/habitaciones/apart_superior.html');
                     break;
-                    case 'contacto':
-                        // alert('doblesuperior');
-                        cargarContenido('/contactos/contacto.html');
-                        break;
+                case 'contacto':
+                    // alert('doblesuperior');
+                    cargarContenido('/contactos/contacto.html');
+                    break;
                 // Agrega más casos según tus necesidades
                 default:
                 // cargarContenido('video_inicio');
