@@ -56,18 +56,23 @@ document.addEventListener('DOMContentLoaded', function () {
                             
 
                             <div class="col">
-                                <div class="card h-100 border-black mb-3" style="width:  100%; background-color:black; color: white;">
-                                    <div class="card-header text-start" style="width:  100%; background-color: black;">
-                                        Comodidades
-                                        <hr class="footer-divider-gruesa">
-                                    </div>
-                                    <ul class="list-group list-group-flush " style="background-color:black;">
-                                        ${habitacion.comodidades.map(comodidad => `<li class="list-group-item menu-item text-start text-secondary" style="background-color:black;">${comodidad}</li>`).join('')}
-                                    </ul>
-
-                                    
+                            <div class="card h-100 border-black mb-3" style="width:  100%; background-color:black; color: white;">
+                                <div class="card-header text-start" style="width:  100%; background-color: black;">
+                                    Comodidades
+                                    <hr class="footer-divider-gruesa">
                                 </div>
+                                <ul class="list-group list-group-flush " style="background-color:black;">
+                                    ${habitacion.comodidades.map(comodidad => `
+                                    <li class="list-group-item menu-item text-start text-secondary" style="background-color:black;">
+                                    ${comodidad.cantidad
+                                        ? Array.from({ length: comodidad.cantidad }, (_, index) => `<i class="fa-solid ${comodidad.icono}"></i>`).join('')
+                                        : `<i class="fa-solid ${comodidad.icono}"></i>`
+                                    } ${comodidad.texto}
+                                </li>
+                                    `).join('')}
+                                </ul>
                             </div>
+                        </div>
 
                             <div class="col">
                                 <div class="card h-100 border-black mb-3" style="width:  100%; color: white;">

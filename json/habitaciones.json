@@ -4,12 +4,12 @@
             "nombre": "Habitación Doble Clasica",
             "descripcion": "Descripción de la Habitación Doble Clasica.",
             "comodidades": [
-              "Espacio para 2 personas",
-              "Área: 13 m2",
-              "Tipo de Habitación: Doble",
-              "Precio: Consultar",
-              "Wifi Gratis",
-              "Servicio 24 horas"
+                {"icono": "fa-person","cantidad": 2, "texto": "Espacio para 2 personas"},
+                {"icono": "fa-arrows-up-down-left-right", "texto": "Área: 13 m2"},
+                {"icono": "fa-bed", "texto": "Tipo de Habitación: Doble"},
+                {"icono": "fa-pager", "texto": "Precio: Consultar"},
+                {"icono": "fa-wifi", "texto": "Wifi Gratis"},
+                {"icono": "fa-clock", "texto": "Servicio 24 horas"}
             ],
             "imagenes": [
               "/img/habitaciones/doble_clasica/fotos1.jpg",
@@ -23,12 +23,12 @@
         "nombre": "Habitación Doble Superior",
         "descripcion": "Descripción de la habitación doble superior.",
         "comodidades": [
-          "Espacio para 2 personas",
-          "Área: 15,2 m2",
-          "Tipo de Habitación: Doble",
-          "Precio: Consultar",
-          "Wifi Gratis",
-          "Servicio 24 horas"
+            {"icono": "fa-person","cantidad": 2, "texto": "Espacio para 2 personas"},
+            {"icono": "fa-arrows-up-down-left-right", "texto": "Área: 15,2 m2"},
+            {"icono": "fa-bed", "texto": "Tipo de Habitación: Doble"},
+            {"icono": "fa-pager", "texto": "Precio: Consultar"},
+            {"icono": "fa-wifi", "texto": "Wifi Gratis"},
+            {"icono": "fa-clock", "texto": "Servicio 24 horas"}
         ],
         "imagenes": [
           "/img/habitaciones/doble_superior/fotos1.jpg",
@@ -42,12 +42,12 @@
         "nombre": "Habitación Doble Suite",
         "descripcion": "Descripción de la habitación doble en Suit.",
         "comodidades": [
-          "Espacio para 2 a 3 personas",
-          "Área: 30 m2",
-          "Tipo de Habitación: Doble",
-          "Precio: Consultar",
-          "Wifi Gratis",
-          "Servicio 24 horas"
+            {"icono": "fa-person","cantidad": 2, "texto": "Espacio para 2 a 3 personas"},
+            {"icono": "fa-arrows-up-down-left-right", "texto": "Área: 30 m2"},
+            {"icono": "fa-bed", "texto": "Tipo de Habitación: Doble"},
+            {"icono": "fa-pager", "texto": "Precio: Consultar"},
+            {"icono": "fa-wifi", "texto": "Wifi Gratis"},
+            {"icono": "fa-clock", "texto": "Servicio 24 horas"}
         ],
         "imagenes": [
           "/img/habitaciones/suite/fotos1.jpg",
@@ -65,14 +65,14 @@
         "nombre": "Habitación Triple",
         "descripcion": "Descripción de la habitación Triple.",
         "comodidades": [
-          "Espacio para 3 personas",
-          "Área: 30 m2",
-          "Tipo de Habitación: Triple",
-          "Precio: Consultar",
-          "Wifi Gratis",
-          "Servicio 24 horas",
-          "Ideal para niños"
-        ],
+            {"icono": "fa-person","cantidad": 3, "texto": "Espacio para 3 personas"},
+            {"icono": "fa-arrows-up-down-left-right", "texto": "Área: 30 m2"},
+            {"icono": "fa-bed", "texto": "Tipo de Habitación: Triple"},
+            {"icono": "fa-pager", "texto": "Precio: Consultar"},
+            {"icono": "fa-wifi", "texto": "Wifi Gratis"},
+            {"icono": "fa-clock", "texto": "Servicio 24 horas"},
+            {"icono": "fa-children", "texto": "Ideal para niños"}            
+       ],
         "imagenes": [
           "/img/habitaciones/triple/fotos1.jpg",
           "/img/habitaciones/triple/fotos2.jpg",
@@ -86,13 +86,13 @@
         "nombre": "Habitación Familiar",
         "descripcion": "Descripción de la habitación Familiar.",
         "comodidades": [
-          "Espacio para 4 a 5 personas",
-          "Área: 26 m2",
-          "Tipo de Habitación: Familiar",
-          "Precio: Consultar",
-          "Wifi Gratis",
-          "Servicio 24 horas",
-          "Ideal para niños"
+            {"icono": "fa-people-roof", "texto": "Espacio para 4 a 5 personas"},
+            {"icono": "fa-arrows-up-down-left-right", "texto": "Área: 26 m2"},
+            {"icono": "fa-bed", "texto": "Tipo de Habitación: Familiar"},
+            {"icono": "fa-pager", "texto": "Precio: Consultar"},
+            {"icono": "fa-wifi", "texto": "Wifi Gratis"},
+            {"icono": "fa-clock", "texto": "Servicio 24 horas"},
+            {"icono": "fa-children", "texto": "Ideal para niños"} 
         ],
         "imagenes": [
           "/img/habitaciones/familiar/fotos1.jpg",
@@ -107,13 +107,13 @@
         "nombre": "Apart",
         "descripcion": "Descripción de la habitación Apart.",
         "comodidades": [
-          "Espacio para 4 a 6 personas",
-          "Área: 80 m2",
-          "Tipo de Habitación: Semipiso",
-          "Precio: Consultar",
-          "Wifi Gratis",
-          "Servicio 24 horas",
-          "Ideal para niños"
+            {"icono": "fa-people-roof", "texto": "Espacio para 4 a 6 personas"},
+            {"icono": "fa-arrows-up-down-left-right", "texto": "Área: 80 m2"},
+            {"icono": "fa-bed", "texto": "Tipo de Habitación: Semipiso"},
+            {"icono": "fa-pager", "texto": "Precio: Consultar"},
+            {"icono": "fa-wifi", "texto": "Wifi Gratis"},
+            {"icono": "fa-clock", "texto": "Servicio 24 horas"},
+            {"icono": "fa-children", "texto": "Ideal para niños"}   
         ],
         "imagenes": [
           "/img/habitaciones/apart/fotos1.jpg",
@@ -134,13 +134,13 @@
         "nombre": "Apart Superior",
         "descripcion": "Descripción de la habitación Apart Superior.",
         "comodidades": [
-          "Espacio para 2 a 4 personas",
-          "Área: 60 m2",
-          "Tipo de Habitación: Apartamento",
-          "Precio: Consultar",
-          "Wifi Gratis",
-          "Servicio 24 horas",
-          "Ideal para niños"
+            {"icono": "fa-people-roof", "texto": "Espacio para 2 a 4 personas"},
+            {"icono": "fa-arrows-up-down-left-right", "texto": "Área: 60 m2"},
+            {"icono": "fa-bed", "texto": "Tipo de Habitación: Apartamento"},
+            {"icono": "fa-pager", "texto": "Precio: Consultar"},
+            {"icono": "fa-wifi", "texto": "Wifi Gratis"},
+            {"icono": "fa-clock", "texto": "Servicio 24 horas"},
+            {"icono": "fa-children", "texto": "Ideal para niños"} 
         ],
         "imagenes": [
           "/img/habitaciones/apart_superior/fotos1.jpg",
