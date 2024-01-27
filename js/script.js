@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <div class="row row-cols-1 row-cols-md-3 g-4">
 
                             <div class="col">
-                                <div class="d-flex justify-content-start" style="max-width: 300px;">
+                                <div class="d-flex justify-content-start" style="max-width: 500px;">
 
                                     <!-- Carrusel de imágenes -->
                                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
