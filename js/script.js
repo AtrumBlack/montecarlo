@@ -65,9 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                     ${habitacion.comodidades.map(comodidad => `
                                     <li class="list-group-item menu-item text-start text-secondary" style="background-color:black;">
                                     ${comodidad.cantidad
-                                        ? Array.from({ length: comodidad.cantidad }, (_, index) => `<i class="fa-solid ${comodidad.icono}"></i>`).join('')
-                                        : `<i class="fa-solid ${comodidad.icono}"></i>`
-                                    } ${comodidad.texto}
+                            ? Array.from({ length: comodidad.cantidad }, (_, index) => `<i class="fa-solid ${comodidad.icono}"></i>`).join('')
+                            : `<i class="fa-solid ${comodidad.icono}"></i>`
+                        } ${comodidad.texto}
                                 </li>
                                     `).join('')}
                                 </ul>
@@ -92,6 +92,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
+            // Ahora, también puedes utilizar esta función para cargar habitaciones desde los botones en la sección de habitaciones.
+            function cargarHabitacionDesdeBoton(event) {
+                if (event.target.hasAttribute('data-tipo-habitacion')) {
+                    const tipoHabitacion = event.target.getAttribute('data-tipo-habitacion');
+                    cargarHabitacion(tipoHabitacion);
+                }
+            }
+
             // Evento de clic en el menú para cambiar el contenido de la sección 'inicio' o 'habitaciones'
             document.getElementById('menuContainer').addEventListener('click', function (event) {
                 if (event.target.hasAttribute('data-opcion')) {
@@ -110,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             // alert('doblesclasica');
                             cargarHabitacion('doble_clasica');
                             break;
+
                         case 'doblesuperior':
                             // alert('doblesuperior');
                             cargarHabitacion('doble_superior');
@@ -143,6 +152,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             });
+            
+            // Evento de clic en los botones "Ver Habitación" en la sección de habitaciones
+            document.getElementById('habitacionesContainer').addEventListener('click', cargarHabitacionDesdeBoton);
+
+
         })
         .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
 });

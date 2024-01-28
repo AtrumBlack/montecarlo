@@ -1,10 +1,6 @@
-
 <!DOCTYPE html>
-
 <nav class="navbar navbar-expand-lg border-bottom border-body" data-bs-theme="dark">
-
   <div class="container-fluid">
-
     <a class="navbar-brand" href="#">
       <img src="img/logos/Logo-blanco.png" alt="Logo del hotel" height="50" class="d-inline-block align-top">
     </a>
@@ -15,13 +11,13 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link active" data-opcion="inicio" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link" data-opcion="inicio" href="#">Inicio</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-opcion="galeria" href="#">Galeria</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-opcion="habitaciones" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             Habitaciones
           </a>
           <ul class="dropdown-menu">
@@ -52,3 +48,26 @@
     </div>
   </div>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const menuItems = document.querySelectorAll('.navbar-nav .nav-item');
+
+    menuItems.forEach(item => {
+      item.addEventListener('click', function () {
+        menuItems.forEach(innerItem => {
+          innerItem.classList.remove('active');
+        });
+
+        item.classList.add('active');
+      });
+    });
+  });
+</script>
+
+<style>
+  .navbar-nav .nav-item.active {
+    background-color: #8B0000;
+    color: white;
+  }
+</style>
