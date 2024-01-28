@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const habitacionesContainer = document.getElementById('habitacionesContainer');
 
     // Cargar el archivo JSON con la información de las habitaciones
-    fetch('/json/habitaciones.json')
+    fetch('../json/habitaciones.json')
         .then(response => response.json())
         .then(data => {
             const habitaciones = data.habitaciones;
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     switch (opcion) {
                         case 'inicio':
                             //  alert('inicio');
-                            cargarContenido('/carga_inicial/video_inicio.html');
+                            cargarContenido('../carga_inicial/video_inicio.html');
                             break;
                         case 'galeria':
                             alert('ubicGaleriaacuin');
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             cargarHabitacion('apart_superior');
                             break;
                         case 'contacto':
-                            cargarContenido('/contactos/contacto.html');
+                            cargarContenido('../contactos/contacto.html');
                             break;
                         default:
                             //cargarHabitacion(opcion);
