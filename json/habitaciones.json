@@ -12,9 +12,9 @@
                 {"icono": "fa-clock", "texto": "Servicio 24 horas"}
             ],
             "imagenes": [
-              "../img/habitaciones/doble_clasica/1x/fotos1.png",
-              "../img/habitaciones/doble_clasica/1x/fotos2.png",
-              "../img/habitaciones/doble_clasica/1x/fotos3.png"
+              "img/habitaciones/doble_clasica/1x/fotos1.png",
+              "img/habitaciones/doble_clasica/1x/fotos2.png",
+              "img/habitaciones/doble_clasica/1x/fotos3.png"
             ],
             "detalles": "Sommier Queen, Ventilador de techo, TV LED por cable, Secador de cabello, Teléfono, Amenities, Caja de Seguridad, Balcón. Sup 13m2."
           },
@@ -31,10 +31,10 @@
             {"icono": "fa-clock", "texto": "Servicio 24 horas"}
         ],
         "imagenes": [
-          "../img/habitaciones/doble_superior/1x/fotos1.png",
-          "../img/habitaciones/doble_superior/1x/fotos2.png",
-          "../img/habitaciones/doble_superior/1x/fotos3.png",
-          "../img/habitaciones/doble_superior/1x/fotos4.png"
+          "img/habitaciones/doble_superior/1x/fotos1.png",
+          "img/habitaciones/doble_superior/1x/fotos2.png",
+          "img/habitaciones/doble_superior/1x/fotos3.png",
+          "img/habitaciones/doble_superior/1x/fotos4.png"
         ],
         "detalles": "Sommier Queen, Ventilador de techo, Aire acondicionado, TV LED por cable, Secador de cabello, Amenities, Cofre de seguridad, Frigobar, Balcón, Teléfono. Sup 15,5m2."
       },
@@ -50,14 +50,14 @@
             {"icono": "fa-clock", "texto": "Servicio 24 horas"}
         ],
         "imagenes": [
-          "../img/habitaciones/suite/1x/fotos1.png",
-          "../img/habitaciones/suite/1x/fotos2.png",
-          "../img/habitaciones/suite/1x/fotos3.png",
-          "../img/habitaciones/suite/1x/fotos4.png",
-          "../img/habitaciones/suite/1x/fotos5.png",
-          "../img/habitaciones/suite/1x/fotos6.png",
-          "../img/habitaciones/suite/1x/fotos7.png",
-          "../img/habitaciones/suite/1x/fotos8.png"
+          "img/habitaciones/suite/1x/fotos1.png",
+          "img/habitaciones/suite/1x/fotos2.png",
+          "img/habitaciones/suite/1x/fotos3.png",
+          "img/habitaciones/suite/1x/fotos4.png",
+          "img/habitaciones/suite/1x/fotos5.png",
+          "img/habitaciones/suite/1x/fotos6.png",
+          "img/habitaciones/suite/1x/fotos7.png",
+          "img/habitaciones/suite/1x/fotos8.png"
         ],
         "detalles": "Sommier King, Aire Acondicionado, LCD 32 pulgada Cable, Amenities, Bañera con hidromasaje, Secador de cabello, Cofre de seguridad, Sillones, Frigobar, Sommier, Teléfono, Balcón a la calle, Vista al mar, Sup 30m2." 
     },
@@ -74,10 +74,10 @@
             {"icono": "fa-children", "texto": "Ideal para niños"}            
        ],
         "imagenes": [
-          "../img/habitaciones/triple/1x/fotos1.png",
-          "../img/habitaciones/triple/1x/fotos2.png",
-          "../img/habitaciones/triple/1x/fotos3.png",
-          "../img/habitaciones/triple/1x/fotos4.png"
+          "img/habitaciones/triple/1x/fotos1.png",
+          "img/habitaciones/triple/1x/fotos2.png",
+          "img/habitaciones/triple/1x/fotos3.png",
+          "img/habitaciones/triple/1x/fotos4.png"
 
         ],
         "detalles": "Sommier Queen, Sommier Twin, TV LED por Cable, Ventilador de techo, Cofre de seguridad, Secador de cabello, Teléfono, Amenities, Frigobar, Balcón. Sup 30 m2." 
@@ -95,10 +95,10 @@
             {"icono": "fa-children", "texto": "Ideal para niños"} 
         ],
         "imagenes": [
-          "../img/habitaciones/familiar/1x/fotos1.png",
-          "../img/habitaciones/familiar/1x/fotos2.png",
-          "../img/habitaciones/familiar/1x/fotos3.png",
-          "../img/habitaciones/familiar/1x/fotos4.png"
+          "img/habitaciones/familiar/1x/fotos1.png",
+          "img/habitaciones/familiar/1x/fotos2.png",
+          "img/habitaciones/familiar/1x/fotos3.png",
+          "img/habitaciones/familiar/1x/fotos4.png"
 
         ],
         "detalles": "Sommier Queen, Sommier Twin, TV LED por Cable, Ventilador de techo, Cofre de seguridad, Secador de cabello, Teléfono, Amenities, Frigobar, Balcón. Sup 30 m2." 
@@ -116,16 +116,16 @@
             {"icono": "fa-children", "texto": "Ideal para niños"}   
         ],
         "imagenes": [
-          "../img/habitaciones/apart/1x/fotos1.png",
-          "../img/habitaciones/apart/1x/fotos2.png",
-          "../mg/habitaciones/apart/1x/fotos3.png",
-          "../img/habitaciones/apart/1x/fotos4.png",
-          "../img/habitaciones/apart/1x/fotos5.png",
-          "../img/habitaciones/apart/1x/fotos6.png",
-          "../img/habitaciones/apart/1x/fotos7.png",
-          "../img/habitaciones/apart/1x/fotos8.png",
-          "../img/habitaciones/apart/1x/fotos9.png",
-          "../img/habitaciones/apart/1x/fotos10.png"
+          "img/habitaciones/apart/1x/fotos1.png",
+          "img/habitaciones/apart/1x/fotos2.png",
+          "mg/habitaciones/apart/1x/fotos3.png",
+          "img/habitaciones/apart/1x/fotos4.png",
+          "img/habitaciones/apart/1x/fotos5.png",
+          "img/habitaciones/apart/1x/fotos6.png",
+          "img/habitaciones/apart/1x/fotos7.png",
+          "img/habitaciones/apart/1x/fotos8.png",
+          "img/habitaciones/apart/1x/fotos9.png",
+          "img/habitaciones/apart/1x/fotos10.png"
 
         ],
         "detalles": "Semipiso, Dos ambientes y medio, Cocina completa, un Dormitorio en Suite, Sommier, Hall de distribución, Dos baños, Amplio Living Comedor, Cofre de seguridad, Ventilador de pie, TV LED por cable, Teléfono, Balcón Frente y Contrafrente, Capacidad 6 pax. Superficie 80 m2." 
@@ -143,12 +143,12 @@
             {"icono": "fa-children", "texto": "Ideal para niños"} 
         ],
         "imagenes": [
-          "../img/habitaciones/apart_superior/1x/fotos1.png",
-          "../img/habitaciones/apart_superior/1x/fotos2.png",
-          "../img/habitaciones/apart_superior/1x/fotos3.png",
-          "../img/habitaciones/apart_superior/1x/fotos4.png",
-          "../img/habitaciones/apart_superior/1x/fotos5.png",
-          "../img/habitaciones/apart_superior/1x/fotos6.png"
+          "img/habitaciones/apart_superior/1x/fotos1.png",
+          "img/habitaciones/apart_superior/1x/fotos2.png",
+          "img/habitaciones/apart_superior/1x/fotos3.png",
+          "img/habitaciones/apart_superior/1x/fotos4.png",
+          "img/habitaciones/apart_superior/1x/fotos5.png",
+          "img/habitaciones/apart_superior/1x/fotos6.png"
         ],
         "detalles": "Semipiso, Dos ambientes y medio, Cocina completa, un Dormitorio en Suite, Sommier, Hall de distribución, Dos baños, Amplio Living Comedor, Cofre de seguridad, Ventilador de pie, TV LED por cable, Teléfono, Balcón Frente y Contrafrente, Capacidad 6 pax. Superficie 80 m2." 
     }
