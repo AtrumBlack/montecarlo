@@ -1,7 +1,7 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
         // Define la variable de la carpeta de prueba
-        const carpetaPrueba = 'montecarlo';
+        const carpetaPrueba = '';
 
     const inicioContainer = document.getElementById('contenidoInicio');
     const habitacionesContainer = document.getElementById('habitacionesContainer');

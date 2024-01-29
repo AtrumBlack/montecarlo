@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Define la variable de la carpeta de prueba
-    const carpetaPrueba = 'montecarlo';
+    const carpetaPrueba = '';
 
     // Cargar contenido de menu.html
     const menuContainer = document.getElementById('menuContainer');
