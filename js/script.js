@@ -1,16 +1,19 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
+        // Define la variable de la carpeta de prueba
+        const carpetaPrueba = 'montecarlo';
+
     const inicioContainer = document.getElementById('contenidoInicio');
     const habitacionesContainer = document.getElementById('habitacionesContainer');
 
     // Cargar el archivo JSON con la información de las habitaciones
-    fetch('json/habitaciones.json')
+    fetch(`${carpetaPrueba}/json/habitaciones.json`)
         .then(response => response.json())
         .then(data => {
             const habitaciones = data.habitaciones;
 
             function cargarContenido(opcion) {
-                fetch(opcion)
+                fetch(`${carpetaPrueba}/${opcion}`)
                     .then(response => response.text())
                     .then(data => inicioContainer.innerHTML = data);
             }
@@ -108,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     switch (opcion) {
                         case 'inicio':
                             //  alert('inicio');
-                            cargarContenido('carga_inicial/video_inicio.html');
+                            cargarContenido(`${carpetaPrueba}/carga_inicial/video_inicio.html`);
                             break;
                         case 'galeria':
                             alert('ubicGaleriaacuin');
@@ -144,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             cargarHabitacion('apart_superior');
                             break;
                         case 'contacto':
-                            cargarContenido('contactos/contacto.html');
+                            cargarContenido('${carpetaPrueba}/contactos/contacto.html');
                             break;
                         default:
                             //cargarHabitacion(opcion);
