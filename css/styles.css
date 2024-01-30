@@ -1,68 +1,73 @@
 body {
-    font-family: 'Arial', sans-serif;
-    min-height: 100vh;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-
-}
-/* Agrega la clase mb-5 para agregar margen inferior al cuerpo */
-body {
-    padding-top: 100px; /* Ajusta el valor según la altura de tu menú fijo */
+    /* font-family: 'Arial', sans-serif; */
+    /* min-height: 100vh; */
+    /* margin: 0; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* padding: 0; */
+    padding-top: 100px; /*Ajusta el valor según la altura de tu menú fijo */
 }
 
 header {
     background-color: #333;
     color: white;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 nav {
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     margin-top: 10px;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
+/* ul { */
+    /* list-style-type: none; */
+    /* margin: 0; */
+    /* padding: 0; */
+/* } */
 
-li {
-    margin: 0 20px;
-}
+/* li { */
+    /* margin: 0 20px; */
+/* } */
 
-a {
-    text-decoration: none;
-    color: white;
-}
+/* a { */
+    /* text-decoration: none; */
+    /* color: white; */
+/* } */
 
-section {
-    margin: 20px;
-    flex: 1;
+/* section { */
+    /* margin: 20px; */
+    /* flex: 1; */
     /* background-color: darkblue; */
-}
+/* } */
 
 
 footer {
-    background-color: black; /* Fondo negro */
-    color: white; /* Texto blanco */
-    padding: 20px; /* Espaciado interno */
-    text-align: center; /* Alineación central */
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    background-color: black; /*Fondo negro*/
+    color: white; /*Texto blanco*/
+    /* padding: 0px; Espaciado interno */
+    /* text-align: center; Alineación central */
+    /* position: relative; */
+    /* bottom: 0; */
+    /* width: 100%; */
 }
 
+/* Estilos para dispositivos móviles */
+/* @media (max-width: 767px) { */
+    /* footer { */
+        /* position: relative; */
+        /* width: auto; */
+
+    /* } */
+
+/* } */
 
 /* Estilos específicos para las tarjetas del pie de página */
-.card-group .card {
-    background-color: #333; /* Fondo oscuro */
-    color: white; /* Texto blanco */
-    margin: 0 10px; /* Margen a los lados */
-}
+/* .card-group .card { */
+    /* background-color: #333; Fondo oscuro */
+    /* color: white; Texto blanco */
+    /* margin: 0 10px; Margen a los lados */
+/* } */
 
 
 
@@ -71,31 +76,24 @@ hr {
     margin: 10px 0; /* Margen superior e inferior */
 }
 .footer-divider-gruesa {
-    border-top: 6px solid white; /* Línea blanca */
+    border-top: 5px solid white; /* Línea blanca */
     margin: 10px 0; /* Margen superior e inferior */
 }
-.redes-sociales i {
-    font-size: 24px; /* Ajusta el tamaño según tus preferencias */
-    margin-right: 10px; /* Ajusta el espacio entre los iconos si es necesario */
-}
+/* .redes-sociales i { */
+    /* font-size: 24px; Ajusta el tamaño según tus preferencias */
+    /* margin-right: 10px; Ajusta el espacio entre los iconos si es necesario */
+/* } */
 
 
-.card-img-top {
-    object-fit: cover;
+/* .card-img-top { */
+    /* object-fit: fill; */
     /* Ajusta la imagen para cubrir completamente el contenedor manteniendo la proporción */
-    height: 200px;
+    /* height: 200px; */
     /* Establece la altura deseada, puedes ajustar según tus necesidades */
-}
+/* } */
 
 
-/* Estilos para dispositivos móviles */
-@media (max-width: 767px) {
-    footer {
-        position: relative;
-        width: auto;
 
-    }
-}
 
 
 #video-container {
@@ -134,7 +132,7 @@ hr {
   /* Media query para pantallas más pequeñas (dispositivos móviles) */
 @media (max-width: 767px) {
     .overlay {
-        top: 60%; /* Ajusta el valor según sea necesario para pantallas más pequeñas */
+        top: 50%; /* Ajusta el valor según sea necesario para pantallas más pequeñas */
     }
     .video-text {
         font-size: 1.2em; /* Ajusta el tamaño de la letra para dispositivos móviles */
