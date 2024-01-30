@@ -110,8 +110,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     switch (opcion) {
                         case 'inicio':
-                            //  alert('inicio');
-                            cargarContenido(`${carpetaPrueba}/carga_inicial/video_inicio.html`);
+                            //   alert('inicio');
+                            cargarContenido(`carga_inicial/video_inicio.html`);
                             break;
                         case 'galeria':
                             alert('ubicGaleriaacuin');
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             cargarHabitacion('apart_superior');
                             break;
                         case 'contacto':
-                            cargarContenido('${carpetaPrueba}/contactos/contacto.html');
+                            cargarContenido('contactos/contacto.html');
                             break;
                         default:
                             //cargarHabitacion(opcion);
