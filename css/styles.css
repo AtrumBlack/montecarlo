@@ -5,19 +5,19 @@ body {
     /* display: flex; */
     /* flex-direction: column; */
     /* padding: 0; */
-    padding-top: 100px; /*Ajusta el valor según la altura de tu menú fijo */
+    padding-top: 150px; /*Ajusta el valor según la altura de tu menú fijo */
 }
 
 header {
-    background-color: #333;
-    color: white;
+    /* background-color: #333; */
+    /* color: white; */
     /* padding: 10px; */
 }
 
 nav {
     /* display: flex; */
     /* justify-content: center; */
-    margin-top: 10px;
+    margin-top: 25px;
 }
 
 /* ul { */
@@ -45,11 +45,7 @@ nav {
 footer {
     background-color: black; /*Fondo negro*/
     color: white; /*Texto blanco*/
-    /* padding: 0px; Espaciado interno */
-    /* text-align: center; Alineación central */
-    /* position: relative; */
-    /* bottom: 0; */
-    /* width: 100%; */
+
 }
 
 /* Estilos para dispositivos móviles */
@@ -76,7 +72,7 @@ hr {
     margin: 10px 0; /* Margen superior e inferior */
 }
 .footer-divider-gruesa {
-    border-top: 5px solid white; /* Línea blanca */
+    border-top: 5px solid rgb(195, 192, 34); /* Línea blanca */
     margin: 10px 0; /* Margen superior e inferior */
 }
 /* .redes-sociales i { */
@@ -138,5 +134,3 @@ hr {
         font-size: 1.2em; /* Ajusta el tamaño de la letra para dispositivos móviles */
     }
 }
-
-

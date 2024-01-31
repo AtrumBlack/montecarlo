@@ -1,7 +1,7 @@
 // script.js
 document.addEventListener('DOMContentLoaded', function () {
-        // Define la variable de la carpeta de prueba
-        const carpetaPrueba = '';
+    // Define la variable de la carpeta de prueba
+    const carpetaPrueba = '';
 
     const inicioContainer = document.getElementById('contenidoInicio');
     const habitacionesContainer = document.getElementById('habitacionesContainer');
@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (habitacion) {
                     const html = `
-                    <div class="container-fluid bg-black p-5 rounded">
-                        <h2 class="text-warning-emphasis mb-4">${habitacion.nombre}</h2>
+                    <div class="container-fluid  p-4 rounded">
+                        <h2 class="text-warning-emphasis mb-2">${habitacion.nombre}</h2>
                         <hr class="footer-divider-gruesa">
-                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
 
                             <div class="col">
-                                <div class="d-flex justify-content-start" style="max-width: 500px;">
+                                <div class="d-flex flex-column align-items-start" style="max-width: 500px;">
 
                                     <!-- Carrusel de imágenes -->
                                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -53,37 +53,35 @@ document.addEventListener('DOMContentLoaded', function () {
                                             </button>
 
                                     </div>
+
+                                    <div class="card-body text-secondary">
+                                     <p class="card-text">${habitacion.detalles}</p>
+                                     </div>
                                 </div>
                             </div>
 
                             
 
-                            <div class="col">
-                            <div class="card h-100 border-black mb-3" style="width:  100%; background-color:black; color: white;">
-                                <div class="card-header text-start" style="width:  100%; background-color: black;">
-                                    Comodidades
-                                    <hr class="footer-divider-gruesa">
-                                </div>
-                                <ul class="list-group list-group-flush " style="background-color:black;">
-                                    ${habitacion.comodidades.map(comodidad => `
-                                    <li class="list-group-item menu-item text-start text-secondary" style="background-color:black;">
-                                    ${comodidad.cantidad
+                            <div class="col ">
+                                <div class="card h-100 mb-2  border-0 " style="width:  100%;  color: white;">
+                                    <div class="text-start text-warning-emphasis" style="width:  100%;">
+                                        Comodidades
+  
+                                    </div>
+                                    <ul class="list-group list-group-flush ">
+                                        ${habitacion.comodidades.map(comodidad => `
+                                        <li class="list-group-item menu-item text-start text-secondary" >
+                                            ${comodidad.cantidad
                             ? Array.from({ length: comodidad.cantidad }, (_, index) => `<i class="fa-solid ${comodidad.icono}"></i>`).join('')
                             : `<i class="fa-solid ${comodidad.icono}"></i>`
                         } ${comodidad.texto}
-                                </li>
-                                    `).join('')}
-                                </ul>
-                            </div>
-                        </div>
-
-                            <div class="col">
-                                <div class="card h-100 border-black mb-3" style="width:  100%; color: white;">
-                                    <div class="card-body text-secondary fs-4" style="background-color:black;">
-                                        <p class="card-text">${habitacion.detalles}</p>
-                                    </div>
+                                        </li>
+                                        `).join('')}
+                                    </ul>
                                 </div>
                             </div>
+
+
 
                         </div>
                     </div>
@@ -112,42 +110,64 @@ document.addEventListener('DOMContentLoaded', function () {
                         case 'inicio':
                             //   alert('inicio');
                             cargarContenido(`carga_inicial/video_inicio.html`);
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
                             break;
                         case 'galeria':
                             alert('ubicGaleriaacuin');
                             //cargarContenido('video_inicio.html');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
                             break;
                         case 'dobleclasica':
                             // alert('doblesclasica');
                             cargarHabitacion('doble_clasica');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
                             break;
 
                         case 'doblesuperior':
                             // alert('doblesuperior');
                             cargarHabitacion('doble_superior');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
                             break;
                         case 'suite':
                             // alert('doblesuperior');
                             cargarHabitacion('doble_suite');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
                             break;
                         case 'triple':
                             // alert('doblesuperior');
                             cargarHabitacion('triple');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
                             break;
                         case 'familiar':
                             // alert('doblesuperior');
                             cargarHabitacion('familiar');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
                             break;
                         case 'apart':
                             // alert('doblesuperior');
                             cargarHabitacion('apart');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
+
                             break;
                         case 'apartsuperior':
                             // alert('doblesuperior');
                             cargarHabitacion('apart_superior');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
+
                             break;
                         case 'contacto':
                             cargarContenido('contactos/contacto.html');
+                            // Desplazar la página al principio después de cargar el contenido
+                            window.scrollTo(0, 0);
                             break;
                         default:
                             //cargarHabitacion(opcion);
@@ -155,10 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             });
-            
+
             // Evento de clic en los botones "Ver Habitación" en la sección de habitaciones
             document.getElementById('habitacionesContainer').addEventListener('click', cargarHabitacionDesdeBoton);
-
 
         })
         .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
