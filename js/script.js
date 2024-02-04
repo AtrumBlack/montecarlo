@@ -93,6 +93,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
+            // Función para cargar el contenido de las habitaciones
+            function cargarHabitacionesCard() {
+                const habitacionesHTML = Object.keys(habitaciones).map(tipoHabitacion => {
+                    const habitacion = habitaciones[tipoHabitacion];
+
+                    return `
+                                    <div class="col col-sm-6 col-lg-4 mb-4 mb-lg-0 text-center">
+                                        <div class="card h-100 border-secondary mb-3">
+                                            <img src="${habitacion.imagenes[0]}" class="card-img-top" alt="${tipoHabitacion}">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${habitacion.nombre}</h5>
+                                                <p class="card-text">${habitacion.detalles}</p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <a href="#" class="btn btn-primary" data-tipo-habitacion="${tipoHabitacion}">Ver Habitacion</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `;
+                }).join('');
+
+                habitacionesContainer.innerHTML = `
+                   <div class="rounded mb-4">
+                        <!-- Línea separadora -->
+                        <hr class="footer-divider">
+                        <h2 class="text-dark p-4">Nuestras Habitaciones</h2>
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                ${habitacionesHTML}
+                            </div>
+                        </div>
+                    </div>
+                            `;
+            }
+
+
             // Ahora, también puedes utilizar esta función para cargar habitaciones desde los botones en la sección de habitaciones.
             function cargarHabitacionDesdeBoton(event) {
                 if (event.target.hasAttribute('data-tipo-habitacion')) {
@@ -101,17 +137,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
+
+
             // Evento de clic en el menú para cambiar el contenido de la sección 'inicio' o 'habitaciones'
             document.getElementById('menuContainer').addEventListener('click', function (event) {
                 if (event.target.hasAttribute('data-opcion')) {
                     const opcion = event.target.getAttribute('data-opcion');
 
+                    // Quita la clase 'active' de todos los elementos del menú
+                    const menuItems = document.querySelectorAll('.nav-link[data-opcion]');
+                    menuItems.forEach(item => item.classList.remove('active'));
+
+                    // Quita la clase 'active' de todos los elementos del menú
+                    const dropItems = document.querySelectorAll('.dropdown-item[data-opcion]');
+                    dropItems.forEach(item => item.classList.remove('active'));
+                    // Agrega la clase 'active' al elemento clicado
+                    event.target.classList.add('active');
+
+
                     switch (opcion) {
                         case 'inicio':
                             //   alert('inicio');
-                            cargarContenido(`carga_inicial/video_inicio.html`);
+                            cargarContenido(`carga_inicial/inicio.html`);
                             // Desplazar la página al principio después de cargar el contenido
                             window.scrollTo(0, 0);
+                            // Agregar clases específicas para estilos
+                            // document.getElementById('contenidoInicio').classList.add('inicio-styles');
+                            document.getElementById('carouselMontecarlo').classList.add('inicio-styles');
+
                             break;
                         case 'galeria':
                             alert('ubicGaleriaacuin');
@@ -178,6 +231,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Evento de clic en los botones "Ver Habitación" en la sección de habitaciones
             document.getElementById('habitacionesContainer').addEventListener('click', cargarHabitacionDesdeBoton);
+
+                        // Llama a la función para cargar las habitaciones al cargar la página
+                        cargarHabitacionesCard();
 
         })
         .catch(error => console.error('Error al cargar los datos de habitaciones:', error));

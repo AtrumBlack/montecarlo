@@ -8,15 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.text())
         .then(data => menuContainer.innerHTML = data);
 
-    // Cargar contenido de habitaciones_card.html
-    const habitacionesContainer = document.getElementById('habitacionesContainer');
-    fetch(`${carpetaPrueba}/carga_inicial/habitaciones_card.html`)
-        .then(response => response.text())
-        .then(data => habitacionesContainer.innerHTML = data);
+    // // Cargar contenido de habitaciones_card.html
+    // const habitacionesContainer = document.getElementById('habitacionesContainer');
+    // fetch(`${carpetaPrueba}/carga_inicial/habitaciones_card.html`)
+    //     .then(response => response.text())
+    //     .then(data => habitacionesContainer.innerHTML = data);
 
     // Cargar contenido de video_inicio.html
     const videoContainer = document.getElementById('contenidoInicio');
-    fetch(`${carpetaPrueba}/carga_inicial/video_inicio.html`)
+    // fetch(`${carpetaPrueba}/carga_inicial/video_inicio.html`)
+    fetch(`${carpetaPrueba}/carga_inicial/inicio.html`)
         .then(response => response.text())
         .then(data => videoContainer.innerHTML = data);
 

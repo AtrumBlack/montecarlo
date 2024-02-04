@@ -1,0 +1,89 @@
+<!-- inicio.html -->
+
+<div id="carouselMontecarlo" class="carousel slide carousel-fade" data-bs-interval="5000" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselMontecarlo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselMontecarlo" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselMontecarlo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselMontecarlo" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselMontecarlo" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#carouselMontecarlo" data-bs-slide-to="5" aria-label="Slide 6"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="/img/inicio/fotos12.png" class="d-block w-100 d-img " alt="foto1">
+            <div class="carousel-caption d-none d-md-block">
+                <!-- <h5>First slide label</h5> -->
+                <p>En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/img/inicio/fotos01Bis.png" class="d-block w-100" alt="foto14">
+            <div class="carousel-caption d-none d-md-block">
+                <!-- <h5>Third slide label</h5> -->
+                <p>En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="/img/inicio/fotos11bis.png" class="d-block w-100" alt="foto3">
+            <div class="carousel-caption d-none d-md-block">
+                <!-- <h5>Second slide label</h5> -->
+                <p>En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía.</p>
+            </div>
+        </div>
+
+
+
+        <div class="carousel-item">
+            <img src="/img/inicio/fotos15Bis.png" class="d-block w-100" alt="foto14">
+            <div class="carousel-caption d-none d-md-block">
+                <!-- <h5>Third slide label</h5> -->
+                <p>En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="/img/inicio/fotos05Bis.png" class="d-block w-100" alt="foto14">
+            <div class="carousel-caption d-none d-md-block">
+                <!-- <h5>Third slide label</h5> -->
+                <p>En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía.</p>
+            </div>
+        </div>
+
+        <div class="carousel-item">
+            <img src="/img/inicio/fotos13bis.png" class="d-block w-100" alt="foto14">
+            <div class="carousel-caption d-none d-md-block">
+                <!-- <h5>Third slide label</h5> -->
+                <p>En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía.</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+
+</div>
+
+<script>
+    // JavaScript para activar el zoom hacia abajo durante unos segundos
+    document.addEventListener('DOMContentLoaded', function () {
+        const carousel = document.getElementById('carouselMontecarlo');
+
+        // Añade la clase para activar el zoom hacia abajo
+        carousel.classList.add('zoom-down');
+
+        // Elimina la clase después de 3 segundos (ajusta según sea necesario)
+        setTimeout(() => {
+            carousel.classList.remove('zoom-down');
+        }, 3000); // 3000 milisegundos = 3 segundos
+    });
+</script>

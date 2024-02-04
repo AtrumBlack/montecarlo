@@ -1,45 +1,30 @@
-body {
+/* body { */
     /* font-family: 'Arial', sans-serif; */
     /* min-height: 100vh; */
     /* margin: 0; */
     /* display: flex; */
     /* flex-direction: column; */
     /* padding: 0; */
-    padding-top: 150px; /*Ajusta el valor según la altura de tu menú fijo */
-}
+     /* padding-top: 100px; Ajusta el valor según la altura de tu menú fijo */
 
-header {
-    /* background-color: #333; */
-    /* color: white; */
-    /* padding: 10px; */
-}
+    /* height: 100vh; */
+    /* display: flex; */
+    /* align-items: stretch ; */
+/* Ejemplo de ajuste horizontal */
+/* justify-content: space-between; */
+    /* color: white; Cambia el color del texto si es necesario */
 
-nav {
+/* } */
+
+
+
+/* nav { */
     /* display: flex; */
     /* justify-content: center; */
-    margin-top: 25px;
-}
-
-/* ul { */
-    /* list-style-type: none; */
-    /* margin: 0; */
-    /* padding: 0; */
+    /* margin-top: 25px; */
 /* } */
 
-/* li { */
-    /* margin: 0 20px; */
-/* } */
 
-/* a { */
-    /* text-decoration: none; */
-    /* color: white; */
-/* } */
-
-/* section { */
-    /* margin: 20px; */
-    /* flex: 1; */
-    /* background-color: darkblue; */
-/* } */
 
 
 footer {
@@ -65,7 +50,169 @@ footer {
     /* margin: 0 10px; Margen a los lados */
 /* } */
 
+.navbar-toggler {
+    border:none;
+    font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+.navbar {
+    background-color: #fff;
+    height: 80px;
+    margin: auto;
+    border-radius: 16px;
+    padding: 0.5rem;
+    margin-top: 20px; /* Añadido el margen superior */
+    border: 2px solid #009970; /* Añadido un borde de color verde (#009970) */
+}
+.navbar .navbar-brand img {
+    /* font-weight: 500; */
+    /* color: #009970; */
+    font-size: 24px;
+    /* transition: 0.3s color; */
+    max-height: 40px;
+}
+.navbar-nav .nav-link {
+    color: #666777;
+    font-weight: 500;
+    position: relative;
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+    color: #000
+}
 
+.dropdown-menu {
+background-color: #fff;
+color: #f9f06d;
+border-radius: 10px;
+
+}
+.dropdown-menu li {
+    position: relative;
+}
+
+.dropdown-item {
+    color: rgb(24, 34, 26);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+/* Agrega estilos para el menú desplegable
+.navbar-nav .nav-item:hover .dropdown-menu {
+    display: block;
+} */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    /* background-color: #009970; Cambia el color de fondo cuando se selecciona un elemento del menú desplegable */
+    /* color: #fff; Cambia el color del texto cuando se selecciona un elemento del menú desplegable */
+    /* content: ""; */
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    /* width: 100%; */
+    /* height: 2px; */
+    background-color: #009970;
+    /* visibility: hidden; */
+    /* transition: 0.3s ease-in-out; */
+
+}
+
+/* Cambia el color del fondo cuando el enlace del Dropdown está activo */
+.dropdown-menu .dropdown-item.active,
+.dropdown-menu .dropdown-item:active {
+    /* background-color: #00ff00; Cambia el color de fondo cuando está activo según tus preferencias */
+    content: "";
+    /* position: absolute; */
+    /* bottom: 0; */
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    /* width: 100%; */
+    /* height: 10px; */
+    background-color: #009970;
+    /* visibility: hidden; */
+    /* transition: 0.3s ease-in-out; */
+}
+
+/* Cambia el color del texto cuando el enlace del Dropdown está activo */
+.dropdown-menu .dropdown-item.active a,
+.dropdown-menu .dropdown-item:active a {
+    color: #360b0b; /* Cambia el color del texto cuando está activo según tus preferencias */
+}
+
+
+@media (min-width: 991px){
+
+    /* #contenidoInicio {
+        margin-top: -100px; /* Ajusta según la altura del navbar 
+    } */
+    
+    #carouselMontecarlo {
+        margin-top: -100px;
+        width: 100%;
+        /* Añade otros estilos si es necesario */
+    }
+    
+    .navbar-nav .nav-link::before
+     {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #009970;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+        
+        }
+        .navbar-nav .nav-link:hover::before,
+        .navbar-nav .nav-link.active::before {
+            width: 100%;
+            visibility: visible;
+        }
+}
+/* Otros estilos generales aquí */
+
+.inicio-styles #contenidoInicio {
+    margin-top: 0px; /* Ajusta según la altura del navbar */
+}
+
+.inicio-styles #carouselMontecarlo {
+    width: 100%;
+    /* Otros estilos específicos para el carrusel 'inicio' si es necesario */
+}
+
+.hero-section {
+    background: url(hero-bg.jpg); no-repeat center;
+    background-size: cover;
+}
+
+.hero-section::before{
+    background-color: rgba(0, 0, 0, 0.6);
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.hero-section .container {
+width: 100%;
+z-index: 1;
+position: relative;
+}
+.hero-section h1 {
+font-size: 1.5em;
+}
+.hero-section h2 {
+    font-size: 1.2em;
+    }
 
 hr {
     border-top: 3px solid white; /* Línea blanca */
@@ -75,6 +222,50 @@ hr {
     border-top: 5px solid rgb(195, 192, 34); /* Línea blanca */
     margin: 10px 0; /* Margen superior e inferior */
 }
+
+/* Cambiar color de los iconos "Next" y "Previous" en el carrusel */
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+    /* background-color: goldenrod; Cambia tu-color-aquí por el color deseado */
+    border: 2px solid white; /* Cambia tu-color-aquí por el color deseado */
+}
+
+/* Cambiar color del fondo de los botones "Next" y "Previous" en el carrusel
+.carousel-control-next,
+.carousel-control-prev {
+    /* background-color: gray; Cambia tu-color-aquí por el color deseado 
+} */
+
+/* Cambiar color de los indicadores del carrusel */
+.carousel-indicators button {
+    /* background-color: goldenrod; Cambia tu-color-fondo por el color de fondo deseado */
+    border: 2px solid white; /* Cambia tu-color-borde por el color del borde deseado */
+}
+
+/* Cambiar color de fondo del indicador activo del carrusel */
+.carousel-indicators .active {
+    background-color: goldenrod; /* Cambia tu-color-activo por el color de fondo deseado para el indicador activo */
+}
+/* Fondo opaco para el texto del carrusel */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Ajusta el valor alfa (0.5 en este caso) para la opacidad deseada */
+    padding: 20px; /* Ajusta el espaciado interno según sea necesario */
+}
+
+    /* Estilo personalizado para el zoom hacia abajo */
+    #carouselMontecarlo {
+        overflow: hidden; /* Asegura que el contenido se oculte fuera del área visible del carrusel */
+        position: relative;
+    }
+
+    #carouselMontecarlo .carousel-inner {
+        transition: transform 0.8s ease; /* Transición suave durante el cambio de transformación */
+    }
+
+    /* Agrega el estilo de zoom hacia abajo cuando la clase .zoom-down está presente */
+    #carouselMontecarlo.zoom-down .carousel-item {
+        transform: scale(0.8); /* Puedes ajustar el valor para controlar el nivel de zoom */
+    }
 /* .redes-sociales i { */
     /* font-size: 24px; Ajusta el tamaño según tus preferencias */
     /* margin-right: 10px; Ajusta el espacio entre los iconos si es necesario */
@@ -91,46 +282,3 @@ hr {
 
 
 
-
-#video-container {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-    padding-bottom: 177.78%; /* Proporción de aspecto 9:1 */
-    background: #000; /* Color de fondo oscuro */
-  }
-
-  #video-container video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .video-text {
-    text-align: center;
-    max-width: 600px;
-    font-size: 1.5em; /* Aumentado el tamaño de la letra */
-  }
-  .overlay {
-    position: absolute;
-    top: 80%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff; /* Color del texto */
-    padding: 20px; /* Agregado espaciado para mejorar el diseño */
-  }
-  /* Media query para pantallas más pequeñas (dispositivos móviles) */
-@media (max-width: 767px) {
-    .overlay {
-        top: 50%; /* Ajusta el valor según sea necesario para pantallas más pequeñas */
-    }
-    .video-text {
-        font-size: 1.2em; /* Ajusta el tamaño de la letra para dispositivos móviles */
-    }
-}
