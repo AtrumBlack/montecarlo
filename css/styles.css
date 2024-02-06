@@ -263,7 +263,7 @@ hr {
     }
 
     /* Agrega el estilo de zoom hacia abajo cuando la clase .zoom-down está presente */
-    #carouselMontecarlo.zoom-down .carousel-item {
+    #carouselMontecarlo.zoom-down .carousel-inner {
         transform: scale(0.8); /* Puedes ajustar el valor para controlar el nivel de zoom */
     }
 /* .redes-sociales i { */
