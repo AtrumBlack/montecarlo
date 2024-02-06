@@ -31,28 +31,29 @@
             </div>
 
             <div class="col col-sm-6 col-lg-4 ">
+                <form action="formulario.php" method="post" enctype="multipart/form-data">
+                    <div class="mb-1">
 
-                <div class="mb-1">
+                        <!-- <div class="col col-sm-6 col-lg-4 mb-4 "> -->
+                        <label for="exampleFormControlInput2" class="form-label text-white-50 text-warning-emphasis">Apellido, Nombre</label>
+                        <input type="text" class="form-control" placeholder="Apellido, Nombre" aria-label="Apellido-Nombre">
+                        <!-- </div> -->
 
-                    <!-- <div class="col col-sm-6 col-lg-4 mb-4 "> -->
-                    <label for="exampleFormControlInput2" class="form-label text-white-50 text-warning-emphasis">Apellido, Nombre</label>
-                    <input type="text" class="form-control" placeholder="Apellido, Nombre" aria-label="Apellido-Nombre">
-                    <!-- </div> -->
+                    </div>
 
-                </div>
+                    <div class="mb-1">
+                        <label for="exampleFormControlInput1" class="form-label text-white-50 text-warning-emphasis">Email</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="nombre@ejemplo.com">
+                    </div>
 
-                <div class="mb-1">
-                    <label for="exampleFormControlInput1" class="form-label text-white-50 text-warning-emphasis">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                        placeholder="nombre@ejemplo.com">
-                </div>
+                    <div class="mb-1">
+                        <label for="exampleFormControlTextarea1" class="form-label text-white-50 text-warning-emphasis">Mensaje</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
 
-                <div class="mb-1">
-                    <label for="exampleFormControlTextarea1" class="form-label text-white-50 text-warning-emphasis">Mensaje</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
             </div>
 
             <div class="col col-sm-6 col-lg-4 ">

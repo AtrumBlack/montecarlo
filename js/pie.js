@@ -1,6 +1,7 @@
-<!-- pie.html -->
-
-<footer class="footer" id="footer">
+// pie.js
+document.addEventListener("DOMContentLoaded", function() {
+    // Contenido HTML del footer
+    var footerContent = `
     <div class="footer_top p-2">
 
         <div class="container ">
@@ -16,6 +17,13 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
+                        </div>
+                        <!-- Iconos de redes sociales -->
+                        <div class="mt-3">
+                            <!-- Redes sociales a la derecha -->
+                            <a href="https://www.facebook.com/montecarlohotelmdp" target="_blank" class="mx-2"><i class="fab fa-facebook-f fa-2x text-primary"></i></a>
+                            <a href="https://www.instagram.com/montecarlohotel_mdp" target="_blank" class="mx-2"><i class="fab fa-instagram fa-2x text-danger"></i></a>
+                            <a href="https://wa.me/5492234462153" target="_blank" class="mx-2"><i class="fab fa-whatsapp fa-2x text-success"></i></a>
                         </div>
                     </div>
                 </div>
@@ -84,28 +92,13 @@
         </div>
 
     </div>
+`;
+    
+    // Obtener el elemento del footer
+    var footer = document.getElementById("pieContainer");
+    
+    // Insertar el contenido dentro del footer
+    footer.innerHTML = footerContent;
 
-</footer>
-
-<!-- Línea separadora -->
-<hr class="footer-divider">
-
-<div id="footer-credits">
-    <div class="container_pie">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-
-            <div class="col  mb-md-0 text-start">
-                <div>Copyright &copy; Montecarlo - Hotel & Apart - Todos los derechos reservados.</div>
-            </div>
-
-            <div class="col mb-md-0 text-end">
-                <div text-right>Desarrollado por <img src="../img/logos/atrumblack01.png" class="card-img" alt="logo1"
-                        style="background-color: black; width: 60px; height: 30px;">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- </footer> -->
+    // document.getElementById('pieContainer').addEventListener('click', this.menuClickHandler.bind(this));
+});
