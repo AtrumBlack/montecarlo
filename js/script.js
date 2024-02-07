@@ -5,16 +5,35 @@ document.addEventListener('DOMContentLoaded', function () {
         carpetaPrueba: '',
         inicioContainer: document.getElementById('contenidoInicio'),
         habitacionesContainer: document.getElementById('habitacionesContainer'),
-        imagenes: [
-            { ruta: "/img/inicio/fotos12.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-            { ruta: "/img/inicio/fotos01Bis.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-            { ruta: "/img/inicio/fotos11bis.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-            { ruta: "/img/inicio/fotos15Bis.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-            { ruta: "/img/inicio/fotos05Bis.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-            { ruta: "/img/inicio/fotos13bis.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." }
-        ],
+        // imagenes: [
+        //     { ruta: "/img/inicio/fotos1.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
+        //     { ruta: "/img/inicio/fotos2.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
+        //     { ruta: "/img/inicio/fotos3.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
+        //     { ruta: "/img/inicio/fotos4.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
+        //     { ruta: "/img/inicio/fotos5.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
+        //     { ruta: "/img/inicio/fotos6.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." }
+        // ],
 
-        // Función para crear elementos del carousel
+        // // Función para crear elementos del carousel
+        // crearCarouselItem: function (imagen, index) {
+        //     return `
+        //         <div class="carousel-item ${index === 0 ? 'active' : ''}">
+        //             <img src="${imagen.ruta}" class="d-block w-100" alt="foto${index + 1}">
+        //             <div class="carousel-caption d-none d-md-block">
+        //                 <p>${imagen.texto}</p>
+        //             </div>
+        //         </div>
+        //     `;
+        // },
+
+        // // Función para crear indicadores del carousel
+        // crearIndicatorButton: function (index) {
+        //     return `
+        //         <button type="button" data-bs-target="#carouselMontecarlo" 
+        //                 data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}"></button>
+        //     `;
+        // },
+
         crearCarouselItem: function (imagen, index) {
             return `
                 <div class="carousel-item ${index === 0 ? 'active' : ''}">
@@ -26,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
         },
 
-        // Función para crear indicadores del carousel
         crearIndicatorButton: function (index) {
             return `
                 <button type="button" data-bs-target="#carouselMontecarlo" 
@@ -34,27 +52,27 @@ document.addEventListener('DOMContentLoaded', function () {
             `;
         },
 
-        // Función para cargar el contenido de la sección de inicio
-        cargarContenido: function () {
-            this.inicioContainer.innerHTML = `
-                <div id="carouselMontecarlo" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        ${this.imagenes.map(this.crearCarouselItem).join('')}
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                    <div class="carousel-indicators">
-                        ${this.imagenes.map((_, index) => this.crearIndicatorButton(index)).join('')}
-                    </div>
-                </div>
-            `;
-        },
+        // // Función para cargar el contenido de la sección de inicio
+        // cargarContenido: function () {
+        //     this.inicioContainer.innerHTML = `
+        //         <div id="carouselMontecarlo" class="carousel slide" data-bs-ride="carousel">
+        //             <div class="carousel-inner">
+        //                 ${this.imagenes.map(this.crearCarouselItem).join('')}
+        //             </div>
+        //             <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
+        //                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        //                 <span class="visually-hidden">Previous</span>
+        //             </button>
+        //             <button class="carousel-control-next" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="next">
+        //                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        //                 <span class="visually-hidden">Next</span>
+        //             </button>
+        //             <div class="carousel-indicators">
+        //                 ${this.imagenes.map((_, index) => this.crearIndicatorButton(index)).join('')}
+        //             </div>
+        //         </div>
+        //     `;
+        // },
 
         // Función para cargar las habitaciones desde el JSON
         cargarHabitaciones: function () {
@@ -65,6 +83,46 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.cargarHabitacionesCard();
                 })
                 .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
+        },
+
+        // // Función para cargar las fotos desde el JSON
+        // cargarFotosCarousel: function () {
+        //     fetch(`${this.carpetaPrueba}/json/imgCarousel.json`)
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             this.habitaciones = data.habitaciones;
+        //             this.cargarCarousel();
+        //         })
+        //         .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
+        // },
+
+        cargarContenido: function () {
+            // Obtener las imágenes desde el archivo JSON
+            fetch(`${this.carpetaPrueba}/json/imgCarousel.json`)
+                .then(response => response.json())
+                .then(data => {
+                    // Generar el contenido del carousel utilizando los datos obtenidos
+                    console.log(data);
+                    this.inicioContainer.innerHTML = `
+                        <div id="carouselMontecarlo" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                ${data.map((imagen, index) => this.crearCarouselItem(imagen, index)).join('')}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                            <div class="carousel-indicators">
+                                ${data.map((_, index) => this.crearIndicatorButton(index)).join('')}
+                            </div>
+                        </div>
+                    `;
+                })
+                .catch(error => console.error('Error al cargar los datos de las imágenes:', error));
         },
 
         // Función para cargar el contenido de las habitaciones

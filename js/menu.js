@@ -1,13 +1,15 @@
 // menu.js
-document.addEventListener("DOMContentLoaded", function() {
-    // Contenido HTML del Mneu
-    var menuContent = `
+document.addEventListener("DOMContentLoaded", function () {
+  // Ruta de la imagen
+  var logoImagePath = "../img/logos/LOGO MONTECARLO.png";
+  // Contenido HTML del Mneu
+  var menuContent = `
     <nav class="navbar navbar-expand-lg fixed-top container">
 
     <div class="container">
   
       <a class="navbar-brand me-auto" href="#">
-        <img src="../img/logos/LOGO MONTECARLO.png" alt="Logo del hotel" class="d-inline-block align-top">
+        <img src="${logoImagePath}"  alt="Logo del hotel" class="d-inline-block align-top">
       </a>
   
       <div class="offcanvas offcanvas-end" tabindex="-1" id="navbarScroll" aria-labelledby="navbarScrollLabel">
@@ -106,12 +108,12 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
   </section>
 `;
-    
-    // Obtener el elemento del footer
-    var menues = document.getElementById("menuContainer");
-    
-    // Insertar el contenido dentro del footer
-    menues.innerHTML = menuContent;
 
-    // document.getElementById('pieContainer').addEventListener('click', this.menuClickHandler.bind(this));
+  // Obtener el elemento del footer
+  var menues = document.getElementById("menuContainer");
+
+  // Insertar el contenido dentro del footer
+  menues.innerHTML = menuContent;
+
+  // document.getElementById('pieContainer').addEventListener('click', this.menuClickHandler.bind(this));
 });

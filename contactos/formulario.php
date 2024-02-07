@@ -13,9 +13,10 @@ $mensaje = $_POST['mensaje'];
 // Crea el cuerpo del mensaje
 $cuerpo = "Nombre: $nombre\nEmail: $email\nMensaje:\n$mensaje";
 
-// Envía el correo electrónico
-$exito = mail($destinatario, "Asunto: Mensaje desde el formulario de contacto", $cuerpo);
+$header = "From: info@info@montecarlohotelmdp.com"; #aqui insertas el correo del remitente en el encabezado del correo.
 
+// Envía el correo electrónico
+$exito = mail($destinatario, "Asunto: Mensaje desde el formulario de contacto", $cuerpo, $header);
 if ($exito) {
   echo "Su mensaje se ha enviado con éxito!";
 } else {

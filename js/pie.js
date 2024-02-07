@@ -1,5 +1,9 @@
 // pie.js
 document.addEventListener("DOMContentLoaded", function() {
+        // Ruta de la imagen
+        var logoImagePath = "../img/logos/Logo-blanco.png";
+        var logoImagenPie=src="../img/logos/atrumblack01.png" 
+
     // Contenido HTML del footer
     var footerContent = `
     <div class="footer_top p-2">
@@ -11,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0 text-center ">
 
                     <div class="card  bg-black h-100 border-0">
-                        <img src="../img/logos/Logo-blanco.png" class="card-img" alt="logo1">
+                        <img src="${logoImagePath}" class="card-img" alt="logo1">
                         <!-- Agregar las tres estrellas -->
                         <div class="mt-3">
                             <i class="fas fa-star"></i>
@@ -92,6 +96,27 @@ document.addEventListener("DOMContentLoaded", function() {
         </div>
 
     </div>
+    </footer>
+
+<!-- Línea separadora -->
+<hr class="footer-divider">
+
+<div id="footer-credits">
+    <div class="container_pie">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+
+            <div class="col  mb-md-0 text-start">
+                <div>Copyright &copy; Montecarlo - Hotel & Apart - Todos los derechos reservados.</div>
+            </div>
+
+            <div class="col mb-md-0 text-end">
+                <div text-right>Desarrollado por <img src="${logoImagenPie}" class="card-img" alt="logo1"
+                        style="background-color: black; width: 60px; height: 30px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 `;
     
     // Obtener el elemento del footer
