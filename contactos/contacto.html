@@ -32,28 +32,29 @@
         </div>
 
         <div class="col col-sm-6 col-lg-4 ">
-            <form action="/contactos/formulario.php" method="post" enctype="multipart/form-data">
+            <form id="miFormulario"  method="post" enctype="multipart/form-data">
                 <div class="mb-1">
 
                     <!-- <div class="col col-sm-6 col-lg-4 mb-4 "> -->
                     <label for="nombre" class="form-label text-white-50 text-warning-emphasis">Apellido, Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Apellido, Nombre"
-                        aria-label="Apellido-Nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Apellido, Nombre" aria-label="Apellido-Nombre">
                     <!-- </div> -->
 
                 </div>
 
                 <div class="mb-1">
                     <label for="email" class="form-label text-white-50 text-warning-emphasis">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com">
+                    <input type="email" class="form-control" id="email" name="email"
+                        placeholder="nombre@ejemplo.com">
                 </div>
 
                 <div class="mb-1">
                     <label for="mensaje" class="form-label text-white-50 text-warning-emphasis">Mensaje</label>
-                    <textarea class="form-control" id="mensaje" rows="3"></textarea>
+                    <textarea class="form-control" id="mensaje" rows="3" name="mensaje"></textarea>
                 </div>
-                <!-- <input type="submit" value="enviar" name="enviar"> -->
-                <button type="submit" class="btn btn-primary" name="enviar" >Enviar</button>
+
+                <button type="submit" class="btn btn-primary">Enviar</button>
+
             </form>
 
 
@@ -101,3 +102,30 @@
     </div>
     <!-- </div> -->
 </div>
+
+
+<script>
+    $(document).ready(function() {
+        $('#miFormulario').submit(function(e) {
+            e.preventDefault(); // Prevenir el comportamiento predeterminado del formulario
+
+            // Obtener los datos del formulario
+            var formData = $(this).serialize();
+
+            // Enviar los datos al archivo PHP mediante AJAX
+            $.ajax({
+                type: 'POST',
+                url: '/contactos/enviar.php', // Ruta al archivo PHP que procesa el formulario
+                data: formData,
+                success: function(response) {
+                    // Manejar la respuesta del servidor (opcional)
+                    alert(response); // Mostrar la respuesta del servidor
+                },
+                error: function(xhr, status, error) {
+                    // Manejar errores (opcional)
+                    console.error(error); // Mostrar el error en la consola del navegador
+                }
+            });
+        });
+    });
+</script>
