@@ -1,28 +1,41 @@
 <!-- enviar.php -->
 
 <?php
+// Configurar el encabezado para indicar que se espera recibir datos JSON
+header('Content-Type: application/json');
 
 // Reemplaza 'info@montecarlohotelmdp.com' con tu dirección de correo
 $destinatario = 'walterbasanta2015@gmail.com';
 
-// Obtén los datos del formulario
-$nombre = $_POST['nombre'];
-$email = $_POST['email'];
-$mensaje = $_POST['mensaje'];
+// Leer los datos del cuerpo de la solicitud JSON
+$data = json_decode(file_get_contents('php://input'), true);
 
-$header = "From: formulario@montecarlohotelmdp.com"; //aqui insertas el correo del remitente en el encabezado del correo.
-// Crea el cuerpo del mensaje
+// Obtén los datos del formulario
+$nombre = isset($data['nombre']) ? $data['nombre'] : '';
+$email = isset($data['email']) ? $data['email'] : '';
+$mensaje = isset($data['mensaje']) ? $data['mensaje'] : '';
+
+// Crear el cuerpo del mensaje
 $cuerpo = "Nombre: $nombre\nEmail: $email\nMensaje:\n$mensaje";
 
+// Crear el encabezado del correo
+$header = "From: formulario@montecarlohotelmdp.com";
 
-
-// Envía el correo electrónico
+// Intentar enviar el correo electrónico
 $exito = mail($destinatario, "Asunto: Mensaje desde el formulario de contacto", $cuerpo, $header);
 
-if ($exito) {
-  echo "Su mensaje se ha enviado con éxito!";
-} else {
-  echo "Ha ocurrido un error al enviar el mensaje. Por favor, inténtelo nuevamente.";
-}
+// Crear un arreglo de respuesta
+$response = array(
+    'success' => $exito,
+    'message' => $exito ? 'Correo electrónico enviado correctamente' : 'Error al enviar el correo electrónico',
+    'data' => array(
+        'nombre' => $nombre,
+        'email' => $email,
+        'mensaje' => $mensaje
+    )
+);
 
+// Devolver la respuesta como JSON
+echo json_encode($response);
 ?>
+

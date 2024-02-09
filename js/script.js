@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         cargarContenido: function () {
             // Obtener las imágenes desde el archivo JSON
-            fetch(`${this.carpetaPrueba}/json/imgCarousel.json`)
+            fetch(`${this.carpetaPrueba}/json/imgcarousel.json`)
                 .then(response => response.json())
                 .then(data => {
                     // Generar el contenido del carousel utilizando los datos obtenidos
@@ -221,11 +221,163 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Función para cargar el contenido de contacto
         cargarContacto: function (opcion) {
-            fetch(`${this.carpetaPrueba}/${opcion}`)
-                .then(response => response.text())
-                .then(data => this.inicioContainer.innerHTML = data);
+
+            // fetch(`${this.carpetaPrueba}/${opcion}`)
+            //     .then(response => response.text())
+            //     .then(data => this.inicioContainer.innerHTML = data);
+            var contactos = `
+            <div class="container bg-transparente p-3 mt-1 rounded">
+            <h2 class="text-warning-emphasis">CONTACTENOS</h2>
+            <!-- Línea separadora -->
+            <!-- <hr class="footer-divider-gruesa"> -->
+        
+            <!-- <div class="container bg-info p-5"> -->
+        
+            <div class="row row-cols-1 g-4 p-2 justify-content-center align-items-center">
+        
+                <div class="col col-sm-6 col-lg-4 ">
+        
+                    <div class="card h-100 border-0 mb-2" style="width:  100%;color: white;">
+        
+                        <div class="card-body text-secondary">
+        
+                            <h8 class="card-title text-start text-warning-emphasis">Calabria 1603 esq. Perez Bulnes | Mar del
+                                Plata</h8>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2221.0452209256223!2d-57.551405622218304!3d-38.069629482160806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1706015106915!5m2!1ses-419!2sar"
+                                class="img-fluid  w-100" width="400" height="250" frameborder="0"
+                                style="border:0; height: 300px;" allowfullscreen="" aria-hidden="false" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade" tabindex="0"></iframe>
+        
+                        </div>
+        
+                    </div>
+        
+                </div>
+        
+                <div class="col col-sm-6 col-lg-4 ">
+                    <form id="miformulario">
+        
+                        <div class="mb-1">
+        
+                            <!-- <div class="col col-sm-6 col-lg-4 mb-4 "> -->
+                            <label for="nombre" class="form-label text-white-50 text-warning-emphasis">Apellido, Nombre</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Apellido, Nombre"
+                                aria-label="Apellido-Nombre">
+                            <!-- </div> -->
+        
+                        </div>
+        
+                        <div class="mb-1">
+                            <label for="email" class="form-label text-white-50 text-warning-emphasis">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="nombre@ejemplo.com">
+                        </div>
+        
+                        <div class="mb-1">
+                            <label for="mensaje" class="form-label text-white-50 text-warning-emphasis">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" rows="3" name="mensaje"></textarea>
+                        </div>
+        
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+        
+                    </form>
+        
+                </div>
+        
+        
+                <div class="col col-sm-6 col-lg-4 ">
+        
+                    <div class="card  h-100 border-0" style="width:  100%; color: white;">
+        
+                        <div class=" text-start text-warning-emphasis">Información de contacto
+                            <!-- Línea separadora -->
+                            <!-- <hr class="footer-divider-gruesa"> -->
+                        </div>
+        
+                        <div class="card-body text-secondary">
+                            <!-- <h5 class="card-title text-start">Información de contacto</h5> -->
+                            <ul class="list-unstyled text-start">
+                                <li>
+                                    <i class="fas fa-phone-alt"></i> Tel: (0223) 484-2150 / 485-0267
+                                </li>
+                                <li>
+                                    <i class="fab fa-whatsapp"></i> +54 9 223 446-2153
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i> reservas@montecarlohotelmdp.com
+                                </li>
+                                <li>
+                                    <i class="fas fa-info-circle"></i> info@montecarlohotelmdp.com
+                                </li>
+                                <li>
+                                    <i class="fab fa-instagram"></i> @montecarlohotel_mdp
+                                </li>
+                                <li>
+                                    <i class="fab fa-facebook-f"></i> facebook.com/montecarlohotelmdp
+                                </li>
+                            </ul>
+                        </div>
+        
+                    </div>
+                </div>
+        
+        
+        
+            </div>
+            <!-- </div> -->
+            </div>
+
+
+          `;
+          
+            // Obtener el elemento del footer
+            var contacto = document.getElementById("contenidoInicio");
+          
+            // Insertar el contenido dentro del footer
+            contacto.innerHTML = contactos;
+                            // Llamar a la función para agregar el script
+            this.agregarScriptEnviarEmail();
         },
 
+        agregarScriptEnviarEmail: function () {
+            // El script que deseas agregar
+            //console.log('eahora si o no');
+        
+            //alert("que cosa");
+            const enviarEmail = async (data) => {
+                const response = await fetch("/montecarlo/contactos/enviar.php", {
+                    method: "POST",
+                    body: JSON.stringify(data),
+                });
+        
+            if (response.ok) {
+                mensajeRespuesta.textContent = "El correo electrónico se envió correctamente";
+                mensajeRespuesta.classList.remove('error');
+                mensajeRespuesta.classList.add('exito');
+            } else {
+                mensajeRespuesta.textContent = "Error al enviar el correo electrónico";
+                mensajeRespuesta.classList.remove('exito');
+                mensajeRespuesta.classList.add('error');
+            }
+            };
+        
+            document.querySelector("#miformulario").addEventListener("submit", (e) => {
+                e.preventDefault();
+        
+                const nombre = document.querySelector("#nombre").value;
+                const email = document.querySelector("#email").value;
+                const mensaje = document.querySelector("#mensaje").value;
+        
+                const data = {
+                    nombre,
+                    email,
+                    mensaje,
+                };
+                //console.log(data);
+                enviarEmail(data);
+            });
+        },
+        
         // Función para cargar el contenido según la opción seleccionada en el menú
         cargarOpcionMenu: function (opcion) {
             switch (opcion) {
@@ -282,7 +434,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     window.scrollTo(0, 0);
                     break;
                 case 'contacto':
-                    this.cargarContacto('contactos/contacto.html');
+                    this.cargarContacto();
                     window.scrollTo(0, 0);
                     break;
                 default:
