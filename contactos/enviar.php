@@ -13,10 +13,11 @@ $data = json_decode(file_get_contents('php://input'), true);
 // Obtén los datos del formulario
 $nombre = isset($data['nombre']) ? $data['nombre'] : '';
 $email = isset($data['email']) ? $data['email'] : '';
+$telefono = isset($data['telefono']) ? $data['telefono'] : '';
 $mensaje = isset($data['mensaje']) ? $data['mensaje'] : '';
 
 // Crear el cuerpo del mensaje
-$cuerpo = "Nombre: $nombre\nEmail: $email\nMensaje:\n$mensaje";
+$cuerpo = "Nombre: $nombre\nEmail: $email\Telefono: $telefono\nMensaje:\n$mensaje";
 
 // Crear el encabezado del correo
 $header = "From: formulario@montecarlohotelmdp.com";
@@ -31,6 +32,7 @@ $response = array(
     'data' => array(
         'nombre' => $nombre,
         'email' => $email,
+        'telefono' => $telefono,
         'mensaje' => $mensaje
     )
 );

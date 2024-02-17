@@ -1,0 +1,94 @@
+{
+    "contenido": [
+      {
+        "tipo": "imagen",
+        "url": "/img/habitaciones/galeria/fotos12.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/inicio/fotos1.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/habitaciones/galeria/fotos14.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/inicio/fotos2.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/habitaciones/galeria/fotos22.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/habitaciones/galeria/fotos_des1.png",
+        "titulo": "Imagen 1",
+        "descripcion": "Descripción de la imagen 1"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/habitaciones/galeria/fotos_des2.png",
+        "titulo": "Imagen 1",
+        "descripcion": "Descripción de la imagen 1"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/habitaciones/galeria/fotos_des3.png",
+        "titulo": "Imagen 1",
+        "descripcion": "Descripción de la imagen 1"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/habitaciones/galeria/fotos8.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/habitaciones/galeria/fotos9.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/inicio/fotos5.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "imagen",
+        "url": "/img/inicio/fotos23.png",
+        "titulo": "Imagen 2",
+        "descripcion": "Descripción de la imagen 2"
+      },
+      {
+        "tipo": "video",
+        "url": "/img/habitaciones/galeria/video_inicio2_720.mp4",
+        "titulo": "Video 1",
+        "descripcion": "Descripción del video 1"
+      },
+      {
+        "tipo": "video",
+        "url": "/img/habitaciones/galeria/video_hab2_720.mp4",
+        "titulo": "Video 1",
+        "descripcion": "Descripción del video 1"
+      },
+      {
+        "tipo": "video",
+        "url": "/img/habitaciones/galeria/video_rec2_720.mp4",
+        "titulo": "Video 2",
+        "descripcion": "Descripción del video 2"
+      }
+    ]
+  }

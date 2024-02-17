@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var logoImagePath = "../img/logos/LOGO MONTECARLO.png";
   // Contenido HTML del Mneu
   var menuContent = `
-    <nav class="navbar navbar-expand-lg fixed-top container">
+    <nav class="navbar navbar-expand-lg fixed-top">
 
-    <div class="container">
+    <div class="container-fluid">
   
       <a class="navbar-brand me-auto" href="#">
         <img src="${logoImagePath}"  alt="Logo del hotel" class="d-inline-block align-top">
@@ -32,49 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <li class="nav-item">
               <a class="nav-link  mx-lg-2" data-opcion="galeria" href="#" data-bs-dismiss="offcanvas">Galería</a>
             </li>
-            
-            <li class="nav-item dropdown">
-  
-              <a
-              href="#" 
-              class="nav-link dropdown-toggle"
-              id="drop_cases"
-              data-bs-toggle="dropdown"
-              role="button"
-              aria-expanded="false">
-                Habitaciones
-              </a>
-  
-              <ul class="dropdown-menu" id="myDropdown">
-                <li>
-                  <a class="dropdown-item" data-opcion="dobleclasica" href="#"
-                    data-bs-dismiss="offcanvas">Habitaciones
-                    Doble Clásica
-                  </a>
-                </li>
-                <li><a class="dropdown-item" data-opcion="doblesuperior" href="#"
-                    data-bs-dismiss="offcanvas">Habitaciones
-                    Doble Superior</a></li>
-                <li><a class="dropdown-item" data-opcion="suite" href="#" data-bs-dismiss="offcanvas">Habitaciones
-                    Suite</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" data-opcion="triple" href="#" data-bs-dismiss="offcanvas">Habitación
-                    Triple</a></li>
-                <li><a class="dropdown-item" data-opcion="familiar" href="#"
-                    data-bs-dismiss="offcanvas">Habitación
-                    Familiar</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" data-opcion="apart" href="#" data-bs-dismiss="offcanvas">Apart</a>
-                </li>
-                <li><a class="dropdown-item" data-opcion="apartsuperior" href="#"
-                    data-bs-dismiss="offcanvas">Apart
-                    Superior</a></li>
-              </ul>
-  
+            <li class="nav-item">
+              <a class="nav-link  mx-lg-2" data-opcion="habitaciones" href="#" data-bs-dismiss="offcanvas">Habitaciones</a>
             </li>
   
             <li class="nav-item  mx-lg-2">
@@ -82,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             </li>
   
           </ul>
+
         </div>
   
       </div>
@@ -92,12 +52,12 @@ document.addEventListener("DOMContentLoaded", function () {
       </button>
     </div>
   
-    <div class="d-none d-lg-flex justify-content-end mt-3">
-    <!-- Redes sociales a la derecha -->
-    <a href="https://www.facebook.com/montecarlohotelmdp" target="_blank" class="mx-2"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/montecarlohotel_mdp" target="_blank" class="mx-2"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/5492234462153" target="_blank" class="mx-2"><i class="fab fa-whatsapp"></i></a>
-</div>
+    <div class="d-none d-lg-flex justify-content-end mt-3 redes-sociales">
+      <!-- Redes sociales a la derecha -->
+      <a href="https://www.facebook.com/montecarlohotelmdp" target="_blank" class="mx-2"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/montecarlohotel_mdp" target="_blank" class="mx-2"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/5492234462153" target="_blank" class="mx-2"><i class="fab fa-whatsapp"></i></a>
+    </div>
   
   </nav>
   <!-- Hero <section></section> -->

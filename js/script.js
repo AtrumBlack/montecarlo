@@ -1,481 +1,714 @@
 // Script.js
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        const miApp = {
+            carpetaPrueba: '',
+            inicioContainer: document.getElementById('contenidoInicio'),
+            habitacionesContainer: document.getElementById('habitacionesContainer'),
 
-document.addEventListener('DOMContentLoaded', function () {
-    const miApp = {
-        carpetaPrueba: '',
-        inicioContainer: document.getElementById('contenidoInicio'),
-        habitacionesContainer: document.getElementById('habitacionesContainer'),
-        // imagenes: [
-        //     { ruta: "/img/inicio/fotos1.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-        //     { ruta: "/img/inicio/fotos2.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-        //     { ruta: "/img/inicio/fotos3.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-        //     { ruta: "/img/inicio/fotos4.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-        //     { ruta: "/img/inicio/fotos5.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." },
-        //     { ruta: "/img/inicio/fotos6.png", texto: "En el sur de la ciudad de Mar del Plata, es posible disfrutar de la serenidad más exquisita. Montecarlo Hotel y Apart, se encuentra ubicado a 200mtrs de la playa, muy cerca del bosque en una exclusiva zona residencial, donde el aire puro es nuestra mejor compañía." }
-        // ],
 
-        // // Función para crear elementos del carousel
-        // crearCarouselItem: function (imagen, index) {
-        //     return `
-        //         <div class="carousel-item ${index === 0 ? 'active' : ''}">
-        //             <img src="${imagen.ruta}" class="d-block w-100" alt="foto${index + 1}">
-        //             <div class="carousel-caption d-none d-md-block">
-        //                 <p>${imagen.texto}</p>
-        //             </div>
-        //         </div>
-        //     `;
-        // },
-
-        // // Función para crear indicadores del carousel
-        // crearIndicatorButton: function (index) {
-        //     return `
-        //         <button type="button" data-bs-target="#carouselMontecarlo" 
-        //                 data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}"></button>
-        //     `;
-        // },
-
-        crearCarouselItem: function (imagen, index) {
-            return `
-                <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                    <img src="${imagen.ruta}" class="d-block w-100" alt="foto${index + 1}">
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>${imagen.texto}</p>
+            crearCarouselItem: function (imagen, index) {
+                return `
+                    <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                        <img src="${imagen.ruta}" class="d-block w-100" alt="foto${index + 1}">
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>${imagen.texto}</p>
+                        </div>
                     </div>
-                </div>
-            `;
-        },
+                `;
+            },
 
-        crearIndicatorButton: function (index) {
-            return `
-                <button type="button" data-bs-target="#carouselMontecarlo" 
-                        data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}"></button>
-            `;
-        },
+            crearIndicatorButton: function (index) {
+                return `
+                    <button type="button" data-bs-target="#carouselMontecarlo" 
+                            data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}"></button>
+                `;
+            },
 
-        // // Función para cargar el contenido de la sección de inicio
-        // cargarContenido: function () {
-        //     this.inicioContainer.innerHTML = `
-        //         <div id="carouselMontecarlo" class="carousel slide" data-bs-ride="carousel">
-        //             <div class="carousel-inner">
-        //                 ${this.imagenes.map(this.crearCarouselItem).join('')}
-        //             </div>
-        //             <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
-        //                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        //                 <span class="visually-hidden">Previous</span>
-        //             </button>
-        //             <button class="carousel-control-next" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="next">
-        //                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        //                 <span class="visually-hidden">Next</span>
-        //             </button>
-        //             <div class="carousel-indicators">
-        //                 ${this.imagenes.map((_, index) => this.crearIndicatorButton(index)).join('')}
-        //             </div>
-        //         </div>
-        //     `;
-        // },
+            cargarHabitacionesCarouselBIS: function () {
 
-        // Función para cargar las habitaciones desde el JSON
-        cargarHabitaciones: function () {
-            fetch(`${this.carpetaPrueba}/json/habitaciones.json`)
-                .then(response => response.json())
-                .then(data => {
-                    this.habitaciones = data.habitaciones;
-                    this.cargarHabitacionesCard();
-                })
-                .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
-        },
+                // document.addEventListener("DOMContentLoaded", function () {
+                // Obtener el elemento contenedor de las tarjetas
+                const roomCardsContainer = document.getElementById("roomCards");
+                // console.log('uuuyyy');
+                // Realizar la solicitud para obtener el archivo JSON
+                fetch("/json/habitaciones.json")
+                    .then(response => response.json())
+                    .then(data => {
+                        this.habitaciones = data.habitaciones;
+                        // Recorrer el objeto JSON y construir las tarjetas
+                        for (const habitacion in data.habitaciones) {
+                            const habitacionData = data.habitaciones[habitacion];
+                            const card = document.createElement("div");
+                            card.classList.add("swiper-slide");
+                            // console.log(card);
+                            // Construir la estructura de la tarjeta
+                            card.innerHTML = `
+                                    <img src="${habitacionData.imagenes[0]}" alt="${habitacion}" >
+                                    <div class="card-description">
+                                        <div class="card-title all-titles-text">
+                                            <h4>${habitacionData.nombre}</h4>
+                                        </div>
+                                        <div class="card-text all-paragraphs-text">
+                                            <p>${habitacionData.detalles}</p>
+                                        </div>
+                                    <div class="card-link">
+                                      <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${habitacion}">Descubrir</a>
+                                    </div>
+                                </div>
 
-        // // Función para cargar las fotos desde el JSON
-        // cargarFotosCarousel: function () {
-        //     fetch(`${this.carpetaPrueba}/json/imgCarousel.json`)
-        //         .then(response => response.json())
-        //         .then(data => {
-        //             this.habitaciones = data.habitaciones;
-        //             this.cargarCarousel();
-        //         })
-        //         .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
-        // },
 
-        cargarContenido: function () {
-            // Obtener las imágenes desde el archivo JSON
-            fetch(`${this.carpetaPrueba}/json/imgcarousel.json`)
-                .then(response => response.json())
-                .then(data => {
-                    // Generar el contenido del carousel utilizando los datos obtenidos
-                    console.log(data);
-                    this.inicioContainer.innerHTML = `
-                        <div id="carouselMontecarlo" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                ${data.map((imagen, index) => this.crearCarouselItem(imagen, index)).join('')}
+                                    `;
+
+
+                            // Agregar la tarjeta al contenedor
+                            roomCardsContainer.appendChild(card);
+                        }
+
+                        // Inicializar Swiper después de que se hayan agregado todas las tarjetas
+                        const swiper = new Swiper(".swiper-container", {
+
+                            navigation: {
+                                nextEl: ".swiper-button-next",
+                                prevEl: ".swiper-button-prev",
+                                // Posiciona las flechas en cada extremo
+                                // position: 'both',
+                                // margin: 50,
+                            },
+                            loop: true,
+                            slidesPerView: "auto",
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                            fade: 'true',
+                            grabCursor: true,
+                            pagination: {
+                                el: ".swiper-pagination",
+                                clickable: true,
+                                // margin: 50,
+                                dynamicBullets: true,
+                            },
+
+                            breakpoints: {
+                                620: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 20,
+                                },
+                                680: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 40,
+                                },
+                                920: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 40,
+                                },
+                                1240: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 40,
+                                },
+                            }
+                        });
+                        // Asignar estilos a las tarjetas
+                        //   this.ajustarAlturaTarjetas();
+                    })
+                    .catch(error => console.error('Error al cargar el archivo JSON:', error));
+
+            },
+
+            // Función para ajustar la altura de las tarjetas
+            ajustarAlturaTarjetas: function () {
+                const cards = document.querySelectorAll(".card");
+                let maxHeight = 0;
+
+                for (const card of cards) {
+                    const cardHeight = card.offsetHeight;
+                    if (cardHeight > maxHeight) {
+                        maxHeight = cardHeight;
+                    }
+                }
+
+                for (const card of cards) {
+                    card.style.minHeight = maxHeight + 'px';
+                }
+            },
+
+
+
+
+            // Función para cargar las imagenes de bienvenida
+            caragarBienvenida: function () {
+                // Obtener las imágenes desde el archivo JSON
+                fetch(`${this.carpetaPrueba}/json/imgcarousel.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Generar el contenido del carousel utilizando los datos obtenidos
+                        // console.log(data);
+                        this.inicioContainer.innerHTML = `
+                            <div id="carouselMontecarlo" class="carousel-fade" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+    
+                                    ${data.map((imagen, index) => this.crearCarouselItem(imagen, index)).join('')}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                                <div class="carousel-indicators">
+                                    ${data.map((_, index) => this.crearIndicatorButton(index)).join('')}
+                                </div>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                            <div class="carousel-indicators">
-                                ${data.map((_, index) => this.crearIndicatorButton(index)).join('')}
+                        `;
+                        // Ajustar el margen superior del carousel según el tipo de dispositivo
+                        this.ajustarMargenCarousel();
+                    })
+                    .catch(error => console.error('Error al cargar los datos de las imágenes:', error));
+            },
+
+            ajustarMargenCarousel: function () {
+                // Obtener el alto de la barra de navegación según el tipo de dispositivo
+                let navbarHeight;
+                // if (window.innerWidth < 576) {
+                // navbarHeight = document.querySelector('.navbar').offsetHeight;
+                // navbarHeight = 0;
+                // } else {
+                navbarHeight = -2 * document.querySelector('.navbar').offsetHeight; // Si no hay barra de navegación o es grande, no necesitas ajustar el margen
+                // }
+                console.log(navbarHeight);
+                // Ajustar el margen superior del carousel
+                document.getElementById('carouselMontecarlo').style.marginTop = `${navbarHeight}px`;
+            },
+
+            detectarBajadaPagina: function () {
+                window.addEventListener('scroll', function () {
+                    if (window.scrollY > 80) {
+                        // Cambiar el color del navbar
+                        document.querySelector('.navbar').classList.add('navbar-scroll');
+                        document.querySelector('.navbar-nav .nav-link').classList.add('navbar-scroll');
+
+                        console.log('Se bajó la página');
+                        // Puedes agregar más lógica aquí si es necesario
+                    } else {
+                        // Eliminar la clase que cambia el color del navbar si el usuario ha vuelto arriba
+                        document.querySelector('.navbar').classList.remove('navbar-scroll');
+                        // Eliminar la clase que cambia el color del navbar si el usuario ha vuelto arriba
+                        document.querySelector('.navbar-nav .nav-link').classList.remove('navbar-scroll');
+                    }
+                });
+            },
+
+            // Función para cargar las habitaciones desde el JSON
+            cargarHabitaciones: function () {
+                fetch(`${this.carpetaPrueba}/json/habitaciones.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.habitaciones = data.habitaciones;
+                        this.cargarHabitacionesCard();
+                    })
+                    .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
+            },
+
+            // Función para cargar el contenido de las habitaciones
+            cargarHabitacionesCard: function () {
+                const habitacionesHTML = Object.keys(this.habitaciones).map(tipoHabitacion => {
+                    const habitacion = this.habitaciones[tipoHabitacion];
+
+                    return `
+                        <div class="col col-sm-6 col-lg-4 mb-4 mb-lg-0">
+                            <div class="card h-100 border-secondary mb-3">
+                                <img src="${habitacion.imagenes[0]}" class="card-img-top" alt="${tipoHabitacion}">
+                                <div class="card-title-overlay top-0 start-0 p-2 rounded" style="width: 100%;">
+                                    <h5 class="card-title text-titulo-card" style=" font-size: 24px;">${habitacion.nombre}</h5>
+                                </div>
+                                <div class="card-body">
+                                    
+                                    <p class="card-text text-titulo-card">${habitacion.detalles}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${tipoHabitacion}">Descubrir</a>
+                                </div>
                             </div>
                         </div>
                     `;
-                })
-                .catch(error => console.error('Error al cargar los datos de las imágenes:', error));
-        },
+                }).join('');
 
-        // Función para cargar el contenido de las habitaciones
-        cargarHabitacionesCard: function () {
-            const habitacionesHTML = Object.keys(this.habitaciones).map(tipoHabitacion => {
-                const habitacion = this.habitaciones[tipoHabitacion];
-
-                return `
-                    <div class="col col-sm-6 col-lg-4 mb-4 mb-lg-0 text-center">
-                        <div class="card h-100 border-secondary mb-3">
-                            <img src="${habitacion.imagenes[0]}" class="card-img-top" alt="${tipoHabitacion}">
-                            <div class="card-body">
-                                <h5 class="card-title">${habitacion.nombre}</h5>
-                                <p class="card-text">${habitacion.detalles}</p>
-                            </div>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-primary" data-tipo-habitacion="${tipoHabitacion}">Ver Habitacion</a>
+                this.habitacionesContainer.innerHTML = `
+                    <div class="rounded mb-4">
+                        <hr class="footer-divider">
+                        <h2 class="text-titulo-card p-4">Nuestras Habitaciones</h2>
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-md-2 g-4">
+                                ${habitacionesHTML}
                             </div>
                         </div>
                     </div>
                 `;
-            }).join('');
+            },
 
-            this.habitacionesContainer.innerHTML = `
-                <div class="rounded mb-4">
-                    <hr class="footer-divider">
-                    <h2 class="text-dark p-4">Nuestras Habitaciones</h2>
-                    <div class="container">
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
+            // Función para cargar las habitaciones desde el JSON
+            cargarHabitacionesParaCarousel: function () {
+                fetch(`${this.carpetaPrueba}/json/habitaciones.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.habitaciones = data.habitaciones;
+
+                        this.cargarHabitacionesCarousel();
+                        // console.log(this.habitacionesContainer);
+                    })
+                    .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
+            },
+
+            cargarHabitacionesCarousel: function () {
+                let isFirst = true; // Variable para verificar si es el primer elemento
+                const habitacionesHTML = Object.keys(this.habitaciones).map(tipoHabitacion => {
+                    const habitacion = this.habitaciones[tipoHabitacion];
+
+                    // Si es el primer elemento, agregar la clase active
+                    const activeClass = isFirst ? 'active' : '';
+                    isFirst = false; // Cambiar el valor para los siguientes elementos
+                    return `
+                        <div class="carousel-item ${activeClass}">
+
+
+
+                                <div class="card h-100 border-secondary mb-3">
+                                    <img src="${habitacion.imagenes[0]}" class="card-img-top" alt="${tipoHabitacion}">
+                                    <div class="card-title-overlay top-0 start-0 p-2 rounded" style="width: 100%;">
+                                        <h5 class="card-title text-titulo-card" style=" font-size: 24px;">${habitacion.nombre}</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text text-titulo-card">${habitacion.detalles}</p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${tipoHabitacion}">Descubrir</a>
+                            
+                                    </div>
+
+
+                                </div>
+                        </div>
+                    `;
+                }).join('');
+
+                this.habitacionesContainer.innerHTML = `
+                    <div id="carouselHabitacionesCard" class="carousel slide" data-bs-ride="carousel">
+
+                        <div class="carousel-inner">
                             ${habitacionesHTML}
                         </div>
-                    </div>
-                </div>
-            `;
-        },
 
-        // Función para cargar la información de una habitación específica
-        cargarHabitacion: function (tipoHabitacion) {
-            const habitacion = this.habitaciones[tipoHabitacion];
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHabitacionesCard" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselHabitacionesCard" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
 
-            if (habitacion) {
-                const html = `
-                    <div class="container-fluid  p-4 rounded">
-                        <h2 class="text-warning-emphasis mb-2">${habitacion.nombre}</h2>
-                        <hr class="footer-divider-gruesa">
-                        <div class="row row-cols-1 row-cols-md-2 g-4">
-                            <div class="col">
-                                <div class="d-flex flex-column align-items-start" style="max-width: 500px;">
-                                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                                        <div class="carousel-indicators">
-                                            ${habitacion.imagenes.map((_, index) => `<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" ${index === 0 ? 'class="active"' : ''} aria-current="true" aria-label="Slide ${index + 1}"></button>`).join('')}
-                                        </div>
-                                        <div class="carousel-inner">
-                                            ${habitacion.imagenes.map((imagen, index) => `<div class="carousel-item ${index === 0 ? 'active' : ''}">
-                                                <img src="${imagen}" class="d-block w-100" alt="Foto ${index + 1}">
-                                            </div>`).join('')}
-                                        </div>
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
-                                    </div>
-                                    <div class="card-body text-secondary">
-                                        <p class="card-text">${habitacion.detalles}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col ">
-                                <div class="card h-100 mb-2  border-0 " style="width:  100%;  color: white;">
-                                    <div class="text-start text-warning-emphasis" style="width:  100%;">Comodidades</div>
-                                    <ul class="list-group list-group-flush ">
-                                        ${habitacion.comodidades.map(comodidad => `
-                                            <li class="list-group-item menu-item text-start text-secondary" >
-                                                ${comodidad.cantidad
-                        ? Array.from({ length: comodidad.cantidad }, (_, index) => `<i class="fa-solid ${comodidad.icono}"></i>`).join('')
-                        : `<i class="fa-solid ${comodidad.icono}"></i>`
-                    } ${comodidad.texto}
-                                            </li>
-                                        `).join('')}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 `;
+            },
 
-                this.inicioContainer.innerHTML = html;
-            } else {
-                this.inicioContainer.innerHTML = "<p>Habitación no disponible</p>";
-            }
-        },
 
-        // Función para cargar el contenido de contacto
-        cargarContacto: function (opcion) {
 
-            // fetch(`${this.carpetaPrueba}/${opcion}`)
-            //     .then(response => response.text())
-            //     .then(data => this.inicioContainer.innerHTML = data);
-            var contactos = `
-            <div class="container bg-transparente p-3 mt-1 rounded">
-            <h2 class="text-warning-emphasis">CONTACTENOS</h2>
-            <!-- Línea separadora -->
-            <!-- <hr class="footer-divider-gruesa"> -->
-        
-            <!-- <div class="container bg-info p-5"> -->
-        
-            <div class="row row-cols-1 g-4 p-2 justify-content-center align-items-center">
-        
-                <div class="col col-sm-6 col-lg-4 ">
-        
-                    <div class="card h-100 border-0 mb-2" style="width:  100%;color: white;">
-        
-                        <div class="card-body text-secondary">
-        
-                            <h8 class="card-title text-start text-warning-emphasis">Calabria 1603 esq. Perez Bulnes | Mar del
-                                Plata</h8>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2221.0452209256223!2d-57.551405622218304!3d-38.069629482160806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1706015106915!5m2!1ses-419!2sar"
-                                class="img-fluid  w-100" width="400" height="250" frameborder="0"
-                                style="border:0; height: 300px;" allowfullscreen="" aria-hidden="false" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade" tabindex="0"></iframe>
-        
-                        </div>
-        
+            cargarGaleria: function () {
+                fetch(`${this.carpetaPrueba}/json/contenido.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let contenidoHTML = '';
+
+                        data.contenido.forEach(item => {
+                            let colClass;
+                            // Define la clase para el video siempre en una columna
+                            if (item.tipo === 'video') {
+                                colClass = 'col-sm-12 col-lg-12';
+                            } else {
+                                // Define la clase para las imágenes con dos columnas en tablets y tres en escritorio
+                                colClass = 'col-lg-6 col-sm-6'; // Dos columnas en dispositivos medianos y grandes
+                            }
+
+                            contenidoHTML += `
+                                <div class="${colClass} mb-4 mb-lg-0 text-center">
+                                    <div class="card h-100 border-secondary mb-3">
+                                        ${item.tipo === 'imagen' ? `<img src="${item.url}" class="card-img-top" alt="${item.titulo}">` : ''}
+                                        ${item.tipo === 'video' ? `
+                                            <div class="card-img-top embed-responsive embed-responsive-16by9">
+                                                <video class="embed-responsive-item" controls>
+                                                    <source src="${item.url}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            </div>` : ''}
+                                        <div class="card-body">
+                                            <h5 class="card-title">${item.titulo}</h5>
+                                            <p class="card-text">${item.descripcion}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        this.inicioContainer.innerHTML = `
+                            <div class="container">
+                                <div class="row ">
+                                    ${contenidoHTML}
+                                </div>
+                            </div>
+                        `;
+                    })
+                    .catch(error => console.error('Error al cargar los datos de contenido:', error));
+            },
+
+
+
+            // Función para cargar la información de una habitación específica
+            cargarHabitacion: function (tipoHabitacion) {
+                // console.log(tipoHabitacion);
+                console.log(this.habitaciones);
+                const habitacion = this.habitaciones[tipoHabitacion];
+                console.log(habitacion);
+                if (habitacion) {
+                    const html = `
+                    <div class=" mb-4 rounded">
+                    <h2 class="text-titulo-card p-4">${habitacion.nombre}</h2>
+            
+                    <div id="carouselHabitaciones" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      ${habitacion.imagenes.map((_, index) => `<button type="button" data-bs-target="#carouselHabitaciones" data-bs-slide-to="${index}" ${index === 0 ? 'class="active"' : ''} aria-current="true" aria-label="Slide ${index + 1}"></button>`).join('')}
                     </div>
-        
-                </div>
-        
-                <div class="col col-sm-6 col-lg-4 ">
-                    <form id="miformulario">
-        
-                        <div class="mb-1">
-        
-                            <!-- <div class="col col-sm-6 col-lg-4 mb-4 "> -->
-                            <label for="nombre" class="form-label text-white-50 text-warning-emphasis">Apellido, Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Apellido, Nombre"
-                                aria-label="Apellido-Nombre">
-                            <!-- </div> -->
-        
-                        </div>
-        
-                        <div class="mb-1">
-                            <label for="email" class="form-label text-white-50 text-warning-emphasis">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="nombre@ejemplo.com">
-                        </div>
-        
-                        <div class="mb-1">
-                            <label for="mensaje" class="form-label text-white-50 text-warning-emphasis">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" rows="3" name="mensaje"></textarea>
-                        </div>
-        
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-        
-                    </form>
-        
-                </div>
-        
-        
-                <div class="col col-sm-6 col-lg-4 ">
-        
-                    <div class="card  h-100 border-0" style="width:  100%; color: white;">
-        
-                        <div class=" text-start text-warning-emphasis">Información de contacto
-                            <!-- Línea separadora -->
-                            <!-- <hr class="footer-divider-gruesa"> -->
-                        </div>
-        
-                        <div class="card-body text-secondary">
-                            <!-- <h5 class="card-title text-start">Información de contacto</h5> -->
-                            <ul class="list-unstyled text-start">
-                                <li>
-                                    <i class="fas fa-phone-alt"></i> Tel: (0223) 484-2150 / 485-0267
-                                </li>
-                                <li>
-                                    <i class="fab fa-whatsapp"></i> +54 9 223 446-2153
-                                </li>
-                                <li>
-                                    <i class="fas fa-envelope"></i> reservas@montecarlohotelmdp.com
-                                </li>
-                                <li>
-                                    <i class="fas fa-info-circle"></i> info@montecarlohotelmdp.com
-                                </li>
-                                <li>
-                                    <i class="fab fa-instagram"></i> @montecarlohotel_mdp
-                                </li>
-                                <li>
-                                    <i class="fab fa-facebook-f"></i> facebook.com/montecarlohotelmdp
-                                </li>
-                            </ul>
-                        </div>
-        
+                    <div class="carousel-inner">
+                      ${habitacion.imagenes.map((imagen, index) => `<div class="carousel-item ${index === 0 ? 'active' : ''}">
+                          <img src="${imagen}" class="d-block w-100" alt="Foto ${index + 1}">
+                            <div class="carousel-caption d-none d-md-block ">
+                            <!-- <h5>${habitacion.nombre}</h5> -->
+                                
+                            <p style="color: white;">${habitacion.detalles}</p>
+                                
+                            </div>
+                      </div>`).join('')}
                     </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHabitaciones" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselHabitaciones" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            
+                  <div class="row">
+                  ${habitacion.comodidades.map(comodidad => `
+                      <div class="col-md-6 mb-2">
+                          <div class="card h-100 border-0  text-sepia">
+                              <div class="card-body d-flex align-items-center">
+                                  <i class="fa-solid ${comodidad.icono} me-2" style="font-size: 24px;"></i>
+                                  <span style="font-size: 18px;">${comodidad.texto}</span>
+                              </div>
+                          </div>
+                      </div>
+                  `).join('')}
+              </div>
                 </div>
-        
-        
-        
-            </div>
-            <!-- </div> -->
-            </div>
+            `;
 
+                    this.inicioContainer.innerHTML = html;
+                } else {
+                    this.inicioContainer.innerHTML = "<p>Habitación no disponible</p>";
+                }
+            },
 
-          `;
-          
-            // Obtener el elemento del footer
-            var contacto = document.getElementById("contenidoInicio");
-          
-            // Insertar el contenido dentro del footer
-            contacto.innerHTML = contactos;
-                            // Llamar a la función para agregar el script
-            this.agregarScriptEnviarEmail();
-        },
+            // Función para cargar el contenido de contacto
+            cargarContacto: function (opcion) {
 
-        agregarScriptEnviarEmail: function () {
-            // El script que deseas agregar
-            //console.log('eahora si o no');
-        
-            //alert("que cosa");
-            const enviarEmail = async (data) => {
-                const response = await fetch("/montecarlo/contactos/enviar.php", {
-                    method: "POST",
-                    body: JSON.stringify(data),
-                });
-        
-            if (response.ok) {
-                mensajeRespuesta.textContent = "El correo electrónico se envió correctamente";
-                mensajeRespuesta.classList.remove('error');
-                mensajeRespuesta.classList.add('exito');
-            } else {
-                mensajeRespuesta.textContent = "Error al enviar el correo electrónico";
-                mensajeRespuesta.classList.remove('exito');
-                mensajeRespuesta.classList.add('error');
-            }
-            };
-        
-            document.querySelector("#miformulario").addEventListener("submit", (e) => {
-                e.preventDefault();
-        
-                const nombre = document.querySelector("#nombre").value;
-                const email = document.querySelector("#email").value;
-                const mensaje = document.querySelector("#mensaje").value;
-        
-                const data = {
-                    nombre,
-                    email,
-                    mensaje,
+                // fetch(`${this.carpetaPrueba}/${opcion}`)
+                //     .then(response => response.text())
+                //     .then(data => this.inicioContainer.innerHTML = data);
+                var contactos = `
+                <div class="container bg-transparente p-3 mt-1 rounded">
+                <h2 class="text-warning-emphasis">CONTACTENOS</h2>
+            
+            
+                <div class="row row-cols-1 row-cols-md-2 g-4 p-2 justify-content-center align-items-center">
+            
+    
+            
+                <!-- Tu  <div class="col col-sm-6 col-lg-4 "> -->
+                <div class="col">
+                        <form id="miformulario">
+                        <h2><span class="text-warning-emphasis text-opacity-75">Formulario de Contacto:</span></h2>
+    
+                            <div class="mb-1">
+            
+                                <!-- <div class="col col-sm-6 col-lg-4 mb-4 "> -->
+                                
+                                <label for="nombre" class="form-label text-sepia">Introduzca sus datos</label>
+                                <input type="text" class="form-control text-sepia border border-warning-subtle " id="nombre" name="nombre" placeholder="Nombre"
+                                    aria-label="Apellido-Nombre">
+                                <!-- </div> -->
+            
+                            </div>
+            
+                            <div class="mb-1">
+                            <!-- <label for="email" class="form-label text-white-50 text-warning-emphasis">Email</label>-->
+                                <input type="email" class="form-control border border-warning-subtle" id="email" name="email" placeholder="Email" >
+                            </div>
+                            <div class="mb-1">
+                            <!-- <label for="telefono" class="form-label text-white-50 text-warning-emphasis">Telefono</label>-->
+                                <input type="telefono" class="form-control border border-warning-subtle" id="telefono" name="telefono" placeholder="Telefono">
+                            </div>       
+                            <div class="mb-1">
+                                <label for="mensaje" class="form-label text-white-50 text-warning-emphasis">Comentarios/Consultas:</label>
+                                <textarea class="form-control border border-warning-subtle" id="mensaje" rows="3" name="mensaje" placeholder="Comentarios/Consultas:"></textarea>
+                            </div>
+            
+                            <button type="submit" class="btn btn-outline-sepia">Enviar</button>
+            
+                        </form>
+            
+                    </div>
+            
+            
+                    <!-- Tu  <div class="col col-sm-6 col-lg-4 "> -->
+                    <div class="col">
+                        <div class="card  h-100 border-0" style="width:  100%; color: white;">
+            
+                            <div class=" text-start text-warning-emphasis">Información de contacto
+                                <!-- Línea separadora -->
+                                <!-- <hr class="footer-divider-gruesa"> -->
+                            </div>
+            
+                            <div class="card-body text-secondary">
+                                <!-- <h5 class="card-title text-start">Información de contacto</h5> -->
+                                <ul class="list-unstyled text-start">
+                                    <li>
+                                        <i class="fas fa-phone-alt"></i> Tel: (0223) 484-2150 / 485-0267
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-whatsapp"></i> +54 9 223 446-2153
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-envelope"></i> reservas@montecarlohotelmdp.com
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-info-circle"></i> info@montecarlohotelmdp.com
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-instagram"></i> @montecarlohotel_mdp
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-facebook-f"></i> facebook.com/montecarlohotelmdp
+                                    </li>
+                                </ul>
+                            </div>
+            
+                        </div>
+                    </div>
+            
+                    <!-- Tu  <div class="col col-sm-6 col-lg-4 "> -->
+                    <div class="col-md-12">
+                        <div class="card h-100 border-0 mb-2" style="color: white;">
+                                <div class="card-body text-secondary">
+                                    <h8 class="card-title text-start text-warning-emphasis">Calabria 1603 esq. Perez Bulnes | Mar del
+                                    Plata</h8>
+                                    <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2221.0452209256223!2d-57.551405622218304!3d-38.069629482160806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1706015106915!5m2!1ses-419!2sar"
+                                    class="img-fluid  w-100"  height="300" frameborder="0"
+                                    style="border:0; height: 300px;" allowfullscreen="" aria-hidden="false" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade" tabindex="0"></iframe>
+            
+                                </div>
+            
+                        </div>
+                    </div>
+            
+                </div>
+                <!-- </div> -->
+                </div>
+    
+    
+              `;
+
+                // Obtener el elemento del footer
+                var contacto = document.getElementById("contenidoInicio");
+
+                // Insertar el contenido dentro del footer
+                contacto.innerHTML = contactos;
+                // Llamar a la función para agregar el script
+                this.agregarScriptEnviarEmail();
+            },
+
+            agregarScriptEnviarEmail: function () {
+                // El script que deseas agregar
+                //console.log('eahora si o no');
+
+                //alert("que cosa");
+                const enviarEmail = async (data) => {
+                    const response = await fetch("/montecarlo/contactos/enviar.php", {
+                        method: "POST",
+                        body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                        const respuestaServidor = await response.json();
+                        if (respuestaServidor.success) {
+                            // Mostrar mensaje de éxito
+                            mensajeRespuesta.textContent = "Correo electrónico enviado correctamente";
+                            mensajeRespuesta.classList.remove('error');
+                            mensajeRespuesta.classList.add('exito');
+                        } else {
+                            // Mostrar mensaje de error
+                            mensajeRespuesta.textContent = respuestaServidor.message;
+                            mensajeRespuesta.classList.remove('exito');
+                            mensajeRespuesta.classList.add('error');
+                        }
+                    } else {
+                        // Mostrar mensaje de error
+                        mensajeRespuesta.textContent = "Error al enviar el correo electrónico";
+                        mensajeRespuesta.classList.remove('exito');
+                        mensajeRespuesta.classList.add('error');
+                    }
                 };
-                //console.log(data);
-                enviarEmail(data);
-            });
-        },
-        
-        // Función para cargar el contenido según la opción seleccionada en el menú
-        cargarOpcionMenu: function (opcion) {
-            switch (opcion) {
-                case 'inicio':
-                    this.cargarContenido();
-                    window.scrollTo(0, 0);
-                    break;
-                case 'galeria':
-                    alert('ubicGaleriaacuin');
-                    //cargarContenido('video_inicio.html');
-                    // Desplazar la página al principio después de cargar el contenido
-                    window.scrollTo(0, 0);
-                    break;
-                case 'dobleclasica':
-                    // alert('doblesclasica');
-                    this.cargarHabitacion('doble_clasica');
-                    // Desplazar la página al principio después de cargar el contenido
-                    window.scrollTo(0, 0);
-                    break;
 
-                case 'doblesuperior':
-                    // alert('doblesuperior');
-                    this.cargarHabitacion('doble_superior');
-                    // Desplazar la página al principio después de cargar el contenido
-                    window.scrollTo(0, 0);
-                    break;
-                case 'suite':
-                    // alert('doblesuperior');
-                    this.cargarHabitacion('doble_suite');
-                    // Desplazar la página al principio después de cargar el contenido
-                    window.scrollTo(0, 0);
-                    break;
-                case 'triple':
-                    // alert('doblesuperior');
-                    this.cargarHabitacion('triple');
-                    // Desplazar la página al principio después de cargar el contenido
-                    window.scrollTo(0, 0);
-                    break;
-                case 'familiar':
-                    // alert('doblesuperior');
-                    this.cargarHabitacion('familiar');
-                    // Desplazar la página al principio después de cargar el contenido
-                    window.scrollTo(0, 0);
-                    break;
-                case 'apart':
-                    // alert('doblesuperior');
-                    this.cargarHabitacion('apart');
-                    // Desplazar la página al principio después de cargar el contenido
-                    window.scrollTo(0, 0);
+                document.querySelector("#miformulario").addEventListener("submit", (e) => {
+                    e.preventDefault();
 
-                    break;
-                case 'apartsuperior':
-                    this.cargarHabitacion('apart_superior');
-                    window.scrollTo(0, 0);
-                    break;
-                case 'contacto':
-                    this.cargarContacto();
-                    window.scrollTo(0, 0);
-                    break;
-                default:
-                    break;
+                    const nombre = document.querySelector("#nombre").value;
+                    const email = document.querySelector("#email").value;
+                    const telefono = document.querySelector("#telefono").value;
+                    const mensaje = document.querySelector("#mensaje").value;
+
+
+                    const data = {
+                        nombre,
+                        email,
+                        telefono,
+                        mensaje,
+                    };
+                    //console.log(data);
+                    enviarEmail(data);
+                });
+            },
+
+            // Función para cargar el contenido según la opción seleccionada en el menú
+            cargarOpcionMenu: function (opcion) {
+                switch (opcion) {
+                    case 'inicio':
+                        // alert('probando')
+                        this.caragarBienvenida();
+                        // window.scrollTo(0, 0);
+                        window.scrollTo(0, 0);
+                        break;
+                    case 'galeria':
+                        this.cargarGaleria();
+                        //caragarBienvenida('video_inicio.html');
+                        // Desplazar la página al principio después de cargar el contenido
+                        window.scrollTo(0, 0);
+                        break;
+                    case 'dobleclasica':
+                        // alert('doblesclasica');
+                        this.cargarHabitacion('doble_clasica');
+                        // Desplazar la página al principio después de cargar el contenido
+                        window.scrollTo(0, 0);
+                        break;
+
+                    case 'doblesuperior':
+                        // alert('doblesuperior');
+                        this.cargarHabitacion('doble_superior');
+                        // Desplazar la página al principio después de cargar el contenido
+                        window.scrollTo(0, 0);
+                        break;
+                    case 'suite':
+                        // alert('doblesuperior');
+                        this.cargarHabitacion('doble_suite');
+                        // Desplazar la página al principio después de cargar el contenido
+                        window.scrollTo(0, 0);
+                        break;
+                    case 'triple':
+                        // alert('doblesuperior');
+                        this.cargarHabitacion('triple');
+                        // Desplazar la página al principio después de cargar el contenido
+                        window.scrollTo(0, 0);
+                        break;
+                    case 'familiar':
+                        // alert('doblesuperior');
+                        this.cargarHabitacion('familiar');
+                        // Desplazar la página al principio después de cargar el contenido
+                        window.scrollTo(0, 0);
+                        break;
+                    case 'apart':
+                        // alert('doblesuperior');
+                        this.cargarHabitacion('apart');
+                        // Desplazar la página al principio después de cargar el contenido
+                        window.scrollTo(0, 0);
+
+                        break;
+                    case 'apartsuperior':
+                        this.cargarHabitacion('apart_superior');
+                        window.scrollTo(0, 0);
+                        break;
+                    case 'contacto':
+                        this.cargarContacto();
+                        window.scrollTo(0, 0);
+                        break;
+                    default:
+                        break;
+                }
+            },
+
+            // Evento de clic en el menú para cambiar el contenido de la sección 'inicio' o 'habitaciones'
+            menuClickHandler: function (event) {
+                if (event.target.hasAttribute('data-opcion')) {
+
+                    const opcion = event.target.getAttribute('data-opcion');
+
+                    const menuItems = document.querySelectorAll('.nav-link[data-opcion]');
+                    menuItems.forEach(item => item.classList.remove('active'));
+
+                    const dropItems = document.querySelectorAll('.dropdown-item[data-opcion]');
+                    dropItems.forEach(item => item.classList.remove('active'));
+
+                    event.target.classList.add('active');
+                    // window.scrollTo(0, 0);
+                    this.cargarOpcionMenu(opcion);
+
+
+
+
+                }
+            },
+
+            // Evento de clic en los botones "Ver Habitación" en la sección de habitaciones
+            habitacionButtonClickHandler: function (event) {
+                if (event.target.hasAttribute('data-tipo-habitacion')) {
+                    const tipoHabitacion = event.target.getAttribute('data-tipo-habitacion');
+                    // console.log("Tipo de habitación:", tipoHabitacion);
+
+
+                    this.cargarHabitacion(tipoHabitacion);
+
+                }
+            },
+
+            // Método de inicialización de la aplicación
+            init: function () {
+                this.caragarBienvenida();
+                // this.cargarHabitaciones();
+                // this.cargarHabitacionesParaCarousel();
+                // Invocamos la función para cargar el carrusel
+                this.cargarHabitacionesCarouselBIS();
+                this.detectarBajadaPagina();
+                document.getElementById('menuContainer').addEventListener('click', this.menuClickHandler.bind(this));
+                document.getElementById('roomCards').addEventListener('click', this.habitacionButtonClickHandler.bind(this));
+                document.getElementById('pieContainer').addEventListener('click', this.menuClickHandler.bind(this));
+
             }
-        },
+        };
 
-        // Evento de clic en el menú para cambiar el contenido de la sección 'inicio' o 'habitaciones'
-        menuClickHandler: function (event) {
-            if (event.target.hasAttribute('data-opcion')) {
-                const opcion = event.target.getAttribute('data-opcion');
+        miApp.init();
+    });
+})();
 
-                const menuItems = document.querySelectorAll('.nav-link[data-opcion]');
-                menuItems.forEach(item => item.classList.remove('active'));
 
-                const dropItems = document.querySelectorAll('.dropdown-item[data-opcion]');
-                dropItems.forEach(item => item.classList.remove('active'));
-
-                event.target.classList.add('active');
-
-                this.cargarOpcionMenu(opcion);
-            }
-        },
-
-        // Evento de clic en los botones "Ver Habitación" en la sección de habitaciones
-        habitacionButtonClickHandler: function (event) {
-            if (event.target.hasAttribute('data-tipo-habitacion')) {
-                const tipoHabitacion = event.target.getAttribute('data-tipo-habitacion');
-                this.cargarHabitacion(tipoHabitacion);
-            }
-        },
-
-        // Método de inicialización de la aplicación
-        init: function () {
-            this.cargarContenido();
-            this.cargarHabitaciones();
-
-            document.getElementById('menuContainer').addEventListener('click', this.menuClickHandler.bind(this));
-            document.getElementById('habitacionesContainer').addEventListener('click', this.habitacionButtonClickHandler.bind(this));
-        }
-    };
-
-    miApp.init();
-});

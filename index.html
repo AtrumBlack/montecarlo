@@ -9,9 +9,16 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        
+          <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/botones.css"> -->
+    <!-- <link rel="stylesheet" href="css/form.css"> -->
+    <!-- <link rel="stylesheet" href="css/navbar.css"> -->
+    <!-- <link rel="stylesheet" href="css/lineas.css"> -->
+    <link rel="stylesheet" href="css/swiper.css">
 
     <!-- <script src="js/cargar_contenido.js"></script> -->
      <script src="js/menu.js"></script>
@@ -38,10 +45,25 @@
         <!-- </div> -->
 
     </section>
-    <section id="habitaciones">
+    <div class=" class="principal-divider-gruesa">
+        <!-- Línea separadora -->
+        <hr class="hr-gruesa">
+    </div>
+    <section class="container_card" id="habitaciones">
         <!-- Carga el contenido de habitaciones_card.html en el div con id "habitacionesContainer" -->
-        <div id="habitacionesContainer"></div>
-        <!-- Contenido adicional de la sección Habitaciones -->
+        <!-- <div id="habitacionesContainer"></div> -->
+
+        <h4>Nuestras Habitaciones</h4>
+          <div class="swiper-container">
+           
+            <div class="swiper-wrapper" id="roomCards">
+              <!-- Aquí se agregan las tarjetas -->
+              
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
     </section>
 
     <!-- <footer>
@@ -50,9 +72,12 @@
     <footer id="pieContainer"></footer>
 
    
-
+    <!-- <script src="smooth-scroll.min.js"></script> -->
     <script src="js/script.js"></script>
     <script src="js/pie.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
