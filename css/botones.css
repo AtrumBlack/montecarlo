@@ -1,22 +1,31 @@
 .btn-outline-sepia {
-    color: #423C29; /* Color de texto */
-    border-color: #423C29; /* Color del borde */
+  color:#6B675A;
+  /* Color de texto */
+  border-color: #6B675A;
+  /* Color del borde */
+  /* padding: 8px 16px; */
 }
 
 .btn-outline-sepia:hover {
-    background-color: #b0a06c; /* Color de fondo al pasar el cursor */
-    color: #fff; /* Cambiar el color del texto cuando se pasa el cursor */
+  background-color: #ABA490;
+  /* Color de fondo al pasar el cursor */
+  color: #fff;
+  /* Cambiar el color del texto cuando se pasa el cursor */
 }
+
 .form-control::placeholder {
-    color: #cca560; /* Color sepia base */
-  }
+  color: #cca560;
+  /* Color sepia base */
+}
+
 .text-sepia {
-    color: #6E6444;
-  }
-  .text-titulo-card {
-    color: #16140E;
-  }
-  .border-sepia {
-    border-color: sienna;
-  }
-  
+  color: #6E6444;
+}
+
+.text-titulo-card {
+  color: #16140E;
+}
+
+.border-sepia {
+  border-color: sienna;
+}

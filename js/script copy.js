@@ -44,39 +44,30 @@
                             // console.log(card);
                             // Construir la estructura de la tarjeta
                             card.innerHTML = `
-                                    <div class="image-content">
-                                        <span class="overlay"></span>
-                                    
-                                        <div class="card-image">
-                                        <div class="swiper-zoom-container">
-                                            <img src="${habitacionData.imagenes[0]}" alt="${habitacion}" class="card-img" >
+                                    <img src="${habitacionData.imagenes[0]}" alt="${habitacion}" >
+                                    <div class="card-description">
+                                        <div class="card-title all-titles-text">
+                                            <h4>${habitacionData.nombre}</h4>
                                         </div>
+                                        <div class="card-text all-paragraphs-text">
+                                            <p>${habitacionData.detalles}</p>
                                         </div>
-
-                                    </div>
-                                    <div class="card-content">
-                                        
-                                            <h4 class="name">${habitacionData.nombre}</h4>
-                                        
-                                        
-                                            <p class="description">${habitacionData.detalles}</p>
-                                        
                                         <div class="card-link">
                                         <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${habitacion}">Descubrir</a>
                                         </div>
-                                    </div>                                   
+                                    </div>
 
-                                
-                            `;
+
+                                    `;
 
 
                             // Agregar la tarjeta al contenedor
                             roomCardsContainer.appendChild(card);
                         }
-                        // const swiper = new Swiper(".swiper-container", {
+
                         // Inicializar Swiper después de que se hayan agregado todas las tarjetas
-                        const swiper = new Swiper(".slide-content", {
-                            
+                        const swiper = new Swiper(".swiper-container", {
+
                             navigation: {
                                 nextEl: ".swiper-button-next",
                                 prevEl: ".swiper-button-prev",
@@ -85,13 +76,11 @@
                                 // margin: 50,
                             },
                             loop: true,
-                            centeredSlides: true,
                             slidesPerView: "auto",
                             slidesPerView: 1,
                             spaceBetween: 10,
-                            fade: true,
+                            fade: 'true',
                             grabCursor: true,
-                            zoom: true,
                             pagination: {
                                 el: ".swiper-pagination",
                                 clickable: true,

@@ -2,123 +2,201 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-/* html,
 body {
-  position: relative;
-  height: 100%;
-} */
-
-body {
-  background: white;
-  /* background: #eee; */
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  color: #000;
-  margin: 0;
-  padding: 0;
+  /* background: white; */
+  background: #F4F4F1;
+  /* font-family: Helvetica Neue, Helvetica, Arial, sans-serif; */
+  /* font-size: 14px; */
+  /* color: #000; */
+  /* margin: 0; */
+  /* padding: 0; */
   /* height: 100%; */
+  /* display: flex; */
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  /* display: flex; */
+}
+.card-image {
+  position: relative;
+  /* height: 250px; */
+  /* width: 250px; */
+  border-radius: 5%;
+  background: #ABA490;
+  padding: 1px;
+}
+.card-image .card-img{
+  /* height: 100%; */
+  /* width: 100%; */
+  object-fit: cover;
+  border-radius: 5%;
+  border: 2px solid #E1DBC8;
+}
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* background-color: black; */
+  border-radius: 5px 5px 5px 5px;
+}
+.overlay::before,
+.overlay::after{
+  content:'';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  /* background-color: red; */
+}
+.overlay::after{
+  border-radius: 0 25px 0 0;
+  /* background-color: green; */
 }
 
+.text-titulo-habitaiones{
+  font-size: 24px;
+  /* font-weight: 500; */
+  color: #16140E;
+  text-align: center;
+}
 .container_card {
+
   /* width: 90%; */
   /* background: black; */
-  width: 100%;
+  /* width: 100%; */
   /* Ajusta el ancho del contenedor al 100% */
   /* max-width: 1200px; */
   /* Ajusta este valor según tus necesidades */
-  margin: 0 auto;
+  /* margin: 0 auto; */
   /* Centra el contenedor horizontalmente */
-  padding: 10px 40px;
+  padding: 10px 1px;
   /* Ajusta el relleno según sea necesario */
-  background: gold;
+  background: #EAE8E3;
 }
 
-.container_card .swiper-container {
+.slide-content{
+  padding: 35px 10px ;
+  /* width: 320px; */
+  /* margin: 0 40px; */
+  /* background: red; */
+  /* overflow: hidden; */
+  /* border-radius: 25px; */
+}
+.image-content,
+.card-content{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  align-items: center;
+}
+.image-content{
+  position: relative;
+  row-gap: 5px;
+  /* padding: 25px 0; */
+}
+.swiper-container {
   position: relative;
   width: 100%;
+  max-width: 1120px;
   /* Permite que el ancho de las diapositivas se ajuste automáticamente */
-  height: 100%;
+  /* height: 100%; */
   /* Permite que la altura del carrusel se ajuste automáticamente */
   overflow: hidden;
   /* Oculta cualquier contenido que se desborde */
-  /* padding: 50px; */
-  background: gray;
-  padding: 10px 40px;
+  padding: 40px 0;
+  /* background: gray; */
+  /* padding: 10px 40px; */
+  border-radius: 15px;
 }
 
 
-.container_card .swiper-slide {
-  position: relative;
-  text-align: center;
-  font-size: 16px;
-  background: black;
+.swiper-slide {
+  /* position: relative; */
+  /* width: 320px; */
+  /* text-align: center; */
+  /* font-size: 16px; */
+  background: #EAE8E3;
   border-radius: 15px;
-  text-align: start;
+  /* text-align: start; */
   box-shadow: 0px 4px 4px rgba(196, 196, 196, 0.25);
-  padding: 5px; /*despues modificar para probar*/
-  /* max-width: 150;  */
+  /* padding: 5px; despues modificar para probar */
+  max-width: 150; 
   height: 100%;
 }
 
-.container_card .swiper-slide img {
-  display: block;
-  width: 100%;
+.swiper-slide img {
+  /* display: block; */
+  /* width: 100%; */
   /* height: 100%; */
-  object-fit: cover;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  padding: 5px; /*despues modificar para probar*/
+  /* object-fit: cover; */
+  /* border-top-left-radius: 15px; */
+  /* border-top-right-radius: 15px; */
+  /* padding: 5px; despues modificar para probar */
 
 }
 
-.container_card .swiper-slide .card-description {
-  padding: 1rem 1rem;
+.swiper-slide .card-description {
+  /* padding: 1rem 1rem; */
   /* background: gray; */
   /* height: 300px; */
 }
 
-.container_card .swiper-slide .card-title,
-.container .swiper-slide .card-text {
-  margin-bottom: .5rem;
-  /* height: 300px; */
-}
 
-.container_card .swiper-slide .card-link {
-  text-align: right;
- /* height: 300px; */
+.name{
+  font-size: 18px;
+  font-weight: 500;
+  color: #16140E;
 }
-
-.container_card .swiper-slide .card-link a {
+.description{
+  font-size: 14px;
+  color: #847851;
+  text-align: center;
+}
+.swiper-slide .card-link a {
   text-decoration: none;
   color: #423C29;
 }
 
-.container_card .swiper-button-prev,
-.container_card .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   /* margin: 20px; */
-  color: #6E6444;
+  /* color: #6E6444; */
   /* Cambia el color de las flechas a rojo */
-  font-size: 12px;
+  /* font-size: 12px; */
   /* Cambia el tamaño de las flechas a 24px */
 }
 
 .swiper-button-next {
-  position: absolute;
+  /* position: absolute; */
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
 }
 
 .swiper-button-prev {
-  position: absolute;
+  /* position: absolute; */
   left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+}
+.swiper-navBtn{
+  color: #ABA490;
+  transition:  color 0.3s ease;
+}
+.swiper-navBtn:hover{
+  color: #6B675A;
 }
 
-.container_card .swiper-pagination-bullet {
+.swiper-navBtn ::before,
+.swiper-navBtn ::after{
+  font-size: 30px;
+}
+.swiper-pagination-bullet {
   /* background-color: #B0A06C; */
   /* Cambia el color de los puntos de paginación a azul */
   /* width: 10px; */
@@ -132,15 +210,15 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #B0A06C;
+  background-color: #ABA490;
   opacity: 1;
 }
-.container_card .swiper-pagination-bullet-active {
+.swiper-pagination-bullet-active {
   /* Modifica el estilo del punto activo */
-  background-color: #16140E;
+  background-color: #151512;
   /* opacity: 1; */
 }
-.container_card .swiper-pagination {
+.swiper-pagination {
 
     /* Posiciona la paginación */
     position: absolute;
@@ -152,10 +230,10 @@ body {
 
 /* CSS para los colores de los párrafos */
 .all-paragraphs-text {
-  color: #585036;
+  /* color: #585036; */
 }
 
 /* CSS para los colores de los títulos */
 .all-titles-text {
-  color: #16140E;
+  /* color: #16140E; */
 }
