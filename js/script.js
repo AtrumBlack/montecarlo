@@ -377,7 +377,7 @@
             // Función para cargar la información de una habitación específica
             cargarHabitacion: function (tipoHabitacion) {
                 // console.log(tipoHabitacion);
-                console.log(this.habitaciones);
+                // console.log(this.habitaciones);
                 const habitacion = this.habitaciones[tipoHabitacion];
                 console.log(habitacion);
                 if (habitacion) {
@@ -386,19 +386,20 @@
                     <h2 class="text-titulo-card p-4">${habitacion.nombre}</h2>
             
                     <div id="carouselHabitaciones" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                      ${habitacion.imagenes.map((_, index) => `<button type="button" data-bs-target="#carouselHabitaciones" data-bs-slide-to="${index}" ${index === 0 ? 'class="active"' : ''} aria-current="true" aria-label="Slide ${index + 1}"></button>`).join('')}
-                    </div>
-                    <div class="carousel-inner">
-                      ${habitacion.imagenes.map((imagen, index) => `<div class="carousel-item ${index === 0 ? 'active' : ''}">
-                          <img src="${imagen}" class="d-block w-100" alt="Foto ${index + 1}">
-                            <div class="carousel-caption d-none d-md-block ">
-                            <!-- <h5>${habitacion.nombre}</h5> -->
-                                
-                            <p style="color: white;">${habitacion.detalles}</p>
-                                
-                            </div>
-                      </div>`).join('')}
+                        <div class="carousel-indicators">
+                        ${habitacion.imagenes.map((_, index) => `<button type="button" data-bs-target="#carouselHabitaciones" data-bs-slide-to="${index}" ${index === 0 ? 'class="active"' : ''} aria-current="true" aria-label="Slide ${index + 1}"></button>`).join('')}
+                        </div>
+                        <div class="carousel-inner">
+                                    ${habitacion.imagenes.map((imagen, index) => `<div class="carousel-item ${index === 0 ? 'active' : ''}">
+                                    <img src="${imagen}" class="d-block w-100" alt="Foto ${index + 1}">
+
+                                    <div class="carousel-caption d-none d-md-block ">
+                                        <!-- <h5>${habitacion.nombre}</h5> -->
+                                            
+                                        <p style="color: white;">${habitacion.detalles}</p>
+                                        
+                                    </div>
+                        </div>`).join('')}
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselHabitaciones" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon" aria-hidden="true"></span>

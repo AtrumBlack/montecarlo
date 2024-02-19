@@ -1,7 +1,7 @@
 
   /* Estilo del borde cuando el campo está enfocado */
 .form-control:focus {
-    border-color: #B0A06C; /* Cambia el color del borde cuando el campo está enfocado */
+    border-color: #B0A06C; /*Cambia el color del borde cuando el campo está enfocado*/
     box-shadow: 0 0 0 0.25rem rgba(110, 100, 68, 0.25); /* Añade un efecto de sombra */
 }
 
@@ -46,14 +46,16 @@ footer {
 }
 
 .navbar {
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: #F4F4F1;
     height: 80px;
     margin: auto;
-    border-radius: 16px;
+    /* border-radius: 16px; */
     padding: 0.5rem;
     margin-top: 20px;
     /* Añadido el margen superior */
-    border: 2px solid #b0a06c;
+    /* border: 2px solid #b0a06c; */
+    border-bottom: 2px solid #555248; /* Establece solo el borde inferior */
     /* Añadido un borde de color verde (#009970) */
 }
 
@@ -66,18 +68,18 @@ footer {
 }
 
 .navbar-nav .nav-link {
-    color: #9A8C5F;
+    color:#ABA490;
     font-weight: 500;
     position: relative;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: #2C281B
+    color: #151512;
 }
 /* Cambiar el color de los iconos de redes sociales */
 .navbar .redes-sociales i {
-    color: #6E6444; /* Cambia tu-color-preferido al color deseado */
+    color: #ABA490; /* Cambia tu-color-preferido al color deseado */
 }
 .dropdown-menu {
     background-color: #fff;
