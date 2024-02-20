@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
 var footerContent = `
    <div class="footer_top p-2">
 
-    <div class="container ">
+    <div class="container">
 
         <div class="row justify-content-center align-items-center">
 
@@ -55,31 +55,31 @@ var footerContent = `
             <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0 border-0">
                 <h4>Menú</h4>
                 <ul class="list-unstyled">
-                <li><a href="#" data-opcion="inicio">Inicio</a></li>
-                <li><a href="#" data-opcion="galeria">Galería</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" id="drop_cases" data-bs-toggle="dropdown" aria-expanded="false">
-                        Habitaciones
-                        </a>
-                        <ul class="dropdown-menu" id="myDropdown">
-                            <li><a href="#" class="dropdown-item" data-opcion="dobleclasica">Habitaciones Doble Clásica</a></li>
-                            <li><a href="#" class="dropdown-item" data-opcion="doblesuperior">Habitaciones Doble Superior</a></li>
-                            <li><a href="#" class="dropdown-item" data-opcion="suite">Habitaciones Suite</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a href="#" class="dropdown-item" data-opcion="triple">Habitación Triple</a></li>
-                            <li><a href="#" class="dropdown-item" data-opcion="familiar">Habitación Familiar</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a href="#" class="dropdown-item" data-opcion="apart">Apart</a></li>
-                            <li><a href="#" class="dropdown-item" data-opcion="apartsuperior">Apart Superior</a></li>
-                        </ul>
-                    </li>
-                <li><a href="#" data-opcion="contacto">Contacto</a></li>
+                    <li><a href="#" data-opcion="inicio">Inicio</a></li>
+                    <li><a href="#" data-opcion="galeria">Galería</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" id="drop_cases" data-bs-toggle="dropdown" aria-expanded="false">
+                            Habitaciones
+                            </a>
+                            <ul class="dropdown-menu" id="myDropdown">
+                                <li><a href="#" class="dropdown-item" data-opcion="dobleclasica">Habitaciones Doble Clásica</a></li>
+                                <li><a href="#" class="dropdown-item" data-opcion="doblesuperior">Habitaciones Doble Superior</a></li>
+                                <li><a href="#" class="dropdown-item" data-opcion="suite">Habitaciones Suite</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a href="#" class="dropdown-item" data-opcion="triple">Habitación Triple</a></li>
+                                <li><a href="#" class="dropdown-item" data-opcion="familiar">Habitación Familiar</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a href="#" class="dropdown-item" data-opcion="apart">Apart</a></li>
+                                <li><a href="#" class="dropdown-item" data-opcion="apartsuperior">Apart Superior</a></li>
+                            </ul>
+                        </li>
+                    <li><a href="#" data-opcion="contacto">Contacto</a></li>
                 </ul>
             </div>
             <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0 text-center ">
 
             <div class="card  bg-black h-100 border-0">
-                <img src="${logoImagePath}" class="card-img" alt="logo1">
+                <img src="${logoImagePath}" class="card-img-logo-montecarlo" alt="logo1">
                 <!-- Agregar las tres estrellas -->
                 <div class="mt-3 text-sepia">
                     <i class="fas fa-star"></i>
@@ -106,20 +106,21 @@ var footerContent = `
 <hr class="footer-divider">
 
 <div id="footer-credits">
-<div class="container_pie">
-    <div class="row row-cols-1 row-cols-md-2 g-4">
 
-        <div class="col  mb-md-0 text-start">
-            <div>Copyright &copy; Montecarlo - Hotel & Apart - Todos los derechos reservados.</div>
-        </div>
+    <div class="container_pie">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
 
-        <div class="col mb-md-0 text-end">
-            <div text-right>Desarrollado por <img src="${logoImagenPie}" class="card-img" alt="logo1"
-                    style="background-color: black; width: 60px; height: 30px;">
+            <div class="col  mb-md-0 text-start">
+                <div>Copyright &copy; Montecarlo - Hotel & Apart - Todos los derechos reservados.</div>
+            </div>
+
+            <div class="col mb-md-0 text-end">
+                <div text-right>Desarrollado por <img src="${logoImagenPie}" class="card-img-logo-atrumblack" alt="logo1"
+                        style="background-color: black; width: 60px; height: 30px;">
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 `;
 

@@ -1,0 +1,17 @@
+footer {
+    background-color: black;
+    /*Fondo negro*/
+    color: white;
+    /*Texto blanco*/
+    position: relative;
+    z-index: 3;
+
+}
+.pieContainer{
+    /* position: sticky; */
+    object-fit: cover; 
+}
+.container{
+    position: relative;
+    object-fit: cover; 
+}

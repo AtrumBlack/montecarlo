@@ -155,8 +155,8 @@
                         // console.log(data);
                         this.inicioContainer.innerHTML = `
                             <div id="carouselMontecarlo" class="carousel-fade" data-bs-ride="carousel">
+
                                 <div class="carousel-inner">
-    
                                     ${data.map((imagen, index) => this.crearCarouselItem(imagen, index)).join('')}
                                 </div>
                                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
@@ -183,9 +183,9 @@
                 let navbarHeight;
                 // if (window.innerWidth < 576) {
                 // navbarHeight = document.querySelector('.navbar').offsetHeight;
-                // navbarHeight = 0;
+                navbarHeight = 0;
                 // } else {
-                navbarHeight = -2 * document.querySelector('.navbar').offsetHeight; // Si no hay barra de navegación o es grande, no necesitas ajustar el margen
+                // navbarHeight = - document.querySelector('.navbar').offsetHeight; // Si no hay barra de navegación o es grande, no necesitas ajustar el margen
                 // }
                 console.log(navbarHeight);
                 // Ajustar el margen superior del carousel
@@ -208,6 +208,20 @@
                         document.querySelector('.navbar-nav .nav-link').classList.remove('navbar-scroll');
                     }
                 });
+            },
+
+            // Función para cargar la habitacion incial
+            caragarHabInicial: function () {
+                const imagenHabitaciones = '/img/habitaciones/fotosHab.png'; // Ruta de la imagen que deseas mostrar
+            
+                this.inicioContainer.innerHTML = `
+                <div class="hab_inicial" >
+                    <div class="text-hab">
+                        <h1 class="text-hab-escrito">Nuestras Habitaciones</h1>
+                    </div>
+                    <img src="${imagenHabitaciones}" class="img-hab-inicial" alt="Habitaciones">
+                </div>
+            `;
             },
 
             // Función para cargar las habitaciones desde el JSON
@@ -545,7 +559,7 @@
 
                 // Obtener el elemento del footer
                 var contacto = document.getElementById("contenidoInicio");
-
+                
                 // Insertar el contenido dentro del footer
                 contacto.innerHTML = contactos;
                 // Llamar a la función para agregar el script
@@ -609,59 +623,29 @@
                 switch (opcion) {
                     case 'inicio':
                         // alert('probando')
+                        document.getElementById('contenidoInicio').style.marginTop = `${0}px`;
                         this.caragarBienvenida();
                         // window.scrollTo(0, 0);
                         window.scrollTo(0, 0);
                         break;
                     case 'galeria':
+                        document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                         this.cargarGaleria();
                         //caragarBienvenida('video_inicio.html');
                         // Desplazar la página al principio después de cargar el contenido
                         window.scrollTo(0, 0);
                         break;
-                    case 'dobleclasica':
+                    case 'habitaciones':
+                        document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                         // alert('doblesclasica');
-                        this.cargarHabitacion('doble_clasica');
+                        this.caragarHabInicial();
                         // Desplazar la página al principio después de cargar el contenido
                         window.scrollTo(0, 0);
                         break;
 
-                    case 'doblesuperior':
-                        // alert('doblesuperior');
-                        this.cargarHabitacion('doble_superior');
-                        // Desplazar la página al principio después de cargar el contenido
-                        window.scrollTo(0, 0);
-                        break;
-                    case 'suite':
-                        // alert('doblesuperior');
-                        this.cargarHabitacion('doble_suite');
-                        // Desplazar la página al principio después de cargar el contenido
-                        window.scrollTo(0, 0);
-                        break;
-                    case 'triple':
-                        // alert('doblesuperior');
-                        this.cargarHabitacion('triple');
-                        // Desplazar la página al principio después de cargar el contenido
-                        window.scrollTo(0, 0);
-                        break;
-                    case 'familiar':
-                        // alert('doblesuperior');
-                        this.cargarHabitacion('familiar');
-                        // Desplazar la página al principio después de cargar el contenido
-                        window.scrollTo(0, 0);
-                        break;
-                    case 'apart':
-                        // alert('doblesuperior');
-                        this.cargarHabitacion('apart');
-                        // Desplazar la página al principio después de cargar el contenido
-                        window.scrollTo(0, 0);
-
-                        break;
-                    case 'apartsuperior':
-                        this.cargarHabitacion('apart_superior');
-                        window.scrollTo(0, 0);
-                        break;
                     case 'contacto':
+                        document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
+
                         this.cargarContacto();
                         window.scrollTo(0, 0);
                         break;

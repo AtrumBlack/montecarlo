@@ -20,12 +20,83 @@
     background-color: #fff; /* Color de fondo predeterminado para los campos de entrada */
 }
 
-footer {
-    background-color: black;
-    /*Fondo negro*/
-    color: white;
-    /*Texto blanco*/
 
+.hab_inicial {
+    position: absolute;
+    text-align: center; /* Alinea el texto en el centro horizontalmente */
+}
+
+.text-hab {
+    position: absolute;
+    top: 10%;
+    left: 10%; /* Ajusta la posición del texto a la izquierda */
+    transform: translateY(-50%);
+    color: white; /* Color blanco para el texto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Agrega sombra al texto */
+    z-index: 2; /* Asegura que el texto esté sobre la imagen */
+}
+
+.img-hab-inicial {
+    position: relative;
+    width: 100%; /* La imagen ocupará todo el ancho del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+    z-index: 1; /* Asegura que la imagen esté detrás del texto */
+}
+
+@media (min-width: 884px) {
+
+
+    .hab_inicial {
+        /* position: absolute; */
+        width: 100vw; /* Ancho del contenedor al 100% del viewport */
+        height: 100vh; /* Altura del contenedor al 100% del viewport */
+        overflow: hidden; /*Para evitar el desbordamiento de contenido*/
+    }
+    
+    .text-hab {
+        
+        /* position: absolute; */
+        /* top: 50%; */
+        /* left: 10%; Ajusta la posición del texto a la izquierda */
+        /* transform: translateY(-50%); */
+        /* color: white; Color blanco para el texto */
+        /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); Agrega sombra al texto */
+        
+    }
+    
+    .img-hab-inicial {
+        /* width: 100vw; Ancho de la imagen al 100% del viewport */
+        height: 100vh; /* Altura de la imagen al 100% del viewport */
+       /* Ajusta la imagen para cubrir completamente el contenedor */
+        object-fit: cover; 
+        
+        position: relative; 
+    
+    }
+
+}
+@media (min-width: 600px) and (max-width: 1024px) {
+    .hab_inicial {
+        /* position: relative;  */
+        height: auto; /* Cambiar la altura a automática */
+    }
+
+    .img-hab-inicial {
+        /* position: relative;  */
+        max-width: 100%; /* Establecer un ancho máximo para la imagen */
+        height: auto; /* Altura automática para mantener la proporción */
+    }
+}
+@media (max-width: 600px) {
+
+    .img-hab-inicial {
+        /* position: relative; */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        /* z-index: -1;  */
+    }
 }
 
 /* Cambiar el color de los enlaces del menú */
@@ -33,157 +104,6 @@ footer {
     color: sienna; /* Cambiar a tu color deseado, por ejemplo, rojo (#ff0000) */
 }
 
-
-.navbar-toggler {
-    border: none;
-    font-size: 1.25rem;
-}
-
-.navbar-toggler:focus,
-.btn-close:focus {
-    box-shadow: none;
-    outline: none;
-}
-
-.navbar {
-    /* background-color: #fff; */
-    background-color: #F4F4F1;
-    height: 80px;
-    margin: auto;
-    /* border-radius: 16px; */
-    padding: 0.5rem;
-    margin-top: 20px;
-    /* Añadido el margen superior */
-    /* border: 2px solid #b0a06c; */
-    border-bottom: 2px solid #555248; /* Establece solo el borde inferior */
-    /* Añadido un borde de color verde (#009970) */
-}
-
-.navbar .navbar-brand img {
-    /* font-weight: 500; */
-    /* color: #009970; */
-    font-size: 24px;
-    /* transition: 0.3s color; */
-    max-height: 40px;
-}
-
-.navbar-nav .nav-link {
-    color:#ABA490;
-    font-weight: 500;
-    position: relative;
-}
-
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-    color: #151512;
-}
-/* Cambiar el color de los iconos de redes sociales */
-.navbar .redes-sociales i {
-    color: #ABA490; /* Cambia tu-color-preferido al color deseado */
-}
-.dropdown-menu {
-    background-color: #fff;
-    color:#b0a06c;
-    border-radius: 10px;
-
-}
-
-.dropdown-menu li {
-    position: relative;
-}
-
-.dropdown-item {
-    color: rgb(24, 34, 26);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-/* Agrega estilos para el menú desplegable
-.navbar-nav .nav-item:hover .dropdown-menu {
-    display: block;
-} */
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-    /* background-color: #009970; Cambia el color de fondo cuando se selecciona un elemento del menú desplegable */
-    color: #fff; /*Cambia el color del texto cuando se selecciona un elemento del menú desplegable
-    /* content: ""; */
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-    /* width: 100%; */
-    /* height: 2px; */
-    background-color: #b0a06c;
-    /* visibility: hidden; */
-    /* transition: 0.3s ease-in-out; */
-
-}
-
-/* Cambia el color del fondo cuando el enlace del Dropdown está activo */
-.dropdown-menu .dropdown-item.active,
-.dropdown-menu .dropdown-item:active {
-    /* background-color: #00ff00; Cambia el color de fondo cuando está activo según tus preferencias */
-    content: "";
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-    /* width: 100%; */
-    /* height: 10px; */
-    background-color: #423C29;
-    /* visibility: hidden; */
-    /* transition: 0.3s ease-in-out; */
-}
-
-/* Cambia el color del texto cuando el enlace del Dropdown está activo */
-.dropdown-menu .dropdown-item.active a,
-.dropdown-menu .dropdown-item:active a {
-    color: #b0a06c;
-    /* Cambia el color del texto cuando está activo según tus preferencias */
-}
-
-
-@media (min-width: 991px) {
-
-    /* #contenidoInicio {
-        margin-top: -100px; /* Ajusta según la altura del navbar 
-    } */
-
-    #carouselMontecarlo {
-        margin-top: -100px;
-        width: 100%;
-        /* Añade otros estilos si es necesario */
-    }
-
-    .navbar-nav .nav-link::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 2px;
-        background-color: #423C29;
-        visibility: hidden;
-        transition: 0.3s ease-in-out;
-
-    }
-
-    .navbar-nav .nav-link:hover::before,
-    .navbar-nav .nav-link.active::before {
-        width: 100%;
-        visibility: visible;
-    }
-}
-
-/* Otros estilos generales aquí */
-
-.inicio-styles #contenidoInicio {
-    margin-top: 0px;
-    /* Ajusta según la altura del navbar */
-}
 
 .inicio-styles #carouselMontecarlo {
     width: 100%;
@@ -207,9 +127,9 @@ footer {
 }
 
 .hero-section .container {
-    width: 100%;
-    z-index: 1;
-    position: relative;
+    /* width: 100%; */
+    /* z-index: 1; */
+    /* position: relative; */
 }
 
 .hero-section h1 {
@@ -240,9 +160,9 @@ hr {
     /* Margen superior e inferior */
 }
 .hr-gruesa {
-    border-top: 5px solid sienna !important;
+    border-top: 3px solid #151512 !important;
     /* Línea negra */
-    margin: 10px 0; /* Margen superior e inferior */
+    margin: 5px 0; /*Margen superior e inferior*/
 }
 /* Cambiar color de los iconos "Next" y "Previous" en el carrusel */
 #carouselMontecarlo .carousel-control-next-icon,

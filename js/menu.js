@@ -21,26 +21,26 @@ document.addEventListener("DOMContentLoaded", function () {
   
         <div class="offcanvas-body">
   
-          <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 ">
-  
-            <li class="nav-item">
-              <!-- <a class="nav-link active" data-opcion="inicio" aria-current="page" href="#" -->
-              <a class="nav-link  mx-lg-2 active" data-opcion="inicio" aria-current="page" href="#"
-                data-bs-dismiss="offcanvas">Inicio</a>
-            </li>
+            <ul class="navbar-nav justify-content-center flex-grow-1 pe-3 ">
+    
+                <li class="nav-item">
+                    <a class="nav-link  mx-lg-2 active" data-opcion="inicio" aria-current="page" href="#"
+                    data-bs-dismiss="offcanvas">Inicio</a>
+                </li>
 
-            <li class="nav-item">
-              <a class="nav-link  mx-lg-2" data-opcion="galeria" href="#" data-bs-dismiss="offcanvas">Galería</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link  mx-lg-2" data-opcion="habitaciones" href="#" data-bs-dismiss="offcanvas">Habitaciones</a>
-            </li>
-  
-            <li class="nav-item  mx-lg-2">
-              <a class="nav-link" data-opcion="contacto" href="#" data-bs-dismiss="offcanvas">Contacto</a>
-            </li>
-  
-          </ul>
+                <li class="nav-item">
+                  <a class="nav-link  mx-lg-2" data-opcion="galeria" href="#" data-bs-dismiss="offcanvas">Galería</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link  mx-lg-2" data-opcion="habitaciones" href="#" data-bs-dismiss="offcanvas">Habitaciones</a>
+                </li>
+      
+                <li class="nav-item  mx-lg-2">
+                  <a class="nav-link" data-opcion="contacto" href="#" data-bs-dismiss="offcanvas">Contacto</a>
+                </li>
+    
+            </ul>
 
         </div>
   
@@ -60,13 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
   
   </nav>
-  <!-- Hero <section></section> -->
-  <section>
-    <div class="container d-flex align-items-center justify-content-center fs-1 text-white flex-column">
-      <h1>Responsive Navbar</h1>
-      <h2>bootstrap 5</h2>
-    </div>
-  </section>
+  
 `;
 
   // Obtener el elemento del footer
@@ -75,5 +69,4 @@ document.addEventListener("DOMContentLoaded", function () {
   // Insertar el contenido dentro del footer
   menues.innerHTML = menuContent;
 
-  // document.getElementById('pieContainer').addEventListener('click', this.menuClickHandler.bind(this));
 });

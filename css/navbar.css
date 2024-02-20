@@ -11,29 +11,30 @@
 
 .navbar {
     background-color: rgba(255, 255, 255, 0.2); /* Fondo casi transparente */
-    height: 80;
+    height: 60px;
     margin: auto;
     /* border-radius: 12px; */
     padding: 0.5rem;
     /* margin-top: 20px; */
     /* Añadido el margen superior */
-    border-bottom: 2px solid white; /* Borde inferior blanco */
+    border-bottom: 2px solid #555248; /* Borde inferior */
     /* Añadido un borde de color verde (#009970) */
 }
 
 .navbar .navbar-brand img {
     /* font-weight: 500; */
-    /* color: #009970; */
-    /* font-size: 24px; */
+    color: #009970;
+    font-size: 24px;
     /* transition: 0.3s color; */
     max-height: 40px;
 }
 
 .navbar-nav .nav-link {
-    color: white; /* Cambiar el color a blanco */
-    font-size: 18px; /* Ajustar el tamaño de la fuente */
+    color:#ABA490; /* Cambiar el color */
+    font-weight: 500;
+    /* font-size: 18px; Ajustar el tamaño de la fuente */
     /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); Agregar sombra al texto */
-    font-family: "Arial", "Helvetica", sans-serif; /* Cambia "Arial" por el tipo de letra que desees */
+    /* font-family: "Arial", "Helvetica", sans-serif; Cambia "Arial" por el tipo de letra que desees */
     /* font-weight: bold; Establecer negrita para Arial */
     position: relative;
 }
@@ -42,14 +43,14 @@
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
     /* color: #2C281B */
-    color: white;
+    color:  #151512;
 }
 /* Cambiar el color de los iconos de redes sociales */
 .navbar .redes-sociales i {
-    color: #6E6444; /*Cambia tu-color-preferido al color deseado*/
+    color: #ABA490;  /*Cambia tu-color-preferido al color deseado*/
 }
 .navbar-scroll {
-    background-color: #fff;
+    background-color: #F4F4F1;
     /* height: 50; */
     /* margin: auto; */
     /* border-radius: 12px; */
@@ -60,10 +61,10 @@
     /* Añadido un borde de color verde (#009970) */
 }
 .navbar-scroll .navbar-nav .nav-link {
-    color: black; /* Cambia el color del texto al hacer scroll */
-    font-size: 18px; /* Ajustar el tamaño de la fuente */
+    /* color: black; Cambia el color del texto al hacer scroll */
+    /* font-size: 18px; Ajustar el tamaño de la fuente */
     /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); Agregar sombra al texto */
-    font-family: "Arial", "Helvetica", sans-serif; /* Cambia "Arial" por el tipo de letra que desees */
+    /* font-family: "Arial", "Helvetica", sans-serif; Cambia "Arial" por el tipo de letra que desees */
     /* font-weight: bold; Establecer negrita para Arial */
     position: relative;
 }
@@ -72,6 +73,73 @@
     color: sienna; /* Cambiar a tu color deseado, por ejemplo, rojo (#ff0000) */
 }
 
+
+
+
+@media (min-width: 884px) {
+
+    /* #contenidoInicio {
+        margin-top: -100px; /* Ajusta según la altura del navbar 
+    } */
+
+    #carouselMontecarlo {
+        /* margin-top: 50px; */
+        /* width: 100%; */
+        /* Añade otros estilos si es necesario */
+    }
+    .navbar {
+        /* background-color: #fff; */
+        /* height: 80; */
+        /* margin: auto; */
+        /* border-radius: 12px; */
+        /* padding: 0.5rem; */
+        /* margin-top: 20px; */
+        /* Añadido el margen superior */
+        /* border: 2px solid #b0a06c; */
+        /* Añadido un borde de color verde (#009970) */
+    }
+    .navbar-nav .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #423C29;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+
+    }
+
+    .navbar-nav .nav-link:hover::before,
+    .navbar-nav .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+
+/* @media (max-width: 884px) {
+
+
+    .navbar {
+        /* Agrega aquí los estilos necesarios para dispositivos móviles */
+        /* background-color: #fff; */
+        /* Ajusta el fondo del navbar */
+        /* Puedes agregar otros estilos según sea necesario */
+    /* } */
+
+
+
+    /* Agrega más estilos según sea necesario para dispositivos móviles */
+/* } */
+
+
+.inicio-styles #contenidoInicio {
+    margin-top: 0px;
+    /* Ajusta según la altura del navbar */
+}
 .dropdown-menu {
     background-color: #fff;
     color:#b0a06c;
@@ -133,71 +201,4 @@
 .dropdown-menu .dropdown-item:active a {
     color: #b0a06c;
     /* Cambia el color del texto cuando está activo según tus preferencias */
-}
-
-
-@media (min-width: 884px) {
-
-    /* #contenidoInicio {
-        margin-top: -100px; /* Ajusta según la altura del navbar 
-    } */
-
-    #carouselMontecarlo {
-        margin-top: -100px;
-        width: 100%;
-        /* Añade otros estilos si es necesario */
-    }
-    .navbar {
-        /* background-color: #fff; */
-        /* height: 80; */
-        /* margin: auto; */
-        /* border-radius: 12px; */
-        /* padding: 0.5rem; */
-        /* margin-top: 20px; */
-        /* Añadido el margen superior */
-        /* border: 2px solid #b0a06c; */
-        /* Añadido un borde de color verde (#009970) */
-    }
-    .navbar-nav .nav-link::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 2px;
-        /* background-color: #423C29; */
-        background-color: white;
-        visibility: hidden;
-        transition: 0.3s ease-in-out;
-
-    }
-
-    .navbar-nav .nav-link:hover::before,
-    .navbar-nav .nav-link.active::before {
-        width: 100%;
-        visibility: visible;
-    }
-}
-
-
-/* @media (max-width: 884px) {
-
-
-    .navbar {
-        /* Agrega aquí los estilos necesarios para dispositivos móviles */
-        /* background-color: #fff; */
-        /* Ajusta el fondo del navbar */
-        /* Puedes agregar otros estilos según sea necesario */
-    /* } */
-
-
-
-    /* Agrega más estilos según sea necesario para dispositivos móviles */
-/* } */
-
-
-.inicio-styles #contenidoInicio {
-    margin-top: 0px;
-    /* Ajusta según la altura del navbar */
 }
