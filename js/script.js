@@ -125,6 +125,99 @@
 
             },
 
+            cargarGaleriaSwiper: function () {
+
+                this.inicioContainer.innerHTML = `
+            
+                    <div class="container-galeria">
+                        <!-- Swiper principal -->
+                        <div  class="swiper mySwiper2">
+                            <div class="swiper-wrapper">
+                                <!-- Slides del swiper principal -->
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+        
+                        <!-- Swiper para thumbs -->
+                        <div thumbsSlider="" class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <!-- Slides para thumbs -->
+                            </div>
+                        </div>
+                    </div>
+            `;
+            
+            // Fetch JSON data
+                fetch("/json/contenido.json")
+                    .then(response => response.json())
+                    .then(data => {
+                        
+                    // Populate swiper with JSON data
+                    var swiperWrapper = document.querySelector('.mySwiper2 .swiper-wrapper');
+                    var thumbsWrapper = document.querySelector('.mySwiper .swiper-wrapper');
+
+                    data.contenidos.forEach(function (contenido) {
+                        
+                        var slide = document.createElement('div');
+                        slide.classList.add('swiper-slide');
+                        console.log(contenido.tipo);
+                        console.log(contenido.url);
+                        if (contenido.tipo === 'imagen') {
+                            var img = document.createElement('img');
+                            img.src = contenido.url;
+                            img.alt = contenido.titulo;
+                            slide.appendChild(img);
+
+                        // } else if (contenido.tipo === 'video') {
+                            
+                        //     var video = document.createElement('video');
+                        //     video.src = contenido.url;
+                        //     video.controls = true;
+                        //     video.autoplay = false;
+                        //     video.loop = true;
+                        //     video.muted = true; // Muted by default, you may change this as needed
+                        //     slide.appendChild(video);
+                        }
+
+                        swiperWrapper.appendChild(slide.cloneNode(true)); // Agregar al swiper principal
+                        thumbsWrapper.appendChild(slide); // Agregar a los thumbs
+                    });
+
+
+                        var swiper = new Swiper(".mySwiper", {
+                            loop: true,
+                            spaceBetween: 10,
+                            slidesPerView: 4,
+                            freeMode: true,
+                            watchSlidesProgress: true,
+                        });
+                        var swiper2 = new Swiper(".mySwiper2", {
+                            loop: true,
+
+                            zoom: true,
+                            
+                            zoom: {
+                                toggle: true, // Permitir alternar el zoom al hacer clic en la diapositiva
+                            },
+                            // fade: true,
+                            spaceBetween: 10,
+                            navigation: {
+                                nextEl: ".swiper-button-next",
+                                prevEl: ".swiper-button-prev",
+                            },
+                            thumbs: {
+                                swiper: swiper,
+                            },
+                        });
+
+   
+
+                    })
+                    .catch(error => console.error('Error al cargar el archivo JSON:', error));
+            },
+
+
             // Función para ajustar la altura de las tarjetas
             ajustarAlturaTarjetas: function () {
                 const cards = document.querySelectorAll(".card");
@@ -630,7 +723,7 @@
                         break;
                     case 'galeria':
                         document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
-                        this.cargarGaleria();
+                        this.cargarGaleriaSwiper();
                         //caragarBienvenida('video_inicio.html');
                         // Desplazar la página al principio después de cargar el contenido
                         window.scrollTo(0, 0);

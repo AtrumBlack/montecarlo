@@ -81,7 +81,7 @@ var footerContent = `
             <div class="card  bg-black h-100 border-0">
                 <img src="${logoImagePath}" class="card-img-logo-montecarlo" alt="logo1">
                 <!-- Agregar las tres estrellas -->
-                <div class="mt-3 text-sepia">
+                <div class="mt-3 text-gris">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>

@@ -1,0 +1,102 @@
+.container-galeria{
+  background-color: black;
+  /* padding: 0px 0px 10px 0px; */
+  /* height: 100vh;  */
+  /* position: relative; */
+
+}
+
+/* Estilos para los swipers creados dinámicamente */
+.mySwiper2 .swiper-slide{
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mySwiper2  .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Estilos para los swipers creados dinámicamente */
+ .mySwiper2 {
+  height: 60%;
+  width: 80%;
+  /* object-fit: cover; */
+  /* position: relative; */
+  /* background-color: aquamarine; */
+}
+
+ .mySwiper {
+  /* height: 20vh; */
+  height: 40%;
+  width: 80%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+ .mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+ .mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+ .mySwiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 885px) {
+  .container-galeria{
+    /* background-color: black; */
+    /* padding: 0px 0px 10px 0px; */
+    height: 100vh; 
+    /* position: relative; */
+  
+  }
+
+
+}
+
+.mySwiper2 .swiper-button-prev,
+.mySwiper2 .swiper-button-next {
+  /* margin: 20px; */
+  color: #EAE8E3;
+  /* Cambia el color de las flechas a rojo */
+  font-size: 12px;
+  /* Cambia el tamaño de las flechas a 24px */
+}
+
+.mySwiper2 .swiper-button-next {
+  /* position: absolute; */
+  right: 0;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+}
+
+.mySwiper2 .swiper-button-prev {
+  /* position: absolute; */
+  left: 0;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+}
+.mySwiper2 .swiper-button-prev:after,
+.mySwiper2 .swiper-button-next:after{
+  /* margin: 20px; */
+  /* color: #6B675A; */
+  background: #2B2924;
+  /* Cambia el color de las flechas a rojo */
+  font-size: 12px;
+  padding: 10px;
+  /* Cambia el tamaño de las flechas a 24px */
+}

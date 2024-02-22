@@ -99,10 +99,6 @@
     }
 }
 
-/* Cambiar el color de los enlaces del menú */
-.list-unstyled a {
-    color: sienna; /* Cambiar a tu color deseado, por ejemplo, rojo (#ff0000) */
-}
 
 
 .inicio-styles #carouselMontecarlo {
