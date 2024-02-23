@@ -12,10 +12,26 @@
 
 .custom-input:focus,
 .custom-textarea:focus {
-    border-color: #8b4513; /* Color del borde cuando está enfocado */
+    border-color:#959288; /* Color del borde cuando está enfocado */
 }
 
 .custom-input,
 .custom-textarea {
     background-color: #fff; /* Color de fondo predeterminado para los campos de entrada */
 }
+
+.form-control::placeholder {
+    color: #D5D1C8;
+    /* Color sepia base */
+  }
+  
+  .text-sepia {
+    color: #ABA490;
+  }
+  .text-contacto-form{
+    color: #403E36;
+}
+.text-contacto{
+    color: #151512;
+}
+

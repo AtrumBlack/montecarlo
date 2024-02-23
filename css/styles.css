@@ -1,24 +1,5 @@
 
-  /* Estilo del borde cuando el campo está enfocado */
-.form-control:focus {
-    border-color: #B0A06C; /*Cambia el color del borde cuando el campo está enfocado*/
-    box-shadow: 0 0 0 0.25rem rgba(110, 100, 68, 0.25); /* Añade un efecto de sombra */
-}
 
-/* CSS personalizado para el formulario */
-.custom-form {
-    background-color: #f8f9fa; /* Color de fondo predeterminado */
-}
-
-.custom-input:focus,
-.custom-textarea:focus {
-    border-color: #8b4513; /* Color del borde cuando está enfocado */
-}
-
-.custom-input,
-.custom-textarea {
-    background-color: #fff; /* Color de fondo predeterminado para los campos de entrada */
-}
 
 
 .hab_inicial {
@@ -43,9 +24,11 @@
     z-index: 1; /* Asegura que la imagen esté detrás del texto */
 }
 
-@media (min-width: 884px) {
+@media (min-width: 885px) {
 
-
+    .carousel-fade {
+        height: 100vh; 
+        }
     .hab_inicial {
         /* position: absolute; */
         width: 100vw; /* Ancho del contenedor al 100% del viewport */
@@ -122,12 +105,15 @@
     left: 0;
 }
 
-.hero-section .container {
-    /* width: 100%; */
-    /* z-index: 1; */
-    /* position: relative; */
-}
 
+#contenidoInicio .container {
+    /* background-image: url('/img/de-todo/1x/fondo12.png');
+    background-size: cover; */
+    background-color: #F4F4F1;
+    /* opacity: 0.7; */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Sombra con desplazamiento x=0, y=0, desenfoque de 10px y color negro con opacidad 50% */
+    /* padding: 20px; */
+  }
 .hero-section h1 {
     font-size: 1.5em;
 }
@@ -152,8 +138,9 @@ hr {
 .principal-divider-gruesa {
     border-top: 5px solid black !important;
     /* Línea blanca */
-    margin: 10px 0;
+    margin: 5px 0;
     /* Margen superior e inferior */
+    background-color: #E1DBC8;
 }
 .hr-gruesa {
     border-top: 3px solid #151512 !important;
@@ -208,6 +195,7 @@ hr {
 }
 
 
+
 /* Agrega el estilo de zoom hacia abajo cuando la clase .zoom-down está presente */
 #carouselMontecarlo.zoom-down .carousel-inner {
     transform: scale(0.8);
@@ -260,3 +248,4 @@ hr {
     background-color: goldenrod;
     /* Cambia tu-color-activo por el color de fondo deseado para el indicador activo */
 }
+

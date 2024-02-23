@@ -30,7 +30,8 @@
                 // document.addEventListener("DOMContentLoaded", function () {
                 // Obtener el elemento contenedor de las tarjetas
                 const roomCardsContainer = document.getElementById("roomCards");
-                // console.log('uuuyyy');
+
+
                 // Realizar la solicitud para obtener el archivo JSON
                 fetch("/json/habitaciones.json")
                     .then(response => response.json())
@@ -40,6 +41,7 @@
                         for (const habitacion in data.habitaciones) {
                             const habitacionData = data.habitaciones[habitacion];
                             const card = document.createElement("div");
+
                             card.classList.add("swiper-slide");
                             // console.log(card);
                             // Construir la estructura de la tarjeta
@@ -65,7 +67,7 @@
                                         <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${habitacion}">Descubrir</a>
                                         </div>
                                     </div>                                   
-
+                                   
                                 
                             `;
 
@@ -76,7 +78,7 @@
                         // const swiper = new Swiper(".swiper-container", {
                         // Inicializar Swiper después de que se hayan agregado todas las tarjetas
                         const swiper = new Swiper(".slide-content", {
-                            
+
                             navigation: {
                                 nextEl: ".swiper-button-next",
                                 prevEl: ".swiper-button-prev",
@@ -128,11 +130,15 @@
             cargarGaleriaSwiper: function () {
 
                 this.inicioContainer.innerHTML = `
-            
+            <div class="container-fondo">
                     <div class="container-galeria">
-                        <!-- Swiper principal -->
-                        <div  class="swiper mySwiper2">
-                            <div class="swiper-wrapper">
+                    <!-- Swiper principal -->
+                    <div  class="swiper mySwiper2">
+                    <div class="text-galeria">
+                          <h1 class="text-galeria-escrito">Galeria de Fotos</h1> 
+                    </div>
+                    <div class="swiper-wrapper">
+                    
                                 <!-- Slides del swiper principal -->
                             </div>
                             <div class="swiper-button-next"></div>
@@ -146,45 +152,52 @@
                             </div>
                         </div>
                     </div>
+            </div>
             `;
-            
-            // Fetch JSON data
+
+                // Fetch JSON data
                 fetch("/json/contenido.json")
                     .then(response => response.json())
                     .then(data => {
-                        
-                    // Populate swiper with JSON data
-                    var swiperWrapper = document.querySelector('.mySwiper2 .swiper-wrapper');
-                    var thumbsWrapper = document.querySelector('.mySwiper .swiper-wrapper');
 
-                    data.contenidos.forEach(function (contenido) {
-                        
-                        var slide = document.createElement('div');
-                        slide.classList.add('swiper-slide');
-                        console.log(contenido.tipo);
-                        console.log(contenido.url);
-                        if (contenido.tipo === 'imagen') {
-                            var img = document.createElement('img');
-                            img.src = contenido.url;
-                            img.alt = contenido.titulo;
-                            slide.appendChild(img);
+                        // Populate swiper with JSON data
+                        var swiperWrapper = document.querySelector('.mySwiper2 .swiper-wrapper');
+                        var thumbsWrapper = document.querySelector('.mySwiper .swiper-wrapper');
 
-                        // } else if (contenido.tipo === 'video') {
-                            
-                        //     var video = document.createElement('video');
-                        //     video.src = contenido.url;
-                        //     video.controls = true;
-                        //     video.autoplay = false;
-                        //     video.loop = true;
-                        //     video.muted = true; // Muted by default, you may change this as needed
-                        //     slide.appendChild(video);
-                        }
+                        var swiperSlidesHTML = '';
+                        var thumbsSlidesHTML = '';
 
-                        swiperWrapper.appendChild(slide.cloneNode(true)); // Agregar al swiper principal
-                        thumbsWrapper.appendChild(slide); // Agregar a los thumbs
-                    });
+                        data.contenidos.forEach(function (contenido) {
 
+                            // var slide = document.createElement('div');
+                            // slide.classList.add('swiper-slide');
+                            var slideHTML = '';
+                            if (contenido.tipo === 'imagen') {
+                                slideHTML = `
+                            <div class="swiper-slide">
+                                <div class="swiper-zoom-container">
+                                    <img src="${contenido.url}" alt="${contenido.titulo}">
+                                </div>
+                            </div>
+                        `;
 
+                                // } else if (contenido.tipo === 'video') {
+
+                                //     var video = document.createElement('video');
+                                //     video.src = contenido.url;
+                                //     video.controls = true;
+                                //     video.autoplay = false;
+                                //     video.loop = true;
+                                //     video.muted = true; // Muted by default, you may change this as needed
+                                //     slide.appendChild(video);
+                            }
+
+                            swiperSlidesHTML += slideHTML;
+                            thumbsSlidesHTML += slideHTML;
+                        });
+
+                        swiperWrapper.innerHTML = swiperSlidesHTML;
+                        thumbsWrapper.innerHTML = thumbsSlidesHTML;
                         var swiper = new Swiper(".mySwiper", {
                             loop: true,
                             spaceBetween: 10,
@@ -196,7 +209,7 @@
                             loop: true,
 
                             zoom: true,
-                            
+
                             zoom: {
                                 toggle: true, // Permitir alternar el zoom al hacer clic en la diapositiva
                             },
@@ -211,7 +224,7 @@
                             },
                         });
 
-   
+
 
                     })
                     .catch(error => console.error('Error al cargar el archivo JSON:', error));
@@ -280,7 +293,7 @@
                 // } else {
                 // navbarHeight = - document.querySelector('.navbar').offsetHeight; // Si no hay barra de navegación o es grande, no necesitas ajustar el margen
                 // }
-                console.log(navbarHeight);
+                // console.log(navbarHeight);
                 // Ajustar el margen superior del carousel
                 document.getElementById('carouselMontecarlo').style.marginTop = `${navbarHeight}px`;
             },
@@ -292,7 +305,7 @@
                         document.querySelector('.navbar').classList.add('navbar-scroll');
                         document.querySelector('.navbar-nav .nav-link').classList.add('navbar-scroll');
 
-                        console.log('Se bajó la página');
+                        // console.log('Se bajó la página');
                         // Puedes agregar más lógica aquí si es necesario
                     } else {
                         // Eliminar la clase que cambia el color del navbar si el usuario ha vuelto arriba
@@ -306,12 +319,10 @@
             // Función para cargar la habitacion incial
             caragarHabInicial: function () {
                 const imagenHabitaciones = '/img/habitaciones/fotosHab.png'; // Ruta de la imagen que deseas mostrar
-            
+
                 this.inicioContainer.innerHTML = `
                 <div class="hab_inicial" >
-                    <div class="text-hab">
-                        <h1 class="text-hab-escrito">Nuestras Habitaciones</h1>
-                    </div>
+
                     <img src="${imagenHabitaciones}" class="img-hab-inicial" alt="Habitaciones">
                 </div>
             `;
@@ -547,104 +558,88 @@
                 //     .then(data => this.inicioContainer.innerHTML = data);
                 var contactos = `
                 <div class="container bg-transparente p-3 mt-1 rounded">
-                <h2 class="text-warning-emphasis">CONTACTENOS</h2>
+                    <h2 class="text-contacto">CONTACTENOS</h2>
+
+                    <div class="row row-cols-1 row-cols-md-2 g-4 p-2 justify-content-center align-items-center">
+                    
+                        <div class="col">
+
+                                <form id="miformulario">
+                                    <h2><span class="text-contacto-form text-opacity-75">Formulario de Contacto:</span></h2>
             
-            
-                <div class="row row-cols-1 row-cols-md-2 g-4 p-2 justify-content-center align-items-center">
-            
-    
-            
-                <!-- Tu  <div class="col col-sm-6 col-lg-4 "> -->
-                <div class="col">
-                        <form id="miformulario">
-                        <h2><span class="text-warning-emphasis text-opacity-75">Formulario de Contacto:</span></h2>
-    
-                            <div class="mb-1">
-            
-                                <!-- <div class="col col-sm-6 col-lg-4 mb-4 "> -->
-                                
-                                <label for="nombre" class="form-label text-sepia">Introduzca sus datos</label>
-                                <input type="text" class="form-control text-sepia border border-warning-subtle " id="nombre" name="nombre" placeholder="Nombre"
-                                    aria-label="Apellido-Nombre">
-                                <!-- </div> -->
-            
-                            </div>
-            
-                            <div class="mb-1">
-                            <!-- <label for="email" class="form-label text-white-50 text-warning-emphasis">Email</label>-->
-                                <input type="email" class="form-control border border-warning-subtle" id="email" name="email" placeholder="Email" >
-                            </div>
-                            <div class="mb-1">
-                            <!-- <label for="telefono" class="form-label text-white-50 text-warning-emphasis">Telefono</label>-->
-                                <input type="telefono" class="form-control border border-warning-subtle" id="telefono" name="telefono" placeholder="Telefono">
-                            </div>       
-                            <div class="mb-1">
-                                <label for="mensaje" class="form-label text-white-50 text-warning-emphasis">Comentarios/Consultas:</label>
-                                <textarea class="form-control border border-warning-subtle" id="mensaje" rows="3" name="mensaje" placeholder="Comentarios/Consultas:"></textarea>
-                            </div>
-            
-                            <button type="submit" class="btn btn-outline-sepia">Enviar</button>
-            
-                        </form>
-            
-                    </div>
-            
-            
-                    <!-- Tu  <div class="col col-sm-6 col-lg-4 "> -->
-                    <div class="col">
-                        <div class="card  h-100 border-0" style="width:  100%; color: white;">
-            
-                            <div class=" text-start text-warning-emphasis">Información de contacto
-                                <!-- Línea separadora -->
-                                <!-- <hr class="footer-divider-gruesa"> -->
-                            </div>
-            
-                            <div class="card-body text-secondary">
-                                <!-- <h5 class="card-title text-start">Información de contacto</h5> -->
-                                <ul class="list-unstyled text-start">
-                                    <li>
-                                        <i class="fas fa-phone-alt"></i> Tel: (0223) 484-2150 / 485-0267
-                                    </li>
-                                    <li>
-                                        <i class="fab fa-whatsapp"></i> +54 9 223 446-2153
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-envelope"></i> reservas@montecarlohotelmdp.com
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-info-circle"></i> info@montecarlohotelmdp.com
-                                    </li>
-                                    <li>
-                                        <i class="fab fa-instagram"></i> @montecarlohotel_mdp
-                                    </li>
-                                    <li>
-                                        <i class="fab fa-facebook-f"></i> facebook.com/montecarlohotelmdp
-                                    </li>
-                                </ul>
-                            </div>
-            
+                                    <div class="mb-1">
+                                        
+                                        <label for="nombre" class="form-label text-sepia">Introduzca sus datos</label>
+                                        <input type="text" class="form-control text-sepia" id="nombre" name="nombre" placeholder="Nombre"
+                                            aria-label="Apellido-Nombre">
+                       
+                                    </div>
+                    
+                                    <div class="mb-1">
+                                        <input type="email" class="form-control border " id="email" name="email" placeholder="Email" >
+                                    </div>
+                                    <div class="mb-1">
+                                        <input type="telefono" class="form-control border " id="telefono" name="telefono" placeholder="Telefono">
+                                    </div>       
+                                    <div class="mb-1">
+                                        <label for="mensaje" class="form-label text-sepia">Comentarios/Consultas:</label>
+                                        <textarea class="form-control border " id="mensaje" rows="3" name="mensaje" placeholder="Comentarios/Consultas:"></textarea>
+                                    </div>
+                    
+                                    <button type="submit" class="btn btn-outline-sepia">Enviar</button>
+                    
+                                </form>
+                
                         </div>
-                    </div>
-            
-                    <!-- Tu  <div class="col col-sm-6 col-lg-4 "> -->
-                    <div class="col-md-12">
-                        <div class="card h-100 border-0 mb-2" style="color: white;">
+                
+                        <div class="col">
+
+                            <div class="card  h-100 border-0" style="width:  100%; color: white;">
+                
                                 <div class="card-body text-secondary">
-                                    <h8 class="card-title text-start text-warning-emphasis">Calabria 1603 esq. Perez Bulnes | Mar del
-                                    Plata</h8>
-                                    <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2221.0452209256223!2d-57.551405622218304!3d-38.069629482160806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1706015106915!5m2!1ses-419!2sar"
-                                    class="img-fluid  w-100"  height="300" frameborder="0"
-                                    style="border:0; height: 300px;" allowfullscreen="" aria-hidden="false" loading="lazy"
-                                    referrerpolicy="no-referrer-when-downgrade" tabindex="0"></iframe>
-            
+                                    <ul class="list-unstyled text-start">
+                                        <li>
+                                            <i class="fas fa-phone-alt"></i> Tel: (0223) 484-2150 / 485-0267
+                                        </li>
+                                        <li>
+                                            <i class="fab fa-whatsapp"></i> +54 9 223 446-2153
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-envelope"></i> reservas@montecarlohotelmdp.com
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-info-circle"></i> info@montecarlohotelmdp.com
+                                        </li>
+                                        <li>
+                                            <i class="fab fa-instagram"></i> @montecarlohotel_mdp
+                                        </li>
+                                        <li>
+                                            <i class="fab fa-facebook-f"></i> facebook.com/montecarlohotelmdp
+                                        </li>
+                                    </ul>
                                 </div>
-            
+                
+                            </div>
                         </div>
+                
+                        <div class="col-md-12">
+                            <div class="card h-100 border-0 mb-2" style="color: white;">
+                                    <div class="card-body text-secondary">
+                                        <h8 class="card-title text-start text-sepia">Calabria 1603 esq. Perez Bulnes | Mar del
+                                        Plata</h8>
+                                        <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2221.0452209256223!2d-57.551405622218304!3d-38.069629482160806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1706015106915!5m2!1ses-419!2sar"
+                                        class="img-fluid  w-100"  height="300" frameborder="0"
+                                        style="border:0; height: 300px;" allowfullscreen="" aria-hidden="false" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade" tabindex="0"></iframe>
+                
+                                    </div>
+                
+                            </div>
+                        </div>
+                
                     </div>
-            
-                </div>
-                <!-- </div> -->
+                
                 </div>
     
     
@@ -652,7 +647,7 @@
 
                 // Obtener el elemento del footer
                 var contacto = document.getElementById("contenidoInicio");
-                
+
                 // Insertar el contenido dentro del footer
                 contacto.innerHTML = contactos;
                 // Llamar a la función para agregar el script
@@ -722,7 +717,7 @@
                         window.scrollTo(0, 0);
                         break;
                     case 'galeria':
-                        document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
+                        document.getElementById('contenidoInicio').style.marginTop = `${0}px`;
                         this.cargarGaleriaSwiper();
                         //caragarBienvenida('video_inicio.html');
                         // Desplazar la página al principio después de cargar el contenido
@@ -772,10 +767,9 @@
             // Evento de clic en los botones "Ver Habitación" en la sección de habitaciones
             habitacionButtonClickHandler: function (event) {
                 if (event.target.hasAttribute('data-tipo-habitacion')) {
+                    document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                     const tipoHabitacion = event.target.getAttribute('data-tipo-habitacion');
                     // console.log("Tipo de habitación:", tipoHabitacion);
-
-
                     this.cargarHabitacion(tipoHabitacion);
 
                 }

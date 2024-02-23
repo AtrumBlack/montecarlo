@@ -13,15 +13,6 @@
   /* Cambiar el color del texto cuando se pasa el cursor */
 }
 
-.form-control::placeholder {
-  color: #cca560;
-  /* Color sepia base */
-}
-
-.text-sepia {
-  color: #6E6444;
-}
-
 .text-titulo-card {
   color: #16140E;
 }

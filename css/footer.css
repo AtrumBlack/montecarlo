@@ -11,7 +11,7 @@ footer {
     /* position: sticky; */
     object-fit: cover; 
 }
-.container{
+.footer_top .container{
     position: relative;
     object-fit: cover; 
     color: #F4F4F1;
@@ -25,5 +25,8 @@ footer {
 
 /* Cambiar el color de los enlaces del menú */
 .list-unstyled a {
-    color: #ABA490; /* Cambiar a tu color deseado, por ejemplo,  */
+    color: #ABA490;  
+}
+.card {
+    background-color: transparent; /* Fondo transparente */
 }

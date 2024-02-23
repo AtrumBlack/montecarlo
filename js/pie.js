@@ -16,7 +16,7 @@ var footerContent = `
             
             <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0 border-0">
 
-                <div class="card  bg-black  h-100 border-0 mb-3" style="width:  100%; color: white;">
+                <div class="card h-100 border-0 mb-3" style="width:  100%; color: white;">
 
                     <div class="card-header text-start ">Contacto
                         <!-- Línea separadora -->
@@ -78,7 +78,7 @@ var footerContent = `
             </div>
             <div class="col-sm-6 col-lg-4 mb-4 mb-lg-0 text-center ">
 
-            <div class="card  bg-black h-100 border-0">
+            <div class="card  h-100 border-0">
                 <img src="${logoImagePath}" class="card-img-logo-montecarlo" alt="logo1">
                 <!-- Agregar las tres estrellas -->
                 <div class="mt-3 text-gris">
