@@ -19,7 +19,7 @@ body {
   justify-content: center;
   /* display: flex; */
 }
-.card-image {
+.swiper .card-image {
   position: relative;
   /* height: 250px; */
   /* width: 250px; */
@@ -27,14 +27,14 @@ body {
   background: #ABA490;
   padding: 1px;
 }
-.card-image .card-img{
+.swiper .card-image .card-img{
   /* height: 100%; */
   /* width: 100%; */
   object-fit: cover;
   border-radius: 5%;
   border: 2px solid #E1DBC8;
 }
-.overlay{
+.swiper .overlay{
   position: absolute;
   left: 0;
   top: 0;
@@ -43,8 +43,8 @@ body {
   /* background-color: black; */
   border-radius: 5px 5px 5px 5px;
 }
-.overlay::before,
-.overlay::after{
+.swiper .overlay::before,
+.swiper .overlay::after{
   content:'';
   position: absolute;
   right: 0;
@@ -53,12 +53,12 @@ body {
   width: 40px;
   /* background-color: red; */
 }
-.overlay::after{
+.swiper .overlay::after{
   border-radius: 0 25px 0 0;
   /* background-color: green; */
 }
 
-.text-titulo-habitaiones{
+.swiper .text-titulo-habitaiones{
   /* position: absolute; */
   /* bottom: 5%; */
   top: 10%;
@@ -70,7 +70,7 @@ body {
 
 }
 
-.container_card {
+.swiper .container_card {
 
   /* width: 90%; */
   /* background: black; */
@@ -85,7 +85,7 @@ body {
   background: #EAE8E3;
 }
 
-.slide-content{
+.swiper .slide-content{
   padding: 35px 10px ;
   /* width: 320px; */
   /* margin: 0 40px; */
@@ -93,19 +93,19 @@ body {
   /* overflow: hidden; */
   /* border-radius: 25px; */
 }
-.image-content,
-.card-content{
+.swiper .image-content,
+.swiper .card-content{
   display: flex;
   flex-direction: column;
   padding: 10px 14px;
   align-items: center;
 }
-.image-content{
+.swiper .image-content{
   position: relative;
   row-gap: 5px;
   /* padding: 25px 0; */
 }
-.swiper-container {
+.swiper .swiper-container {
   position: relative;
   width: 100%;
   max-width: 1120px;
@@ -121,7 +121,7 @@ body {
 }
 
 
-.swiper-slide {
+.swiper .swiper-slide {
   /* position: relative; */
   /* width: 320px; */
   /* text-align: center; */
@@ -135,74 +135,59 @@ body {
   height: 100%;
 }
 
-.swiper-slide img {
-  /* display: block; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* object-fit: cover; */
-  /* border-top-left-radius: 15px; */
-  /* border-top-right-radius: 15px; */
-  /* padding: 5px; despues modificar para probar */
 
-}
-
-.swiper-slide .card-description {
-  /* padding: 1rem 1rem; */
-  /* background: gray; */
-  /* height: 300px; */
-}
-
-
-.name{
+.swiper .name{
   font-size: 18px;
   font-weight: 500;
   color: #16140E;
 }
-.description{
+.swiper .description{
   font-size: 14px;
   color: #847851;
   text-align: center;
 }
-.swiper-slide .card-link a {
+.swiper .swiper-slide .card-link a {
   text-decoration: none;
   color: #423C29;
 }
 
-.swiper-button-prev,
-.swiper-button-next {
+
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
   /* margin: 20px; */
-  /* color: #6E6444; */
+  color: #EAE8E3;
   /* Cambia el color de las flechas a rojo */
-  /* font-size: 12px; */
+  font-size: 12px;
   /* Cambia el tamaño de las flechas a 24px */
 }
 
-.swiper-button-next {
+.swiper .swiper-button-next {
   /* position: absolute; */
   right: 0;
   /* top: 50%; */
   /* transform: translateY(-50%); */
 }
 
-.swiper-button-prev {
+.swiper .swiper-button-prev {
   /* position: absolute; */
   left: 0;
   /* top: 50%; */
   /* transform: translateY(-50%); */
 }
-.swiper-navBtn{
-  color: #ABA490;
-  transition:  color 0.3s ease;
-}
-.swiper-navBtn:hover{
-  color: #6B675A;
+
+.swiper .swiper-button-prev:after,
+.swiper .swiper-button-next:after {
+  /* margin: 20px; */
+  /* color: #6B675A; */
+  background: #2B2924;
+  /* Cambia el color de las flechas a rojo */
+  font-size: 18px;
+  padding: 10px;
+  /* Cambia el tamaño de las flechas a 24px */
 }
 
-.swiper-navBtn ::before,
-.swiper-navBtn ::after{
-  font-size: 30px;
-}
-.swiper-pagination-bullet {
+.swiper .swiper-pagination-bullet {
   /* background-color: #B0A06C; */
   /* Cambia el color de los puntos de paginación a azul */
   /* width: 10px; */
@@ -219,12 +204,12 @@ body {
   background-color: #ABA490;
   opacity: 1;
 }
-.swiper-pagination-bullet-active {
+.swiper .swiper-pagination-bullet-active {
   /* Modifica el estilo del punto activo */
   background-color: #151512;
   /* opacity: 1; */
 }
-.swiper-pagination {
+.swiper .swiper-pagination {
 
     /* Posiciona la paginación */
     position: absolute;
@@ -235,11 +220,11 @@ body {
 }
 
 /* CSS para los colores de los párrafos */
-.all-paragraphs-text {
+.swiper .all-paragraphs-text {
   /* color: #585036; */
 }
 
 /* CSS para los colores de los títulos */
-.all-titles-text {
+.swiper .all-titles-text {
   /* color: #16140E; */
 }

@@ -1,0 +1,199 @@
+.container-Hab {
+  background-image: url('/img/habitaciones/fotosHab.png');
+  background-size: contain; /* Ajusta la imagen para cubrir todo el contenedor */
+  background-position: center; /* Centra la imagen */
+}
+
+/* Estilos para los swipers creados dinámicamente */
+.mySwiper5 .swiper-slide {
+  /* text-align: center; */
+  /* font-size: 18px; */
+  /* background: #fff; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.mySwiper5 .swiper-slide img {
+  /* display: block; */
+  width: 100%;
+  /* background: gold; */
+  /* height: 100%; */
+  /* object-fit: cover; */
+  /* border-radius: 12; */
+}
+
+.swiper-slide .card-description {
+  /* padding: 1rem 1rem; */
+  /* background: gray; */
+  /* height: 300px; */
+}
+
+.mySwiper5 .image-content,
+.mySwiper5 .card-content {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  border-radius: 3%;
+  align-items: center;
+  /* background-color: #847851; */
+  /* z-index: 2; */
+}
+
+.mySwiper5 .image-content {
+  position: relative;
+  row-gap: 5px;
+  /* padding: 25px 0; */
+  /* z-index: 0; */
+}
+
+.mySwiper5 .card-image {
+  position: relative;
+  /* background-color: aqua; */
+  /* background: #847851; */
+  /* height: 250px; */
+  /* width: 250px; */
+  /* border-radius: 30%; */
+  /* background: #ABA490; */
+  /* padding: 1px; */
+  /* z-index: 0; */
+}
+
+.mySwiper5 .card-image .card-img {
+  /* height: 100%; */
+  /* width: 100%; */
+  /* object-fit: cover; */
+  /* border-radius: 30%; */
+  /* border: 2px solid #E1DBC8; */
+  /* z-index: 0; */
+
+}
+
+.mySwiper5 .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  /* background-color: black; */
+  border-radius: 5px 5px 5px 5px;
+  /* z-index: 0; */
+}
+
+.mySwiper5 .overlay::before,
+.mySwiper5 .overlay::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  /* background-color: red; */
+}
+
+.mySwiper5 .overlay::after {
+  border-radius: 0 25px 0 0;
+  /* background-color: green; */
+}
+
+.mySwiper5 .description {
+  font-size: 14px;
+  color: #847851;
+  text-align: center;
+  padding: 20px; /* Aumenta el espacio entre los bordes y el contenido */
+}
+
+/* Estilos para los swipers creados dinámicamente */
+.mySwiper5 {
+  /* height: 60%;
+  width: 80%; */
+  /* border-radius: 3%; */
+  /* object-fit: cover; */
+  /* Sombra con desplazamiento x=0, y=0, desenfoque de 10px y color negro con opacidad 50%? */
+  /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); */
+  /* position: relative; */
+  /* background-color: aquamarine; */
+  /* padding: 25px 24px; */
+  /* padding: 10px 14px; */
+  height: 80%; /* Cambiar la altura al 80% de la pantalla */
+  width: 90%; /* Cambiar el ancho al 90% de la pantalla */
+  border-radius: 3%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  padding: 25px 24px;
+  margin: auto; /* Centrar horizontalmente */
+
+}
+
+.mySwiper5 .swiper-button-prev,
+.mySwiper5 .swiper-button-next {
+  /* margin: 20px; */
+  color: #EAE8E3;
+  /* Cambia el color de las flechas a rojo */
+  font-size: 18px;
+  /* Cambia el tamaño de las flechas a 24px */
+}
+
+.mySwiper5 .swiper-button-next {
+  /* position: absolute; */
+  right: 0;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+}
+
+.mySwiper5 .swiper-button-prev {
+  /* position: absolute; */
+  left: 0;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+}
+
+.mySwiper5 .swiper-button-prev:after,
+.mySwiper5 .swiper-button-next:after {
+  /* margin: 20px; */
+  /* color: #6B675A; */
+  background: #2B2924;
+  /* Cambia el color de las flechas a rojo */
+  font-size: 12px;
+  padding: 10px;
+  /* Cambia el tamaño de las flechas a 24px */
+}
+
+.mySwiper5 .text-titulo-card {
+  /* position: absolute; */
+  /* bottom: 5%; */
+  top: 10%;
+  /* top: 10%; */
+  left: 5%;
+  /* Ajusta la posición del texto a la izquierda */
+  /* transform: translateY(0%); */
+  color: white;
+  /* Color blanco para el texto */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Agrega sombra al texto */
+  position: absolute;
+  z-index: 2;
+}
+
+.container-Hab .description{
+  color: #ABA490;
+  background-color: #555248;
+  text-align: center; /* Alinear el texto al centro */
+  padding: 20px; /* Agregar un espacio de relleno */
+  margin-top: 20px;
+}
+.container-Hab .row{
+  background-color: #555248;
+  /* justify-content: center; */
+}
+
+/* Estilos para las columnas de comodidades */
+.container-Hab .col-md-6 {
+  display: flex;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+}
+
+/* Estilos para el texto de las comodidades */
+.container-Hab .col-md-6 .card-body span {
+  font-size: 16px; /* Tamaño de letra más pequeño */
+}

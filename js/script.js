@@ -31,54 +31,54 @@
                 // Obtener el elemento contenedor de las tarjetas
                 const roomCardsContainer = document.getElementById("roomCards");
 
-
                 // Realizar la solicitud para obtener el archivo JSON
                 fetch("/json/habitaciones.json")
-                    .then(response => response.json())
-                    .then(data => {
-                        this.habitaciones = data.habitaciones;
-                        // Recorrer el objeto JSON y construir las tarjetas
-                        for (const habitacion in data.habitaciones) {
-                            const habitacionData = data.habitaciones[habitacion];
-                            const card = document.createElement("div");
+                .then(response => response.json())
+                .then(data => {
+                    this.habitaciones = data.habitaciones;
+                    // Recorrer el objeto JSON y construir las tarjetas
+                    for (const habitacion in data.habitaciones) {
+                        const habitacionData = data.habitaciones[habitacion];
+                        const card = document.createElement("div");
+                        
+                        card.classList.add("swiper-slide");
+                        // console.log(card);
+                        // Construir la estructura de la tarjeta
+                        card.innerHTML = `
 
-                            card.classList.add("swiper-slide");
-                            // console.log(card);
-                            // Construir la estructura de la tarjeta
-                            card.innerHTML = `
-                                    <div class="image-content">
-                                        <span class="overlay"></span>
-                                    
-                                        <div class="card-image">
-                                        <div class="swiper-zoom-container">
-                                            <img src="${habitacionData.imagenes[0]}" alt="${habitacion}" class="card-img" >
-                                        </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="card-content">
-                                        
-                                            <h4 class="name">${habitacionData.nombre}</h4>
-                                        
-                                        
-                                            <p class="description">${habitacionData.detalles}</p>
-                                        
-                                        <div class="card-link">
-                                        <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${habitacion}">Descubrir</a>
-                                        </div>
-                                    </div>                                   
-                                   
-                                
-                            `;
-
-
-                            // Agregar la tarjeta al contenedor
-                            roomCardsContainer.appendChild(card);
-                        }
-                        // const swiper = new Swiper(".swiper-container", {
+                        <div class="image-content">
+                            <span class="overlay"></span>
+                            
+                            <div class="card-image">
+                                <div class="swiper-zoom-container">
+                                    <img src="${habitacionData.imagenes[0]}" alt="${habitacion}" class="card-img" >
+                                </div>
+                            </div>
+                        
+                        </div>
+                        <div class="card-content">
+                        
+                            <h4 class="name">${habitacionData.nombre}</h4>
+                        
+                        
+                            <p class="description">${habitacionData.detalles}</p>
+                        
+                        <div class="card-link">
+                        <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${habitacion}">Descubrir</a>
+                        </div>
+                        </div>                                   
+                        
+                        
+                        `;
+                        
+                        
+                        // Agregar la tarjeta al contenedor
+                        roomCardsContainer.appendChild(card);
+                    }
+                    // const swiper = new Swiper(".swiper-container", {
                         // Inicializar Swiper después de que se hayan agregado todas las tarjetas
                         const swiper = new Swiper(".slide-content", {
-
+                            
                             navigation: {
                                 nextEl: ".swiper-button-next",
                                 prevEl: ".swiper-button-prev",
@@ -122,10 +122,11 @@
                         });
                         // Asignar estilos a las tarjetas
                         //   this.ajustarAlturaTarjetas();
+                        // console.log("dentro de cargarHabitacionesCarouselBIS",this.habitaciones);
                     })
                     .catch(error => console.error('Error al cargar el archivo JSON:', error));
-
-            },
+                    
+                },
 
             cargarGaleriaSwiper: function () {
 
@@ -259,6 +260,7 @@
                     .then(data => {
                         // Generar el contenido del carousel utilizando los datos obtenidos
                         // console.log(data);
+                        
                         this.inicioContainer.innerHTML = `
                             <div id="carouselMontecarlo" class="carousel-fade" data-bs-ride="carousel">
 
@@ -284,12 +286,85 @@
                     .catch(error => console.error('Error al cargar los datos de las imágenes:', error));
             },
 
+            caragarBienvenidaBis: function () {
+                // Obtener las imágenes desde el archivo JSON
+                fetch(`${this.carpetaPrueba}/json/imgcarousel.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Generar el contenido del carousel utilizando los datos obtenidos
+                        let carouselItems = data.map(imagen => `
+                            <div class="swiper-slide">
+                                <div class="image-content">
+                                    
+                                    <div class="card-image">
+                                        <div class="swiper-zoom-container">
+                                            <img src="${imagen.ruta}" alt="${imagen.texto}">
+                                        </div>
+                                        <div class="card-content">
+                                                    
+                                            <p class="description">${imagen.texto}</p>
+                                
+                                    </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        `).join('');
+                        // console.log(carouselItems);
+            
+                        this.inicioContainer.innerHTML = `
+                        <div class="contenedor-bienvenida" id="carouselMontecarlo">
+                            <div class="mySwiper6">
+                            <h1 class="text-titulo-bienvenido">Bienvenido</h1>
+                        
+                                <div class="swiper-wrapper">
+                                    
+                                            ${carouselItems}
+                                    
+                                </div>
+                                
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                        </div>
+                        `;
+            
+                        // Inicializar Swiper
+                        new Swiper('.mySwiper6', {
+                            loop: true,
+                                                centeredSlides: true,
+                            // slidesPerView: "auto",
+                            slidesPerView: 1,
+                            spaceBetween: 30,
+                            effect: "fade",
+                            grabCursor: true,
+                            zoom: true,
+                            autoplay: {
+                                delay: 5000, // Intervalo de tiempo en milisegundos entre cada diapositiva
+                            },
+                            pagination: {
+                                el: '.swiper-pagination',
+                                clickable: true,
+                            },
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                        });
+            
+                        // Ajustar el margen superior del carousel según el tipo de dispositivo
+                        this.ajustarMargenCarousel();
+                    })
+                    .catch(error => console.error('Error al cargar los datos de las imágenes:', error));
+            },
+
             ajustarMargenCarousel: function () {
                 // Obtener el alto de la barra de navegación según el tipo de dispositivo
                 let navbarHeight;
                 // if (window.innerWidth < 576) {
                 // navbarHeight = document.querySelector('.navbar').offsetHeight;
-                navbarHeight = 0;
+                navbarHeight = 60;
                 // } else {
                 // navbarHeight = - document.querySelector('.navbar').offsetHeight; // Si no hay barra de navegación o es grande, no necesitas ajustar el margen
                 // }
@@ -549,6 +624,80 @@
                     this.inicioContainer.innerHTML = "<p>Habitación no disponible</p>";
                 }
             },
+            // Función para cargar la información de una habitación específica
+            cargarHabitacionBis: function (tipoHabitacion) {
+                const habitacion = this.habitaciones[tipoHabitacion];
+                if (habitacion) {
+                    const html = `
+                        <div class="container-Hab">
+
+                            <div class="swiper mySwiper5">
+                                <h1 class="text-titulo-card p-4">${habitacion.nombre}</h1>
+                                <div class="swiper-wrapper">
+                                    ${habitacion.imagenes.map((imagen, index) => `
+                                        <div class="swiper-slide">
+
+                                            <div class="image-content">
+                                                <span class="overlay"></span>
+
+                                                <div class="card-image">
+                                                    <div class="swiper-zoom-container">
+                                                        <img src="${imagen}" alt="Foto ${index + 1}">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <div class="swiper-pagination"></div>
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+                            </div>
+                            <div class="row">
+                            <div class="card-content">
+                                                    
+                                <p class="description">${habitacion.detalles}</p>
+                        
+                            </div>
+                            ${habitacion.comodidades.map(comodidad => `
+                                <div class="col-md-6 mb-2">
+                                    <div class="card h-100 border-0 text-sepia">
+                                        <div class="card-body d-flex align-items-center">
+                                            <i class="fa-solid ${comodidad.icono} me-2" style="font-size: 24px;"></i>
+                                            <span style="font-size: 18px;">${comodidad.texto}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        </div>
+
+                    `;
+
+                    this.inicioContainer.innerHTML = html;
+
+                    // Inicializar Swiper después de insertar el contenido
+                    var swiper = new Swiper('.mySwiper5', {
+                        loop: true,
+                        zoom: true,
+                        spaceBetween: 30,
+                        // slidesPerView: 4,
+                        // freeMode: true,
+                        watchSlidesProgress: true,
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                    });
+                } else {
+                    this.inicioContainer.innerHTML = "<p>Habitación no disponible</p>";
+                }
+            },
 
             // Función para cargar el contenido de contacto
             cargarContacto: function (opcion) {
@@ -711,8 +860,8 @@
                 switch (opcion) {
                     case 'inicio':
                         // alert('probando')
-                        document.getElementById('contenidoInicio').style.marginTop = `${0}px`;
-                        this.caragarBienvenida();
+                        document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
+                        this.caragarBienvenidaBis();
                         // window.scrollTo(0, 0);
                         window.scrollTo(0, 0);
                         break;
@@ -770,22 +919,32 @@
                     document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                     const tipoHabitacion = event.target.getAttribute('data-tipo-habitacion');
                     // console.log("Tipo de habitación:", tipoHabitacion);
-                    this.cargarHabitacion(tipoHabitacion);
+                    // console.log("Tipo de habitación:",this.habitaciones);
+                    // this.cargarHabitacion(tipoHabitacion);
+                    this.cargarHabitacionBis(tipoHabitacion);
+                    
 
                 }
             },
 
             // Método de inicialización de la aplicación
             init: function () {
-                this.caragarBienvenida();
+                
+                // this.caragarBienvenida();
+                this.caragarBienvenidaBis();
                 // this.cargarHabitaciones();
                 // this.cargarHabitacionesParaCarousel();
                 // Invocamos la función para cargar el carrusel
                 this.cargarHabitacionesCarouselBIS();
+                
                 this.detectarBajadaPagina();
+                
                 document.getElementById('menuContainer').addEventListener('click', this.menuClickHandler.bind(this));
+                
                 document.getElementById('roomCards').addEventListener('click', this.habitacionButtonClickHandler.bind(this));
+              
                 document.getElementById('pieContainer').addEventListener('click', this.menuClickHandler.bind(this));
+                
 
             }
         };
