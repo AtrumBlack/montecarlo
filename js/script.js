@@ -7,24 +7,6 @@
             habitacionesContainer: document.getElementById('habitacionesContainer'),
 
 
-            crearCarouselItem: function (imagen, index) {
-                return `
-                    <div class="carousel-item ${index === 0 ? 'active' : ''}">
-                        <img src="${imagen.ruta}" class="d-block w-100" alt="foto${index + 1}">
-                        <div class="carousel-caption d-none d-md-block">
-                            <p>${imagen.texto}</p>
-                        </div>
-                    </div>
-                `;
-            },
-
-            crearIndicatorButton: function (index) {
-                return `
-                    <button type="button" data-bs-target="#carouselMontecarlo" 
-                            data-bs-slide-to="${index}" class="${index === 0 ? 'active' : ''}"></button>
-                `;
-            },
-
             cargarHabitacionesCarouselBIS: function () {
 
                 // document.addEventListener("DOMContentLoaded", function () {
@@ -231,6 +213,52 @@
                     .catch(error => console.error('Error al cargar el archivo JSON:', error));
             },
 
+            cargarGaleria: function () {
+                fetch(`${this.carpetaPrueba}/json/contenido.json`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let contenidoHTML = '';
+
+                        data.contenido.forEach(item => {
+                            let colClass;
+                            // Define la clase para el video siempre en una columna
+                            if (item.tipo === 'video') {
+                                colClass = 'col-sm-12 col-lg-12';
+                            } else {
+                                // Define la clase para las imágenes con dos columnas en tablets y tres en escritorio
+                                colClass = 'col-lg-6 col-sm-6'; // Dos columnas en dispositivos medianos y grandes
+                            }
+
+                            contenidoHTML += `
+                                <div class="${colClass} mb-4 mb-lg-0 text-center">
+                                    <div class="card h-100 border-secondary mb-3">
+                                        ${item.tipo === 'imagen' ? `<img src="${item.url}" class="card-img-top" alt="${item.titulo}">` : ''}
+                                        ${item.tipo === 'video' ? `
+                                            <div class="card-img-top embed-responsive embed-responsive-16by9">
+                                                <video class="embed-responsive-item" controls>
+                                                    <source src="${item.url}" type="video/mp4">
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            </div>` : ''}
+                                        <div class="card-body">
+                                            <h5 class="card-title">${item.titulo}</h5>
+                                            <p class="card-text">${item.descripcion}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            `;
+                        });
+
+                        this.inicioContainer.innerHTML = `
+                            <div class="container">
+                                <div class="row ">
+                                    ${contenidoHTML}
+                                </div>
+                            </div>
+                        `;
+                    })
+                    .catch(error => console.error('Error al cargar los datos de contenido:', error));
+            },
 
             // Función para ajustar la altura de las tarjetas
             ajustarAlturaTarjetas: function () {
@@ -249,43 +277,7 @@
                 }
             },
 
-
-
-
             // Función para cargar las imagenes de bienvenida
-            caragarBienvenida: function () {
-                // Obtener las imágenes desde el archivo JSON
-                fetch(`${this.carpetaPrueba}/json/imgcarousel.json`)
-                    .then(response => response.json())
-                    .then(data => {
-                        // Generar el contenido del carousel utilizando los datos obtenidos
-                        // console.log(data);
-                        
-                        this.inicioContainer.innerHTML = `
-                            <div id="carouselMontecarlo" class="carousel-fade" data-bs-ride="carousel">
-
-                                <div class="carousel-inner">
-                                    ${data.map((imagen, index) => this.crearCarouselItem(imagen, index)).join('')}
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselMontecarlo" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                                <div class="carousel-indicators">
-                                    ${data.map((_, index) => this.crearIndicatorButton(index)).join('')}
-                                </div>
-                            </div>
-                        `;
-                        // Ajustar el margen superior del carousel según el tipo de dispositivo
-                        this.ajustarMargenCarousel();
-                    })
-                    .catch(error => console.error('Error al cargar los datos de las imágenes:', error));
-            },
-
             caragarBienvenidaBis: function () {
                 // Obtener las imágenes desde el archivo JSON
                 fetch(`${this.carpetaPrueba}/json/imgcarousel.json`)
@@ -391,7 +383,7 @@
                 });
             },
 
-            // Función para cargar la habitacion incial
+            // Función para cargar la habitacion incial ----queda
             caragarHabInicial: function () {
                 const imagenHabitaciones = '/img/habitaciones/fotosHab.png'; // Ruta de la imagen que deseas mostrar
 
@@ -403,227 +395,6 @@
             `;
             },
 
-            // Función para cargar las habitaciones desde el JSON
-            cargarHabitaciones: function () {
-                fetch(`${this.carpetaPrueba}/json/habitaciones.json`)
-                    .then(response => response.json())
-                    .then(data => {
-                        this.habitaciones = data.habitaciones;
-                        this.cargarHabitacionesCard();
-                    })
-                    .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
-            },
-
-            // Función para cargar el contenido de las habitaciones
-            cargarHabitacionesCard: function () {
-                const habitacionesHTML = Object.keys(this.habitaciones).map(tipoHabitacion => {
-                    const habitacion = this.habitaciones[tipoHabitacion];
-
-                    return `
-                        <div class="col col-sm-6 col-lg-4 mb-4 mb-lg-0">
-                            <div class="card h-100 border-secondary mb-3">
-                                <img src="${habitacion.imagenes[0]}" class="card-img-top" alt="${tipoHabitacion}">
-                                <div class="card-title-overlay top-0 start-0 p-2 rounded" style="width: 100%;">
-                                    <h5 class="card-title text-titulo-card" style=" font-size: 24px;">${habitacion.nombre}</h5>
-                                </div>
-                                <div class="card-body">
-                                    
-                                    <p class="card-text text-titulo-card">${habitacion.detalles}</p>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${tipoHabitacion}">Descubrir</a>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-
-                this.habitacionesContainer.innerHTML = `
-                    <div class="rounded mb-4">
-                        <hr class="footer-divider">
-                        <h2 class="text-titulo-card p-4">Nuestras Habitaciones</h2>
-                        <div class="container">
-                            <div class="row row-cols-1 row-cols-md-2 g-4">
-                                ${habitacionesHTML}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            },
-
-            // Función para cargar las habitaciones desde el JSON
-            cargarHabitacionesParaCarousel: function () {
-                fetch(`${this.carpetaPrueba}/json/habitaciones.json`)
-                    .then(response => response.json())
-                    .then(data => {
-                        this.habitaciones = data.habitaciones;
-
-                        this.cargarHabitacionesCarousel();
-                        // console.log(this.habitacionesContainer);
-                    })
-                    .catch(error => console.error('Error al cargar los datos de habitaciones:', error));
-            },
-
-            cargarHabitacionesCarousel: function () {
-                let isFirst = true; // Variable para verificar si es el primer elemento
-                const habitacionesHTML = Object.keys(this.habitaciones).map(tipoHabitacion => {
-                    const habitacion = this.habitaciones[tipoHabitacion];
-
-                    // Si es el primer elemento, agregar la clase active
-                    const activeClass = isFirst ? 'active' : '';
-                    isFirst = false; // Cambiar el valor para los siguientes elementos
-                    return `
-                        <div class="carousel-item ${activeClass}">
-
-
-
-                                <div class="card h-100 border-secondary mb-3">
-                                    <img src="${habitacion.imagenes[0]}" class="card-img-top" alt="${tipoHabitacion}">
-                                    <div class="card-title-overlay top-0 start-0 p-2 rounded" style="width: 100%;">
-                                        <h5 class="card-title text-titulo-card" style=" font-size: 24px;">${habitacion.nombre}</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text text-titulo-card">${habitacion.detalles}</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="#" class="btn btn-outline-sepia" data-tipo-habitacion="${tipoHabitacion}">Descubrir</a>
-                            
-                                    </div>
-
-
-                                </div>
-                        </div>
-                    `;
-                }).join('');
-
-                this.habitacionesContainer.innerHTML = `
-                    <div id="carouselHabitacionesCard" class="carousel slide" data-bs-ride="carousel">
-
-                        <div class="carousel-inner">
-                            ${habitacionesHTML}
-                        </div>
-
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHabitacionesCard" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselHabitacionesCard" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-
-                    </div>
-                `;
-            },
-
-
-
-            cargarGaleria: function () {
-                fetch(`${this.carpetaPrueba}/json/contenido.json`)
-                    .then(response => response.json())
-                    .then(data => {
-                        let contenidoHTML = '';
-
-                        data.contenido.forEach(item => {
-                            let colClass;
-                            // Define la clase para el video siempre en una columna
-                            if (item.tipo === 'video') {
-                                colClass = 'col-sm-12 col-lg-12';
-                            } else {
-                                // Define la clase para las imágenes con dos columnas en tablets y tres en escritorio
-                                colClass = 'col-lg-6 col-sm-6'; // Dos columnas en dispositivos medianos y grandes
-                            }
-
-                            contenidoHTML += `
-                                <div class="${colClass} mb-4 mb-lg-0 text-center">
-                                    <div class="card h-100 border-secondary mb-3">
-                                        ${item.tipo === 'imagen' ? `<img src="${item.url}" class="card-img-top" alt="${item.titulo}">` : ''}
-                                        ${item.tipo === 'video' ? `
-                                            <div class="card-img-top embed-responsive embed-responsive-16by9">
-                                                <video class="embed-responsive-item" controls>
-                                                    <source src="${item.url}" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                            </div>` : ''}
-                                        <div class="card-body">
-                                            <h5 class="card-title">${item.titulo}</h5>
-                                            <p class="card-text">${item.descripcion}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                        });
-
-                        this.inicioContainer.innerHTML = `
-                            <div class="container">
-                                <div class="row ">
-                                    ${contenidoHTML}
-                                </div>
-                            </div>
-                        `;
-                    })
-                    .catch(error => console.error('Error al cargar los datos de contenido:', error));
-            },
-
-
-
-            // Función para cargar la información de una habitación específica
-            cargarHabitacion: function (tipoHabitacion) {
-                // console.log(tipoHabitacion);
-                // console.log(this.habitaciones);
-                const habitacion = this.habitaciones[tipoHabitacion];
-                console.log(habitacion);
-                if (habitacion) {
-                    const html = `
-                    <div class=" mb-4 rounded">
-                    <h2 class="text-titulo-card p-4">${habitacion.nombre}</h2>
-            
-                    <div id="carouselHabitaciones" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                        ${habitacion.imagenes.map((_, index) => `<button type="button" data-bs-target="#carouselHabitaciones" data-bs-slide-to="${index}" ${index === 0 ? 'class="active"' : ''} aria-current="true" aria-label="Slide ${index + 1}"></button>`).join('')}
-                        </div>
-                        <div class="carousel-inner">
-                                    ${habitacion.imagenes.map((imagen, index) => `<div class="carousel-item ${index === 0 ? 'active' : ''}">
-                                    <img src="${imagen}" class="d-block w-100" alt="Foto ${index + 1}">
-
-                                    <div class="carousel-caption d-none d-md-block ">
-                                        <!-- <h5>${habitacion.nombre}</h5> -->
-                                            
-                                        <p style="color: white;">${habitacion.detalles}</p>
-                                        
-                                    </div>
-                        </div>`).join('')}
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselHabitaciones" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselHabitaciones" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-            
-                  <div class="row">
-                  ${habitacion.comodidades.map(comodidad => `
-                      <div class="col-md-6 mb-2">
-                          <div class="card h-100 border-0  text-sepia">
-                              <div class="card-body d-flex align-items-center">
-                                  <i class="fa-solid ${comodidad.icono} me-2" style="font-size: 24px;"></i>
-                                  <span style="font-size: 18px;">${comodidad.texto}</span>
-                              </div>
-                          </div>
-                      </div>
-                  `).join('')}
-              </div>
-                </div>
-            `;
-
-                    this.inicioContainer.innerHTML = html;
-                } else {
-                    this.inicioContainer.innerHTML = "<p>Habitación no disponible</p>";
-                }
-            },
             // Función para cargar la información de una habitación específica
             cargarHabitacionBis: function (tipoHabitacion) {
                 const habitacion = this.habitaciones[tipoHabitacion];
@@ -952,5 +723,3 @@
         miApp.init();
     });
 })();
-
-
