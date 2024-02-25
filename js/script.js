@@ -113,30 +113,25 @@
             cargarGaleriaSwiper: function () {
 
                 this.inicioContainer.innerHTML = `
-            <div class="container-fondo">
-                    <div class="container-galeria">
-                    <!-- Swiper principal -->
-                    <div  class="swiper mySwiper2">
-                    <div class="text-galeria">
-                          <h1 class="text-galeria-escrito">Galeria de Fotos</h1> 
-                    </div>
-                    <div class="swiper-wrapper">
-                    
-                                <!-- Slides del swiper principal -->
+                    <div class="container-fondo">
+                            <div class="container-galeria">
+                                <!-- Swiper principal -->
+                                <div  class="swiper mySwiper2">
+                                    <div class="text-galeria">
+                                        <h1 class="text-galeria-escrito">Galeria de Fotos</h1> 
+                                    </div>
+                                    <div class="swiper-wrapper">
+                            
+                                        <!-- Slides del swiper principal -->
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                
                             </div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-        
-                        <!-- Swiper para thumbs -->
-                        <div thumbsSlider="" class="swiper mySwiper">
-                            <div class="swiper-wrapper">
-                                <!-- Slides para thumbs -->
-                            </div>
-                        </div>
                     </div>
-            </div>
-            `;
+                `;
 
                 // Fetch JSON data
                 fetch("/json/contenido.json")
@@ -145,10 +140,10 @@
 
                         // Populate swiper with JSON data
                         var swiperWrapper = document.querySelector('.mySwiper2 .swiper-wrapper');
-                        var thumbsWrapper = document.querySelector('.mySwiper .swiper-wrapper');
+                        // var thumbsWrapper = document.querySelector('.mySwiper .swiper-wrapper');
 
                         var swiperSlidesHTML = '';
-                        var thumbsSlidesHTML = '';
+                        // var thumbsSlidesHTML = '';
 
                         data.contenidos.forEach(function (contenido) {
 
@@ -176,35 +171,41 @@
                             }
 
                             swiperSlidesHTML += slideHTML;
-                            thumbsSlidesHTML += slideHTML;
+                            // thumbsSlidesHTML += slideHTML;
                         });
 
                         swiperWrapper.innerHTML = swiperSlidesHTML;
-                        thumbsWrapper.innerHTML = thumbsSlidesHTML;
-                        var swiper = new Swiper(".mySwiper", {
-                            loop: true,
-                            spaceBetween: 10,
-                            slidesPerView: 4,
-                            freeMode: true,
-                            watchSlidesProgress: true,
-                        });
+                        // thumbsWrapper.innerHTML = thumbsSlidesHTML;
+                        // var swiper = new Swiper(".mySwiper", {
+                        //     loop: true,
+                        //     spaceBetween: 10,
+                        //     slidesPerView: 4,
+                        //     freeMode: true,
+                        //     watchSlidesProgress: true,
+                        // });
                         var swiper2 = new Swiper(".mySwiper2", {
                             loop: true,
-
+                            slidesPerView: 3,
+                            grid: {
+                              rows: 2,
+                            },
+                            spaceBetween: 30,
                             zoom: true,
 
                             zoom: {
                                 toggle: true, // Permitir alternar el zoom al hacer clic en la diapositiva
                             },
                             // fade: true,
-                            spaceBetween: 10,
+                            // spaceBetween: 10,
                             navigation: {
                                 nextEl: ".swiper-button-next",
                                 prevEl: ".swiper-button-prev",
                             },
-                            thumbs: {
-                                swiper: swiper,
-                            },
+                            pagination: {
+                                el: ".swiper-pagination",
+                                dynamicBullets: true,
+                                clickable: true,
+                              },
                         });
 
 
@@ -637,7 +638,7 @@
                         window.scrollTo(0, 0);
                         break;
                     case 'galeria':
-                        document.getElementById('contenidoInicio').style.marginTop = `${0}px`;
+                        document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                         this.cargarGaleriaSwiper();
                         //caragarBienvenida('video_inicio.html');
                         // Desplazar la página al principio después de cargar el contenido
