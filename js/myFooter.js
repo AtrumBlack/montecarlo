@@ -1,8 +1,7 @@
-// pie.js
-document.addEventListener("DOMContentLoaded", function () {
+export default function myFooter(carpetaPrueba) {
     // Ruta de la imagen
-    var logoImagePath = "${carpetaPrueba}/img/logos/Logo-blanco.png";
-    var logoImagenPie = src = "${carpetaPrueba}/img/logos/atrumblack01.png"
+    var logoImagePath = `${carpetaPrueba}/img/logos/Logo-blanco.png`;
+    var logoImagenPie = `${carpetaPrueba}/img/logos/atrumblack01.png`;
 
     // Contenido HTML del footer
     var footerContent = `
@@ -122,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </div>
 </div>
-`;
+    `;
 
     // Obtener el elemento del footer
     var footer = document.getElementById("pieContainer");
@@ -130,4 +129,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Insertar el contenido dentro del footer
     footer.innerHTML = footerContent;
 
-});
+};
