@@ -1,11 +1,14 @@
-// Script.js
-(function () {
-    document.addEventListener('DOMContentLoaded', function () {
+// main.js
+// (function () {
+//     document.addEventListener('DOMContentLoaded', function () {
+    function iniciarApp(){
+
         const miApp = {
+
             carpetaPrueba: '',
             inicioContainer: document.getElementById('contenidoInicio'),
             habitacionesContainer: document.getElementById('habitacionesContainer'),
-
+            
 
             cargarHabitacionesCarouselBIS: function () {
 
@@ -15,18 +18,18 @@
 
                 // Realizar la solicitud para obtener el archivo JSON
                 fetch("/json/habitaciones.json")
-                .then(response => response.json())
-                .then(data => {
-                    this.habitaciones = data.habitaciones;
-                    // Recorrer el objeto JSON y construir las tarjetas
-                    for (const habitacion in data.habitaciones) {
-                        const habitacionData = data.habitaciones[habitacion];
-                        const card = document.createElement("div");
-                        
-                        card.classList.add("swiper-slide");
-                        // console.log(card);
-                        // Construir la estructura de la tarjeta
-                        card.innerHTML = `
+                    .then(response => response.json())
+                    .then(data => {
+                        this.habitaciones = data.habitaciones;
+                        // Recorrer el objeto JSON y construir las tarjetas
+                        for (const habitacion in data.habitaciones) {
+                            const habitacionData = data.habitaciones[habitacion];
+                            const card = document.createElement("div");
+
+                            card.classList.add("swiper-slide");
+                            // console.log(card);
+                            // Construir la estructura de la tarjeta
+                            card.innerHTML = `
 
                         <div class="image-content">
                             <span class="overlay"></span>
@@ -52,15 +55,15 @@
                         
                         
                         `;
-                        
-                        
-                        // Agregar la tarjeta al contenedor
-                        roomCardsContainer.appendChild(card);
-                    }
-                    // const swiper = new Swiper(".swiper-container", {
+
+
+                            // Agregar la tarjeta al contenedor
+                            roomCardsContainer.appendChild(card);
+                        }
+                        // const swiper = new Swiper(".swiper-container", {
                         // Inicializar Swiper después de que se hayan agregado todas las tarjetas
                         const swiper = new Swiper(".slide-content", {
-                            
+
                             navigation: {
                                 nextEl: ".swiper-button-next",
                                 prevEl: ".swiper-button-prev",
@@ -107,8 +110,8 @@
                         // console.log("dentro de cargarHabitacionesCarouselBIS",this.habitaciones);
                     })
                     .catch(error => console.error('Error al cargar el archivo JSON:', error));
-                    
-                },
+
+            },
 
             cargarGaleriaSwiper: function () {
 
@@ -185,9 +188,9 @@
                         // });
                         var swiper2 = new Swiper(".mySwiper2", {
                             loop: true,
-                            slidesPerView: 3,
+                            slidesPerView: 2,
                             grid: {
-                              rows: 2,
+                                rows: 2,
                             },
                             spaceBetween: 30,
                             zoom: true,
@@ -205,7 +208,26 @@
                                 el: ".swiper-pagination",
                                 dynamicBullets: true,
                                 clickable: true,
-                              },
+                            },
+
+                            breakpoints: {
+                                620: {
+                                    slidesPerView: 1,
+                                    spaceBetween: 20,
+                                },
+                                680: {
+                                    slidesPerView: 2,
+                                    spaceBetween: 40,
+                                },
+                                920: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 40,
+                                },
+                                1240: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 40,
+                                },
+                            }
                         });
 
 
@@ -214,52 +236,6 @@
                     .catch(error => console.error('Error al cargar el archivo JSON:', error));
             },
 
-            cargarGaleria: function () {
-                fetch(`${this.carpetaPrueba}/json/contenido.json`)
-                    .then(response => response.json())
-                    .then(data => {
-                        let contenidoHTML = '';
-
-                        data.contenido.forEach(item => {
-                            let colClass;
-                            // Define la clase para el video siempre en una columna
-                            if (item.tipo === 'video') {
-                                colClass = 'col-sm-12 col-lg-12';
-                            } else {
-                                // Define la clase para las imágenes con dos columnas en tablets y tres en escritorio
-                                colClass = 'col-lg-6 col-sm-6'; // Dos columnas en dispositivos medianos y grandes
-                            }
-
-                            contenidoHTML += `
-                                <div class="${colClass} mb-4 mb-lg-0 text-center">
-                                    <div class="card h-100 border-secondary mb-3">
-                                        ${item.tipo === 'imagen' ? `<img src="${item.url}" class="card-img-top" alt="${item.titulo}">` : ''}
-                                        ${item.tipo === 'video' ? `
-                                            <div class="card-img-top embed-responsive embed-responsive-16by9">
-                                                <video class="embed-responsive-item" controls>
-                                                    <source src="${item.url}" type="video/mp4">
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                            </div>` : ''}
-                                        <div class="card-body">
-                                            <h5 class="card-title">${item.titulo}</h5>
-                                            <p class="card-text">${item.descripcion}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            `;
-                        });
-
-                        this.inicioContainer.innerHTML = `
-                            <div class="container">
-                                <div class="row ">
-                                    ${contenidoHTML}
-                                </div>
-                            </div>
-                        `;
-                    })
-                    .catch(error => console.error('Error al cargar los datos de contenido:', error));
-            },
 
             // Función para ajustar la altura de las tarjetas
             ajustarAlturaTarjetas: function () {
@@ -304,7 +280,7 @@
                             </div>
                         `).join('');
                         // console.log(carouselItems);
-            
+                        
                         this.inicioContainer.innerHTML = `
                         <div class="contenedor-bienvenida" id="carouselMontecarlo">
                             <div class="mySwiper6">
@@ -322,11 +298,11 @@
                             </div>
                         </div>
                         `;
-            
+
                         // Inicializar Swiper
                         new Swiper('.mySwiper6', {
                             loop: true,
-                                                centeredSlides: true,
+                            centeredSlides: true,
                             // slidesPerView: "auto",
                             slidesPerView: 1,
                             spaceBetween: 30,
@@ -345,7 +321,7 @@
                                 prevEl: '.swiper-button-prev',
                             },
                         });
-            
+
                         // Ajustar el margen superior del carousel según el tipo de dispositivo
                         this.ajustarMargenCarousel();
                     })
@@ -694,33 +670,36 @@
                     // console.log("Tipo de habitación:",this.habitaciones);
                     // this.cargarHabitacion(tipoHabitacion);
                     this.cargarHabitacionBis(tipoHabitacion);
-                    
+
 
                 }
             },
 
             // Método de inicialización de la aplicación
             init: function () {
-                
+
                 // this.caragarBienvenida();
                 this.caragarBienvenidaBis();
                 // this.cargarHabitaciones();
                 // this.cargarHabitacionesParaCarousel();
                 // Invocamos la función para cargar el carrusel
                 this.cargarHabitacionesCarouselBIS();
-                
+
                 this.detectarBajadaPagina();
-                
+
                 document.getElementById('menuContainer').addEventListener('click', this.menuClickHandler.bind(this));
-                
+
                 document.getElementById('roomCards').addEventListener('click', this.habitacionButtonClickHandler.bind(this));
-              
+
                 document.getElementById('pieContainer').addEventListener('click', this.menuClickHandler.bind(this));
-                
+
 
             }
         };
-
+    // Inicializar la aplicación al cargar el DOM
+    document.addEventListener('DOMContentLoaded', function () {
         miApp.init();
     });
-})();
+}
+// Llamar a la función principal para iniciar la aplicación
+iniciarApp();
