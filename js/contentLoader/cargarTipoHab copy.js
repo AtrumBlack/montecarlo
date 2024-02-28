@@ -1,6 +1,8 @@
 export default function cargarTipoHab(tipoHabitacion,inicioContainer,habitaciones) {
     const habitacion = habitaciones[tipoHabitacion];
-
+    console.log(tipoHabitacion);
+    console.log(inicioContainer);
+    console.log(habitaciones);
     if (habitacion) {
         const html = `
             <div class="container-Hab">

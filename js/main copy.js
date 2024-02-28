@@ -132,23 +132,19 @@ function iniciarApp() {
         cargarOpcionMenu: function (opcion) {
             switch (opcion) {
                 case 'inicio':
-                    // console.log('inicio',miApp.inicioContainer);
+                    // alert('probando')
                     document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                     // this.caragarBienvenidaBis();
                     // contentLoader.cargarInicio();
-                    // console.log('antes de cargarInicio',miApp.inicioContainer);
                     cargarInicio(miApp.carpetaPrueba, miApp.inicioContainer);
                     // window.scrollTo(0, 0);
                     window.scrollTo(0, 0);
                     break;
                 case 'galeria':
-                    // console.log('galeria',miApp.inicioContainer);
                     document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                     // this.cargarGaleriaSwiper();
                     // contentLoader.cargarGaleria();
-                    // console.log('antes de cargarGaleria',miApp.inicioContainer);
-                    
-                    cargarGaleria(miApp.carpetaPrueba,miApp.inicioContainer);
+                    cargarGaleria(miApp.carpetaPrueba, miApp.inicioContainer);
                     //caragarBienvenida('video_inicio.html');
                     // Desplazar la página al principio después de cargar el contenido
                     window.scrollTo(0, 0);
@@ -156,7 +152,7 @@ function iniciarApp() {
                 case 'habitaciones':
                     document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                     // alert('doblesclasica');
-                    // console.log('antes de cargarHabMenu',miApp.inicioContainer);
+                    // this.caragarHabInicial();
                     cargarHabMenu(miApp.inicioContainer);
                     // Desplazar la página al principio después de cargar el contenido
                     window.scrollTo(0, 0);
@@ -166,7 +162,7 @@ function iniciarApp() {
                     document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
 
                     // this.cargarContacto();
-                    // console.log('antes de cargarContacto',miApp.inicioContainer);
+                    // contentLoader.cargarContacto();
                     cargarContacto();
                     window.scrollTo(0, 0);
                     break;
