@@ -1,5 +1,5 @@
 export default function cargarContenido(url, containerId, templateFunction) {
-    
+
     return new Promise((resolve, reject) => {
         fetch(url)
             .then(response => {

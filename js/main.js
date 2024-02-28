@@ -5,6 +5,7 @@ import cargarGaleria from './contentLoader/cargarGaleria.js';
 import cargarHabitaciones from './contentLoader/cargarHabitaciones.js';
 import cargarContacto from './contentLoader/cargarContacto.js';
 import cargarHabMenu from './contentLoader/cargarHabMenu.js';
+import cargarTipoHab from './contentLoader/cargarTipoHab.js';
 
 import myFooter from './myFooter.js';
 
@@ -52,82 +53,7 @@ function iniciarApp() {
                 }
             });
         },
-        cargarHabitacionBis: function (tipoHabitacion) {
-            console.log(this.habitaciones);
-            console.log(habitaciones);
 
-            const habitacion = this.habitaciones[tipoHabitacion];
-            if (habitacion) {
-                const html = `
-                    <div class="container-Hab">
-
-                        <div class="swiper mySwiper5">
-                            <h1 class="text-titulo-card p-4">${habitacion.nombre}</h1>
-                            <div class="swiper-wrapper">
-                                ${habitacion.imagenes.map((imagen, index) => `
-                                    <div class="swiper-slide">
-
-                                        <div class="image-content">
-                                            <span class="overlay"></span>
-
-                                            <div class="card-image">
-                                                <div class="swiper-zoom-container">
-                                                    <img src="${imagen}" alt="Foto ${index + 1}">
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                `).join('')}
-                            </div>
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-                        </div>
-                        <div class="row">
-                        <div class="card-content">
-                                                
-                            <p class="description">${habitacion.detalles}</p>
-                    
-                        </div>
-                        ${habitacion.comodidades.map(comodidad => `
-                            <div class="col-md-6 mb-2">
-                                <div class="card h-100 border-0 text-sepia">
-                                    <div class="card-body d-flex align-items-center">
-                                        <i class="fa-solid ${comodidad.icono} me-2" style="font-size: 24px;"></i>
-                                        <span style="font-size: 18px;">${comodidad.texto}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                    </div>
-
-                `;
-
-                this.inicioContainer.innerHTML = html;
-
-                // Inicializar Swiper después de insertar el contenido
-                var swiper = new Swiper('.mySwiper5', {
-                    loop: true,
-                    zoom: true,
-                    spaceBetween: 30,
-                    // slidesPerView: 4,
-                    // freeMode: true,
-                    watchSlidesProgress: true,
-                    pagination: {
-                        el: '.swiper-pagination',
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                });
-            } else {
-                this.inicioContainer.innerHTML = "<p>Habitación no disponible</p>";
-            }
-        },
         // Función para cargar el contenido según la opción seleccionada en el menú
         cargarOpcionMenu: function (opcion) {
             switch (opcion) {
@@ -202,10 +128,10 @@ function iniciarApp() {
             if (event.target.hasAttribute('data-tipo-habitacion')) {
                 document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
                 const tipoHabitacion = event.target.getAttribute('data-tipo-habitacion');
-                console.log("Tipo de habitación:", tipoHabitacion);
+                // console.log("Tipo de habitación:", tipoHabitacion);
                 // console.log("Tipo de habitación:",this.habitaciones);
                 // this.cargarHabitacion(tipoHabitacion);
-                this.cargarHabitacionBis(tipoHabitacion);
+                cargarTipoHab(tipoHabitacion,miApp.inicioContainer);
 
 
 
