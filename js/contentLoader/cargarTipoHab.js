@@ -18,6 +18,7 @@ export default function cargarTipoHab(tipoHabitacion, inicioContainer) {
                         <div class="swiper mySwiper5">
                             <h1 class="text-titulo-card p-4">${habitacion.nombre}</h1>
                             <div class="swiper-wrapper">
+                            
                                 ${habitacion.imagenes.map((imagen, index) => `
                                     <div class="swiper-slide">
                                         <div class="image-content">

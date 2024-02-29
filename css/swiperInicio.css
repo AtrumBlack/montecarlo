@@ -1,0 +1,16 @@
+/* swiperInicio.css */
+
+.mySwiper6 .swiper-slide img {
+  width: 100%;
+}
+
+.mySwiper6 {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-content .description {
+  color: #ABA490;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}

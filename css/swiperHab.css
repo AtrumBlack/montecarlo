@@ -1,0 +1,56 @@
+/* swiperHab.css */
+
+#roomCards .card-image {
+  border-radius: 5%;
+  background: #ABA490;
+  padding: 1px;
+}
+
+#roomCards .card-image .card-img{
+  object-fit: cover;
+  border-radius: 5%;
+  border: 2px solid #E1DBC8;
+}
+
+#roomCards .slide-content{
+  padding: 35px 30px ;
+}
+
+#roomCards .image-content,
+#roomCards .card-content{
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  align-items: center;
+}
+
+#roomCards .image-content{
+  position: relative;
+  row-gap: 5px;
+}
+
+#habitaciones .slide-container{
+  padding: 35px 14px;
+}
+
+#roomCards .swiper-slide {
+  background: #EAE8E3;
+  border-radius: 15px;
+  /* box-shadow: 0px 4px 4px rgba(196, 196, 196, 0.25); */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  /* padding: 10px 14px; */
+  max-width: 150; 
+  height: 100%;
+  /* padding: 10px 14px; */
+}
+
+/*titulo de la habitacion*/
+#roomCards .name{
+  font-size: 18px;
+  font-weight: 500;
+  color: #16140E;
+}
+
+#roomCards .description{
+  font-size: 14px;
+}

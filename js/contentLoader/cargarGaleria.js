@@ -14,17 +14,14 @@ export default function cargarGaleria(carpetaPrueba, inicioContainer) {
 
     // Función de plantilla para generar el HTML de los slides
     const templateFunction = function (data) {
-    // const generarSlidesHTML = function (data) {
-        // let swiperSlidesHTML = '';
-        // let carouselItems = data.map(imagen => `
 
-        // data.contenidos.forEach(function (contenido) {
         let swiperSlidesHTML = data.contenidos.map(contenido => `
                         
             <div class="swiper-slide">
 
                         <div class="swiper-zoom-container">
-                            <img src="${contenido.url}" alt="${contenido.titulo}">
+                            <img src="${contenido.url}" alt="${contenido.titulo}" loading="lazy">
+                            <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                         </div>
 
             </div>
@@ -48,13 +45,8 @@ export default function cargarGaleria(carpetaPrueba, inicioContainer) {
             </div>
         </div>
         `;
-
-
         return galeriaHTML;
     };
-    // console.log('inicioContainer',inicioContainer.innerHTML);
-    // console.log('generarSlidesHTML',generarSlidesHTML);
-
 
     // Llamar a la función genérica para cargar el contenido
     cargarContenido(url, inicioContainer.id, templateFunction)
@@ -65,13 +57,13 @@ export default function cargarGaleria(carpetaPrueba, inicioContainer) {
             // Ajustar el margen superior del carousel
             // ajustarMargenCarousel();
         }).catch(error => console.error('Error al cargar el archivo JSON:', error));
-    // inicializarSwiper(); // Inicializar Swiper después de cargar los slides
     
 }
 // Función para inicializar Swiper
 function inicializarSwiper() {
     new Swiper(".mySwiper2", {
         loop: true,
+        lazy:true,
         slidesPerView: 2,
         grid: {
             rows: 2,
