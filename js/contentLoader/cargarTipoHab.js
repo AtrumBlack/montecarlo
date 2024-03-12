@@ -1,24 +1,19 @@
 export default function cargarTipoHab(tipoHabitacion, inicioContainer) {
-    fetch('../../json/habitaciones.json')
-    
+    fetch('./json/habitaciones.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
-        
         .then(data => {
-
             const habitacion = data.habitaciones[tipoHabitacion];
-
             if (habitacion) {
                 const html = `
                     <div class="container-Hab">
                         <div class="swiper mySwiper5">
                             <h1 class="text-titulo-card p-4">${habitacion.nombre}</h1>
                             <div class="swiper-wrapper">
-                            
                                 ${habitacion.imagenes.map((imagen, index) => `
                                     <div class="swiper-slide">
                                         <div class="image-content">
@@ -53,10 +48,7 @@ export default function cargarTipoHab(tipoHabitacion, inicioContainer) {
                         </div>
                     </div>
                 `;
-
                 inicioContainer.innerHTML = html;
-
-                // Inicializar Swiper después de insertar el contenido
                 var swiper = new Swiper('.mySwiper5', {
                     loop: true,
                     zoom: true,

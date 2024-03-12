@@ -1,12 +1,9 @@
 // cargarHabitaciones.js
 import cargarContenido from '../utils/contentHandler.js';
 
-export default function cargarHabitaciones(carpetaPrueba) {
+export default function cargarHabitaciones() {
     let containerId='roomCards';
-    // URL del archivo JSON de habitaciones
-    const url = `${carpetaPrueba}/json/habitaciones.json`;
-
-    // Función de plantilla para generar el HTML de las habitaciones
+    const url = `./json/habitaciones.json`;
     const templateFunction = function (data) {
         let html = '';
         for (const habitacion in data.habitaciones) {
@@ -32,17 +29,12 @@ export default function cargarHabitaciones(carpetaPrueba) {
         }
         return html;
     };
-
-    // Llamar a la función genérica para cargar el contenido
     cargarContenido(url, containerId, templateFunction)
         .then(() => {
-            // Inicializar Swiper después de que se haya agregado todas las tarjetas
             inicializarSwiper();
         })
         .catch(error => console.error('Error al cargar el contenido de habitaciones:', error));
 }
-
-
 function inicializarSwiper() {
     new Swiper(".slide-content", {
         navigation: {

@@ -1,18 +1,11 @@
 .btn-outline-sepia {
   color:#6B675A;
-  /* Color de texto */
   border-color: #6B675A;
-  /* Color del borde */
-  /* padding: 8px 16px; */
 }
-
 .btn-outline-sepia:hover {
   background-color: #ABA490;
-  /* Color de fondo al pasar el cursor */
   color: #fff;
-  /* Cambiar el color del texto cuando se pasa el cursor */
 }
-
 .border-sepia {
   border-color: sienna;
 }

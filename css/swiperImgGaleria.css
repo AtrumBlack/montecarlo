@@ -1,42 +1,75 @@
-/* swiperImgGaleria.css */
-
+.gallery-background{
+  background-color: #DFDDD5;
+  padding: 30px 10px;
+}
 .container-fondo {
-  background-color: #F4F4F1;
-  /* height: auto; */
-  /* height: 100vh; */
+  margin: auto;
+  background-color: #DFDDD5;
+  overflow: hidden;
 }
-
-.container-galeria {
-  height: 100vh;
-  padding: 15px;
+.container-fondo .swiper-container {
+width: 100%;
+height: 100%;
+margin-left: auto;
+margin-right: auto;
 }
-
-.mySwiper2 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
+.container-fondo .swiper-slide {
+text-align: center;
+font-size: 10px;
+background:  #DFDDD5;
+height:calc((100%-30px)/2);
+display:flex;
+padding: 10px 10px;
+}
+.container-fondo .swiper-zoom-container{
+  box-shadow: 0px 0px 10px #000;
+    background: white;
+    padding: 5px;
+}
+.zoomed {
+  position: fixed;
+  z-index: 9999; /* Asegura que esté por encima de los demás elementos */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con transparencia */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
-  /* height: 100vh; */
+}
+.zoomed img {
+  max-width: 90%; /* Limita el tamaño de la imagen para que no sea demasiado grande */
+  max-height: 90%;
+  border: 2px solid #fff;
+  border-radius: 5px;
+}
+.zoomed .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10000; /* Asegura que el botón de cierre esté por encima de los botones de zoom */
+}
+.zoomed .zoom-buttons-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10001; /* Asegura que el botón de cierre esté por encima de los botones de zoom */
+}
+.zoomed .zoom-btn {
+  font-size: 18px;
+  color: #fff; 
+   border-color: white;
+  background-color: transparent; 
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+}
+.zoomed .zoom-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.mySwiper2 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
-.mySwiper2 {
-  height: 100%;
-  width: 100%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-}
-
-@media (min-width: 884px) {
-  .mySwiper2 .swiper-slide img {
-    height: 100%;
-  }
-
-}

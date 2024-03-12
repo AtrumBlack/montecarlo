@@ -1,31 +1,23 @@
 /* swiperTipCard.css */
-
 .mySwiper5 .swiper-slide img {
   width: 100%;
+  border: 5px solid #fff;
+  border-radius: 5px;
 }
-
 .mySwiper5 .swiper-slide {
   width: 100%;
-  /* Establecer el ancho al 100% para ocupar todo el ancho disponible */
 }
-
-/* Estilos para los swipers creados dinámicamente */
 .mySwiper5 {
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
 }
-
 .container-Hab {
   background-color: #DFDDD5;
   padding: 10px 14px;
 }
-
-/* Estilos para las columnas de comodidades */
 .container-Hab .col-md-6 {
   display: flex;
   justify-content: center;
 }
-
-/* Estilos para el texto de las comodidades */
 .container-Hab .col-md-6 .card-body span {
   font-size: 16px;
 }

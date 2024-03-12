@@ -3,13 +3,10 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
-
-/*Carga de habitacion desde el menu ---------------------- */
 .hab_inicial {
   position: absolute;
   text-align: center;
 }
-
 .text-hab {
   position: absolute;
   top: 10%;
@@ -19,14 +16,12 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
-
 .img-hab-inicial {
   position: relative;
   width: 100%;
   height: auto;
   z-index: 1;
 }
-
 @media (min-width: 885px) {
   .hab_inicial {
     width: 100vw;
@@ -34,18 +29,15 @@
     overflow: hidden;
   }
 }
-
 @media (min-width: 600px) and (max-width: 1024px) {
   .hab_inicial {
     height: auto;
   }
-
   .img-hab-inicial {
     max-width: 100%;
     height: auto;
   }
 }
-
 @media (max-width: 600px) {
   .img-hab-inicial {
     top: 0;
@@ -54,63 +46,62 @@
     height: 100vh;
   }
 }
-
-/* botones y titulos ----------------------------- */
-
-/* Estilos para los botones next y prev */
 .swiper-button-prev,
-.swiper-button-next,
+.swiper-button-next {
+  color: #6B675A;
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.2); 
+  padding: 10px;
+  border-radius: 50%;
+}
 .swiper-pagination-bullet {
-  color: #EAE8E3;
+  color: #6B675A;
   font-size: 18px;
   background: #2B2924;
   padding: 10px;
   border-radius: 50%;
 }
-
-/* Estilo específico para los botones prev y next */
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
-
-/* Estilo específico para la paginación */
 .swiper-pagination {
   position: relative;
   bottom: 10px;
   transform: translateX(-50%);
   left: 50% !important;
 }
-
-/* Estilos para los títulos */
 .text-titulo-bienvenido,
 .text-titulo-card,
 .text-titulo-habitaiones,
-.text-galeria {
+.text-galeria-escrito,
+.text-galeria-grupos {
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   position: absolute;
   z-index: 2;
 }
-
-/* Otros estilos comunes para los títulos */
 .text-titulo-bienvenido,
 .text-titulo-habitaiones {
   top: 10%;
   left: 5%;
 }
-
-.text-galeria {
-
-  /* bottom: 5%; */
-  top: 20%;
-  left: 5%;
-  transform: translateY(-50%);
+.text-galeria-escrito {
+  top: 8%;
+  right: 5%;
 }
-
 .text-titulo-card {
   top: 10%;
   left: 5%;
+}
+.mensaje-response {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+#mensajeRespuesta {
+  margin-left: 10px;
+  color: #ABA490;
 }

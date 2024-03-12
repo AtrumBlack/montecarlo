@@ -1,14 +1,9 @@
 footer {
     background-color: black;
-    /*Fondo negro*/
-    /* color: white; */
-    /*Texto blanco*/
     position: relative;
     z-index: 3;
-
 }
 .pieContainer{
-    /* position: sticky; */
     object-fit: cover; 
 }
 .footer_top .container{
@@ -22,8 +17,6 @@ footer {
 .text-gris{
     color: #6B675A;
 }
-
-/* Cambiar el color de los enlaces del menú */
 .list-unstyled a {
     color: #ABA490;  
 }

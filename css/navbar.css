@@ -2,38 +2,28 @@
     border: none;
     font-size: 1.25rem;
 }
-
 .navbar-toggler:focus,
 .btn-close:focus {
     box-shadow: none;
     outline: none;
 }
-
 .navbar {
     background-color: rgba(255, 255, 255, 0.2); /* Fondo casi transparente */
     height: 60px;
     margin: auto;
-    /* border-radius: 12px; */
     padding: 0.5rem;
-    /* margin-top: 20px; */
-    /* Añadido el margen superior */
     border-bottom: 2px solid #555248; /* Borde inferior */
-    /* Añadido un borde de color verde (#009970) */
 }
-
 .navbar .navbar-brand img {
     color: #009970;
     font-size: 24px;
     max-height: 40px;
 }
-
 .navbar-nav .nav-link {
     color:#ABA490; /* Cambiar el color */
     font-weight: 500;
     position: relative;
 }
-
-
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
     /* color: #2C281B */
@@ -42,16 +32,10 @@
 .navbar .redes-sociales i {
     color: #ABA490;  /*Cambia tu-color-preferido al color deseado*/
 }
-
-.navbar-scroll {
-    /* background-color: #F4F4F1; */
-
-}
 .navbar-scroll .navbar-nav .nav-link {
     position: relative;
 }
 @media (min-width: 884px) {
-
     .navbar {
         /* background-color: #fff; */
         /* height: 80; */
@@ -76,76 +60,12 @@
         transition: 0.3s ease-in-out;
 
     }
-
     .navbar-nav .nav-link:hover::before,
     .navbar-nav .nav-link.active::before {
         width: 100%;
         visibility: visible;
     }
 }
-
 .inicio-styles #contenidoInicio {
     margin-top: 0px;
-}
-.dropdown-menu {
-    background-color: #fff;
-    color:#b0a06c;
-    border-radius: 10px;
-
-}
-
-.dropdown-menu li {
-    position: relative;
-}
-
-.dropdown-item {
-    color: rgb(24, 34, 26);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-/* Agrega estilos para el menú desplegable
-.navbar-nav .nav-item:hover .dropdown-menu {
-    display: block;
-} */
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-    /* background-color: #009970; Cambia el color de fondo cuando se selecciona un elemento del menú desplegable */
-    color: #fff; /*Cambia el color del texto cuando se selecciona un elemento del menú desplegable
-    /* content: ""; */
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-    /* width: 100%; */
-    /* height: 2px; */
-    background-color: #b0a06c;
-    /* visibility: hidden; */
-    /* transition: 0.3s ease-in-out; */
-
-}
-
-/* Cambia el color del fondo cuando el enlace del Dropdown está activo */
-.dropdown-menu .dropdown-item.active,
-.dropdown-menu .dropdown-item:active {
-    /* background-color: #00ff00; Cambia el color de fondo cuando está activo según tus preferencias */
-    content: "";
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* left: 50%; */
-    /* transform: translateX(-50%); */
-    /* width: 100%; */
-    /* height: 10px; */
-    background-color: #423C29;
-    /* visibility: hidden; */
-    /* transition: 0.3s ease-in-out; */
-}
-
-/* Cambia el color del texto cuando el enlace del Dropdown está activo */
-.dropdown-menu .dropdown-item.active a,
-.dropdown-menu .dropdown-item:active a {
-    color: #b0a06c;
-    /* Cambia el color del texto cuando está activo según tus preferencias */
 }
