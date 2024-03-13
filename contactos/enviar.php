@@ -23,28 +23,6 @@ $destinatario = $_ENV['ADD_ADDRESS'];
 // Leer los datos del cuerpo de la solicitud JSON
 $data = json_decode(file_get_contents('php://input'), true);
 
-// Agregar para verificar los datos recibidos
-// echo "Datos recibidos:";
-// print_r($data);
-// Obtener el valor de las variables de entorno
-// $smtpHost = $_ENV['SMTP_HOST'];
-// $emailUsername = $_ENV['EMAIL_USERNAME'];
-// $emailPassword = $_ENV['EMAIL_PASSWORD'];
-// $smtpPort = $_ENV['SMTP_PORT'];
-// $addAddress = $_ENV['ADD_ADDRESS'];
-
-// // Mostrar las variables de entorno
-// echo "SMTP_HOST: $smtpHost\n";
-// echo "EMAIL_USERNAME: $emailUsername\n";
-// echo "EMAIL_PASSWORD: $emailPassword\n";
-// echo "SMTP_PORT: $smtpPort\n";
-// echo "ADD_ADDRESS: $addAddress\n";
-
-// Verifica si las variables se cargaron correctamente
-// var_dump($smtpHost, $emailUsername, $emailPassword, $smtpPort, $addAddress);
-// echo var_dump($_ENV);
-// echo $_ENV['SMTP_HOST'];
-
 // Validar datos recibidos
 $nombre = isset($data['nombre']) ? htmlspecialchars(trim($data['nombre'])) : '';
 $email = isset($data['email']) ? filter_var(trim($data['email']), FILTER_SANITIZE_EMAIL) : '';
@@ -69,7 +47,7 @@ if (!empty($nombre) && !empty($email) && !empty($mensaje)) {
         $mail->SMTPSecure = 'tls';
 
         // Configurar remitente y destinatario
-        $mail->setFrom('formulario@wabnet.com.ar', 'Formulario');
+        $mail->setFrom($_ENV['EMAIL_FROM'], 'Formulario');
         $mail->addAddress($destinatario);
 
         // Configurar el contenido del correo electrónico
