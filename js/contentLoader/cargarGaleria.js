@@ -1,13 +1,27 @@
 import cargarContenido from '../utils/contentHandler.js';
 
+// Función para cargar la galería de imágenes
 export default function cargarGaleria(inicioContainer) {
+
+    // Ruta del archivo JSON que contiene la información de las imágenes
     const url = `./json/contenido.json`;
+
+    // Verifica si el inicioContainer es un elemento HTML válido
     if (!(inicioContainer instanceof HTMLElement)) {
         console.error('El segundo argumento debe ser un elemento HTML válido.');
         return;
     }
+
+    // Función de plantilla para generar el HTML de la galería
     const templateFunction = function (data) {
+
+        // Validar la estructura del archivo JSON
+        validarContenido(data);
+        
+        // Ordena los contenidos por descripción de forma descendente
         data.contenidos.sort((a, b) => b.descripcion.localeCompare(a.descripcion));
+ 
+        // Agrupa los contenidos por descripción
         const grupos = {};
         data.contenidos.forEach(contenido => {
             if (!grupos[contenido.descripcion]) {
@@ -15,6 +29,8 @@ export default function cargarGaleria(inicioContainer) {
             }
             grupos[contenido.descripcion].push(contenido);
         });
+
+        // Genera el HTML de los grupos de imágenes
         let swiperGroupsHTML = '';
         Object.entries(grupos).forEach(([descripcion, imagenes]) => {
             const swiperSlidesHTML = imagenes.map(contenido => `
@@ -48,6 +64,8 @@ export default function cargarGaleria(inicioContainer) {
         `;
         return galeriaHTML;
     };
+
+    // Carga el contenido desde el archivo JSON y procesa el HTML generado
     cargarContenido(url, inicioContainer.id, templateFunction)
         .then(() => {
             console.log('Contenido cargado correctamente.');
@@ -56,6 +74,8 @@ export default function cargarGaleria(inicioContainer) {
         })
         .catch(error => console.error('Error al cargar el archivo JSON:', error));
 }
+
+// Función para inicializar los Swipers
 function inicializarSwipers() {
     const swipers = document.querySelectorAll('.swiper-container');
     swipers.forEach(swiperContainer => {
@@ -91,6 +111,8 @@ function inicializarSwipers() {
         });
     });
 }
+
+// Función para inicializar el zoom en las imágenes
 function inicializarZoom() {
     let isZoomIn = false;
     const zoomContainers = document.querySelectorAll('.swiper-zoom-container');
@@ -142,7 +164,10 @@ function inicializarZoom() {
         });
     });
 }
-
-
-
-
+// Función para validar la estructura del archivo JSON
+function validarContenido(data) {
+    if (!data || !Array.isArray(data.contenidos)) {
+        throw new Error('El formato del archivo JSON no es válido. Debe contener un array de contenidos.');
+    }
+    // Puedes agregar otras validaciones según sea necesario
+}

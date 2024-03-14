@@ -1,7 +1,10 @@
 // menu.js
+
+// Esperar a que se cargue el DOM antes de ejecutar el código
 document.addEventListener("DOMContentLoaded", function () {
-  console.log('menu',window.location.href);
+
   var logoImagePath = "./img/logos/logo-menu.png";
+  // Construir el contenido del menú de navegación
   var menuContent = `
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
@@ -44,6 +47,8 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
     </nav>
     `;
+  // Obtener el contenedor del menú
   var menues = document.getElementById("menuContainer");
+  // Insertar el contenido del menú en el contenedor
   menues.innerHTML = menuContent;
 });

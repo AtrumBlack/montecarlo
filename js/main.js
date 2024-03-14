@@ -1,4 +1,6 @@
 // main.js
+
+// Importar funciones para cargar diferentes secciones del sitio
 import cargarInicio from './contentLoader/cargarInicio.js';
 import cargarGaleria from './contentLoader/cargarGaleria.js';
 import cargarHabitaciones from './contentLoader/cargarHabitaciones.js';
@@ -8,23 +10,29 @@ import cargarTipoHab from './contentLoader/cargarTipoHab.js';
 import myFooter from './myFooter.js';
 
 function iniciarApp() {
+    // Objeto miApp que contiene métodos y propiedades relacionadas con la aplicación
     const miApp = {
-        carpetaPrueba: '../montecarlo',
+        // Contenedor para la sección de inicio
         inicioContainer: document.getElementById('contenidoInicio'),
         habitacionesContainer: document.getElementById('habitacionesContainer'),
+        // Método para ajustar la altura mínima de las tarjetas de habitación
         ajustarAlturaTarjetas: function () {
+            // Obtener todas las tarjetas de habitación
             const cards = document.querySelectorAll(".card");
             let maxHeight = 0;
+            // Calcular la altura máxima de las tarjetas
             for (const card of cards) {
                 const cardHeight = card.offsetHeight;
                 if (cardHeight > maxHeight) {
                     maxHeight = cardHeight;
                 }
             }
+            // Establecer la altura mínima de todas las tarjetas
             for (const card of cards) {
                 card.style.minHeight = maxHeight + 'px';
             }
         },
+        // Método para cambiar el color de la barra de navegación al desplazarse
         detectarBajadaPagina: function () {
             window.addEventListener('scroll', function () {
                 if (window.scrollY > 80) {
@@ -37,6 +45,7 @@ function iniciarApp() {
                 }
             });
         },
+        // Método para cargar diferentes secciones del sitio según la opción seleccionada en el menú
         cargarOpcionMenu: function (opcion) {
             switch (opcion) {
                 case 'inicio':
@@ -63,6 +72,7 @@ function iniciarApp() {
                     break;
             }
         },
+        // Controlador de eventos para hacer clic en el menú de navegación
         menuClickHandler: function (event) {
             if (event.target.hasAttribute('data-opcion')) {
                 const opcion = event.target.getAttribute('data-opcion');
@@ -74,12 +84,14 @@ function iniciarApp() {
                 this.cargarOpcionMenu(opcion);
             }
         },
+        // Controlador de eventos para hacer clic en el menú del pie de página
         pieMenuClickHandler: function (event) {
             if (event.target.hasAttribute('data-opcion')) {
                 const opcion = event.target.getAttribute('data-opcion');
                 miApp.cargarOpcionMenu(opcion);
             }
         },
+        // Controlador de eventos para hacer clic en los botones de tipo de habitación
         habitacionButtonClickHandler: function (event) {
             if (event.target.hasAttribute('data-tipo-habitacion')) {
                 document.getElementById('contenidoInicio').style.marginTop = `${60}px`;
@@ -87,18 +99,24 @@ function iniciarApp() {
                 cargarTipoHab(tipoHabitacion,miApp.inicioContainer);
             }
         },
+        // Método de inicialización de la aplicación
         init: function () {
+            // Cargar la sección de inicio, las habitaciones y el pie de página
             cargarInicio(miApp.inicioContainer);
             cargarHabitaciones();
             myFooter();
+            // Detectar el desplazamiento de la página
             this.detectarBajadaPagina();
+            // Agregar controladores de eventos a los elementos del DOM
             document.getElementById('menuContainer').addEventListener('click', this.menuClickHandler.bind(this));
             document.getElementById('roomCards').addEventListener('click', this.habitacionButtonClickHandler.bind(this));
             document.getElementById('pieContainer').addEventListener('click', this.menuClickHandler.bind(this));
         }
     };
+    // Inicializar la aplicación cuando el DOM esté completamente cargado
     document.addEventListener('DOMContentLoaded', function () {
         miApp.init();
     });
 }
+// Llamar a la función iniciarApp para iniciar la aplicación
 iniciarApp();

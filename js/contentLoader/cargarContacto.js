@@ -1,4 +1,9 @@
+//cargarContacto.js
+
+// Definir la función 'cargarContacto'
 export default function cargarContacto() {
+
+    // Definir la estructura HTML del formulario de contacto
     var contactos = `
         <div class="container bg-transparente p-3 mt-1 rounded">
             <h2 class="text-contacto">CONTACTENOS</h2>
@@ -69,56 +74,90 @@ export default function cargarContacto() {
             </div>
         </div>
     `;
+
+    // Obtener el elemento donde se cargará el contenido del formulario de contacto
     var contacto = document.getElementById("contenidoInicio");
+
+    // Insertar el contenido del formulario de contacto en el elemento correspondiente
     contacto.innerHTML = contactos;
+
+    // Obtener el elemento donde se mostrará el mensaje de respuesta del envío del formulario
     var mensajeRespuesta = document.getElementById("mensajeRespuesta");
+
+    // Agregar la funcionalidad para enviar el formulario mediante un evento 'submit'
     agregarScriptEnviarEmail(mensajeRespuesta);
 };
 
+
+// Definir la función que maneja el envío del formulario
 function agregarScriptEnviarEmail(mensajeRespuesta) {
+
+    // Definir una función asíncrona para enviar el correo electrónico
     const enviarEmail = async (data) => {
+
+        // Obtener y limpiar los datos del formulario
         const nombre = data.nombre.trim();
         const email = data.email.trim();
         const telefono = data.telefono.trim();
         const mensaje = data.mensaje.trim();
+
+        // Validar que se hayan completado todos los campos obligatorios
         if (!nombre || !email || !mensaje) {
             mensajeRespuesta.textContent = 'Por favor, completa todos los campos.';
             mensajeRespuesta.classList.remove('exito');
             mensajeRespuesta.classList.add('error');
             return; // Detener el envío del formulario si falta algún campo requerido
         }
+
+        // Validar el formato del correo electrónico
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             mensajeRespuesta.textContent = 'Por favor, introduce una dirección de correo electrónico válida.';
             mensajeRespuesta.classList.remove('exito');
             mensajeRespuesta.classList.add('error');
             return; // Detener el envío del formulario si el formato del email es inválido
         }
+
+            // Enviar los datos del formulario mediante una solicitud POST
             const response = await fetch("./contactos/enviar.php", {
                 method: "POST",
                 body: JSON.stringify(data),
             });
+
+            // Manejar la respuesta del servidor
             if (!response.ok) {
                 console.error("Error al enviar el correo electrónico:", response.statusText);
                 return;
             }
+
+            // Mostrar un mensaje de éxito si el correo electrónico se envió correctamente
             mensajeRespuesta.textContent = 'Correo electrónico enviado correctamente';
+
+            // Limpiar los campos del formulario después del envío exitoso
             document.querySelector('#nombre').value = '';
             document.querySelector('#email').value = '';
             document.querySelector('#telefono').value = '';
             document.querySelector('#mensaje').value = '';
     };
+
+    // Agregar un evento 'submit' al formulario para manejar el envío del correo electrónico
     document.querySelector("#miformulario").addEventListener("submit", (e) => {
         e.preventDefault();
+
+        // Obtener los datos del formulario
         const nombre = document.querySelector("#nombre").value;
         const email = document.querySelector("#email").value;
         const telefono = document.querySelector("#telefono").value;
         const mensaje = document.querySelector("#mensaje").value;
+       
+        // Crear un objeto con los datos del formulario
         const data = {
             nombre,
             email,
             telefono,
             mensaje,
         };
+
+        // Llamar a la función para enviar el correo electrónico con los datos del formulario
         enviarEmail(data);
     });
 }

@@ -2,7 +2,9 @@ export default function myFooter() {
     console.log('footer',window.location.href);
     var logoImagePath = `./img/logos/Logo-blanco.png`;
     var logoImagenPie = `./img/logos/atrumblack01.png`;
+    // Contenido del pie de página
     var footerContent = `
+    <!-- Contenido del pie de página -->
         <div class="footer_top p-2">
         <div class="container">
             <div class="row justify-content-center align-items-center">
@@ -80,6 +82,8 @@ export default function myFooter() {
             </div>
         </div>
     `;
+    // Obtener el contenedor del pie de página
     var footer = document.getElementById("pieContainer");
+    // Insertar el contenido del pie de página en el contenedor
     footer.innerHTML = footerContent;
 };

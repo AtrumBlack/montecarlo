@@ -1,14 +1,30 @@
+//cargarTipoHab.js
+
+// Esta función carga el contenido de una habitación específica
 export default function cargarTipoHab(tipoHabitacion, inicioContainer) {
+
+    // Realiza una solicitud para obtener el archivo JSON que contiene la información de las habitaciones
     fetch('./json/habitaciones.json')
         .then(response => {
+
+            // Verifica si la respuesta de la red es satisfactoria
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+
+            // Convierte la respuesta en formato JSON
             return response.json();
         })
+        
         .then(data => {
+            // Validar la estructura del archivo JSON
+            validarEstructura(data);
+
+            // Obtiene los datos de la habitación específica del archivo JSON
             const habitacion = data.habitaciones[tipoHabitacion];
             if (habitacion) {
+
+                // Genera el HTML con la información de la habitación
                 const html = `
                     <div class="container-Hab">
                         <div class="swiper mySwiper5">
@@ -48,7 +64,11 @@ export default function cargarTipoHab(tipoHabitacion, inicioContainer) {
                         </div>
                     </div>
                 `;
+
+                // Inserta el HTML generado en el contenedor especificado
                 inicioContainer.innerHTML = html;
+
+                // Inicializa el swiper para la galería de imágenes
                 var swiper = new Swiper('.mySwiper5', {
                     loop: true,
                     zoom: true,
@@ -63,10 +83,24 @@ export default function cargarTipoHab(tipoHabitacion, inicioContainer) {
                     },
                 });
             } else {
+
+                // Si la habitación no está disponible, muestra un mensaje
                 inicioContainer.innerHTML = "<p>Habitación no disponible</p>";
             }
         })
         .catch(error => {
+
+            // Si hay algún error, imprímelo en la consola
             console.error('Error al cargar el archivo JSON de habitaciones:', error);
         });
+}
+// Función para validar la estructura del archivo JSON
+function validarEstructura(data) {
+
+    // Verifica si el objeto data no está vacío y contiene la propiedad 'habitaciones'
+    if (!data || typeof data !== 'object' || !data.habitaciones) {
+  
+        // Si la estructura del archivo JSON no es válida, lanza un error
+        throw new Error('El formato del archivo JSON no es válido.');
+    }
 }
